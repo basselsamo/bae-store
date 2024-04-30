@@ -1,0 +1,19 @@
+{
+  "name": "bae-store",
+  "version": "1.0.0",
+  "description": "Online Shopping Store for Exclusive Members!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/basselsamo/bae-store.git"
+  },
+  "author": "Ayman Abou Hashem, Bassel Samo, Eva El Sakka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/basselsamo/bae-store/issues"
+  },
+  "homepage": "https://github.com/basselsamo/bae-store#readme"
+}
