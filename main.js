@@ -1,24 +1,34 @@
 "use strict"
-const port = 3000;
-const http = require("http");
-const httpStatus = require("http-status-codes");
-const fs = require("fs");
-const routeMap = {
-  "/": "views/index.html"
-};
-http.createServer((req, res) => {
-    res.writeHead(httpStatus.OK, {
-      "Content-Type": "text/html"
-});
 
-if (routeMap[req.url]) {
-  fs.readFile(routeMap[req.url], (error, data) => {
-  res.write(data);
-  res.end();
-  }); 
-} else {
-    res.end("<h1>Error 404! Not Found</h1>");
-  }
-})
-.listen(port);
-console.log(`The server has started and is listening on port number: ${port}`);
+const port = 3000,
+  http = require("http"),
+  httpStatusCodes = require("http-status-codes"),
+  router = require("./router"),
+  fs = require("fs"),
+  plainTextContentType = {
+    "Content-Type": "text/plain"
+  },
+  htmlContentType = {
+    "Content-Type": "text/html"
+  },
+  customReadFile = (file, res) => {
+    fs.readFile(`./${file}`, (errors, data) => {
+      if (errors) {
+        console.log("Error reading the file...");
+      }
+      res.end(data);
+    });
+  };
+router.get("/", (req, res) => {
+  res.writeHead(httpStatusCodes.OK, plainTextContentType);
+  res.end("INDEX");
+});
+router.get("/index.html", (req, res) => {
+  res.writeHead(httpStatusCodes.OK, htmlContentType);
+  customReadFile("views/index.html", res);
+});
+router.post("/", (req, res) => {
+  res.writeHead(httpStatusCodes.OK, plainTextContentType);
+  res.end("POSTED");
+});
+http.createServer(router.handle).listen(3000); console.log(`The server is listening on port number: ${port}`);
