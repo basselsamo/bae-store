@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/basselsamo/bae-store#readme",
   "dependencies": {
+    "bootstrap": "^5.3.3",
     "http-status-codes": "^2.3.0"
   }
 }
