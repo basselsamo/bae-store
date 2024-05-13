@@ -5,6 +5,7 @@ const session = require('express-session');
 const app = express();
 const port = 3000;
 const path = require('path');
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Middlewares for parsing request bodies
 app.use(express.json());
