@@ -83,23 +83,23 @@ As a Site Administrator, I want to be able to add new products to the BAE-Store,
 ### Ticket 2: Basic Node App Development
 - **Description:** Develop a Node.js application serving static files with CRUD operations and REST API.
 - **Acceptance Criteria:**
-  - [ ] Basic Node app created.
-  - [ ] CRUD operations implemented for at least one model.
-  - [ ] REST API serving JSON data.
+  - [x] Basic Node app created.
+  - [x] CRUD operations implemented for at least one model (userStory).
+  - [x] REST API serving JSON data (userStory).
 
 ### Ticket 3: User Authentication and Real-Time Communication
 - **Description:** Implement user authentication and real-time communication.
 - **Acceptance Criteria:**
-  - [ ] User authentication functionality added.
-  - [ ] Basic real-time communication service set up.
+  - [x] User authentication functionality added (userStory).
+  - [x] Basic real-time communication service set up (userStory).
 
 ## Sprint 02
 
 ### Ticket 1: Setup and Planning
 - **Description:** Define project backlog and setup initial development environment.
 - **Acceptance Criteria:**
-  - [ ] Backlog created.
-  - [ ] Initial development environment setup.
+  - [x] Backlog created.
+  - [x] Initial development environment setup.
 
 ### Ticket 2: Express.js Installation and Understanding
 - **Description:** Install and understand Express.js framework.
