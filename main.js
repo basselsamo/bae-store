@@ -1,34 +1,27 @@
 "use strict"
-
 const port = 3000,
-  http = require("http"),
-  httpStatusCodes = require("http-status-codes"),
-  router = require("./router"),
-  fs = require("fs"),
-  plainTextContentType = {
-    "Content-Type": "text/plain"
-  },
-  htmlContentType = {
-    "Content-Type": "text/html"
-  },
-  customReadFile = (file, res) => {
-    fs.readFile(`./${file}`, (errors, data) => {
-      if (errors) {
-        console.log("Error reading the file...");
-      }
-      res.end(data);
-    });
-  };
-router.get("/", (req, res) => {
-  res.writeHead(httpStatusCodes.OK, plainTextContentType);
-  res.end("INDEX");
+  express = require("express"),
+  homeController = require("./controllers/homeController"),
+  app = express();
+app.use((req, res, next) => {
+  console.log(`request made to: ${req.url}`);
+  next();
 });
-router.get("/index.html", (req, res) => {
-  res.writeHead(httpStatusCodes.OK, htmlContentType);
-  customReadFile("views/index.html", res);
+app.get("/items/:vegetable", homeController.sendReqParam);
+
+app.use(
+  express.urlencoded({
+    extended: false
+  })
+);
+app.use(express.json());
+app.post("/", (req, res) => {
+  console.log(req.body);
+  console.log(req.query);
+  res.send("POST Successful!");
 });
-router.post("/", (req, res) => {
-  res.writeHead(httpStatusCodes.OK, plainTextContentType);
-  res.end("POSTED");
+
+app.listen(port, () => {
+  console.log(`The Express.js server has started and is listening on port number: ${port}`);
 });
-http.createServer(router.handle).listen(3000); console.log(`The server is listening on port number: ${port}`);
+
