@@ -1,27 +1,39 @@
 "use strict"
-const port = 3000,
-  express = require("express"),
-  homeController = require("./controllers/homeController"),
-  app = express();
-app.use((req, res, next) => {
-  console.log(`request made to: ${req.url}`);
-  next();
-});
-app.get("/items/:vegetable", homeController.sendReqParam);
+const express = require('express');
+const bcrypt = require('bcrypt');
+const session = require('express-session');
+const app = express();
+const port = 3000;
+const path = require('path');
 
-app.use(
-  express.urlencoded({
-    extended: false
-  })
-);
+// Middlewares for parsing request bodies
 app.use(express.json());
-app.post("/", (req, res) => {
-  console.log(req.body);
-  console.log(req.query);
-  res.send("POST Successful!");
+app.use(express.urlencoded({ extended: true }));
+
+// Session middleware configuration
+app.use(session({
+  secret: 'your_secret_key',
+  resave: false,
+  saveUninitialized: true
+}));
+
+// Import routes
+const userRoutes = require('./routes/userRoutes');
+
+// Use routes
+app.use(userRoutes);
+
+// Middleware to serve static files from 'views' directory
+app.use(express.static(path.join(__dirname, 'views')));
+
+app.get('/register', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'register.html'));
+});
+
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'login.html'));
 });
 
 app.listen(port, () => {
-  console.log(`The Express.js server has started and is listening on port number: ${port}`);
+  console.log(`BAE-Store app listening at http://localhost:${port}`);
 });
-
