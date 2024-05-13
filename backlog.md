@@ -104,14 +104,15 @@ As a Site Administrator, I want to be able to add new products to the BAE-Store,
 ### Ticket 2: Express.js Installation and Understanding
 - **Description:** Install and understand Express.js framework.
 - **Acceptance Criteria:**
-  - [ ] Express.js installed.
-  - [ ] Basic understanding of Express.js framework achieved.
+  - [x] Product Owner : Eva El Sakka
+  - [x] Express.js installed.
+  - [x] Basic understanding of Express.js framework achieved.
 
 ### Ticket 3: Middleware and Routes Implementation
 - **Description:** Implement middleware and routes in Express app.
 - **Acceptance Criteria:**
-  - [ ] Middleware setup completed.
-  - [ ] Routes implemented with at least one utilizing a parameter.
+  - [x] Middleware setup completed.
+  - [x] Routes implemented with at least one utilizing a parameter (s1).
 
 ## Sprint 03
 
