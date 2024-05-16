@@ -119,17 +119,17 @@ As a Site Administrator, I want to be able to add new products to the BAE-Store,
 ### Ticket 1: Adding Views and Error Handling
 - **Description:** Add views and error handling to the Express app.
 - **Acceptance Criteria:**
-  - [ ] Views integrated.
-  - [ ] Error handling implemented.
+  - [x] Views integrated.
+  - [x] Error handling implemented.
 
 ### Ticket 2: Migration of Existing Views
 - **Description:** Migrate any existing views to the Express app if applicable.
 - **Acceptance Criteria:**
-  - [ ] Existing views successfully migrated.
-  - [ ] Views functioning correctly within Express app.
+  - [x] Existing views successfully migrated.
+  - [x] Views functioning correctly within Express app.
 
 ### Ticket 3: Passing Content to Views
 - **Description:** Implement passing content from controller to view and displaying it.
 - **Acceptance Criteria:**
-  - [ ] Controller passes content to view.
-  - [ ] Content correctly displayed in view.
+  - [x] Controller passes content to view.
+  - [x] Content correctly displayed in view.
