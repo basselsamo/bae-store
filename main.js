@@ -6,6 +6,7 @@ const app = express();
 const path = require('path');
 const errorController = require('./controllers/errorController');
 const httpStatus = require('http-status-codes');
+require('./config/database');
 
 app.set("port", process.env.PORT || 3000);
 app.use(express.static(path.join(__dirname, 'public')));

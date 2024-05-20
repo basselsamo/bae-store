@@ -1,24 +1,40 @@
 // controllers/userController.js
+const User = require('../models/User');
 const bcrypt = require('bcrypt');
 
 exports.registerUser = async (req, res) => {
-  const { username, password } = req.body;
+  try{
+
+  const { username, email, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
   // Save username and hashedPassword to database
-  res.send('User registered successfully');
+  const newUser = new User({
+  username : username,
+  email: email,
+  password: hashedPassword
+  });
+
+  await newUser.save();
+  res.status(201).send("User registered successfully");
+  } catch (error) {
+        res.status(500).send("Error registering new user: " + error);
+  }
 };
 
 exports.loginUser = async (req, res) => {
-  const { username, password } = req.body;
-  // Retrieve user from database
-  const user = { id: 1, username, passwordHash: 'stored_hashed_password' };
-  const match = await bcrypt.compare(password, user.passwordHash);
-  if (match) {
-    req.session.userId = user.id;
-    res.send('Logged in!');
-  } else {
-    res.status(401).send('Incorrect username or password');
-  }
+  
+  try {
+    const { username, password } = req.body;
+    const user = await User.findOne({ username: username });
+
+    if (user && await bcrypt.compare(password, user.password)) {
+        res.status(200).send("User logged in successfully");
+    } else {
+        res.status(401).send("Invalid username or password");
+    }
+} catch (error) {
+    res.status(500).send("Login error: " + error);
+}
 };
 
 exports.getExclusiveProducts = (req, res) => {
