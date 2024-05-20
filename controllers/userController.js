@@ -27,7 +27,9 @@ exports.loginUser = async (req, res) => {
     const user = await User.findOne({ username: username });
 
     if (user && await bcrypt.compare(password, user.password)) {
-        res.status(200).send("User logged in successfully");
+        //res.status(200).send("User logged in successfully");
+        req.session.user = { id: user._id, username: user.username };
+        res.redirect('/profile');
     } else {
         res.status(401).send("Invalid username or password");
     }
