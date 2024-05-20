@@ -18,13 +18,16 @@ As a member of BAE-Store, I want to be able to browse exclusive products before 
   - When I click on a product, I can view its details such as name, description, price, sizes and release date.
 
 - **User Authentication:** 
-  - To access exclusive products, I must be authenticated as a BAE-Store member.
+  - [x] To access exclusive products, I must be authenticated as a BAE-Store member.
 
 - **User Registration:** 
-  - If I'm not already a member, I can sign up for BAE-Store membership.
+  - [x] If I'm not already a member, I can sign up for BAE-Store membership.
 
 - **User Login:** 
-  - As a registered member, I can log in to my account to access exclusive products.
+  - [x] As a registered member, I can log in to my account to access exclusive products.
+
+- **User Profile:** 
+  - [x] As a member, I want to be redirected to my profile after I log in and would also be able to log out.
 
 - **Add to Cart:** 
   - I can add products to my shopping cart for purchase.
@@ -133,3 +136,34 @@ As a Site Administrator, I want to be able to add new products to the BAE-Store,
 - **Acceptance Criteria:**
   - [x] Controller passes content to view.
   - [x] Content correctly displayed in view.
+
+  ## Sprint 04
+
+### Ticket 1: Set Up MongoDB Database
+- **Description:** Install and configure MongoDB for the project, setting up a local development database.
+- **Acceptance Criteria:**
+  - [x] MongoDB installed locally.
+  - [x] Database `bae_store` created and configured.
+  - [x] Connection from Node.js application to MongoDB established using Mongoose.
+
+### Ticket 2: Create User Model with Mongoose
+- **Description:** Define and implement a User model in Mongoose to handle user data.
+- **Acceptance Criteria:**
+  - [x] User model created with fields for username and password.
+  - [x] Passwords are hashed before saving to the database using bcrypt.
+  - [x] Model includes methods for user registration and authentication.
+
+### Ticket 3: Implement User Registration and Login
+- **Description:** Develop user registration and login functionality using the User model.
+- **Acceptance Criteria:**
+  - [x] Users can register with a username and password.
+  - [x] Users can log in using their credentials.
+  - [x] Sessions are used to maintain login state across requests.
+
+### Ticket 4: Profile Page and Welcome Message
+- **Description:** After login, users are redirected to their profile page with a welcome message.
+- **Acceptance Criteria:**
+  - [x] After login, redirect users to a profile page.
+  - [x] Profile page displays a welcome message and the user's username.
+  - [x] Ensure the session persists and the user remains logged in until they log out.
+  - [x] Users can view their current profile information on the profile page.
