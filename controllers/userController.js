@@ -5,12 +5,11 @@ const bcrypt = require('bcrypt');
 exports.registerUser = async (req, res) => {
   try{
 
-  const { username, email, password } = req.body;
+  const { username, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
   // Save username and hashedPassword to database
   const newUser = new User({
   username : username,
-  email: email,
   password: hashedPassword
   });
 
