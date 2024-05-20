@@ -36,15 +36,23 @@ app.use(userRoutes);
 // Middleware to serve static files from 'views' directory
 app.use(express.static(path.join(__dirname, 'views')));
 
+function redirectIfAuthenticated(req, res, next) {
+  if (req.session.user) {
+      return res.redirect('/profile');  // Redirect to the profile page if the user is logged in
+  }
+  next();  // Continue to the next middleware or route handler if not logged in
+}
+
+
 app.get('/', (req, res) => {
   res.render('index', { title: 'Home Page' });
 });
 
-app.get('/register', (req, res) => {
+app.get('/register', redirectIfAuthenticated, (req, res) => {
   res.render('register', { title: 'Register' });
 });
 
-app.get('/login', (req, res) => {
+app.get('/login', redirectIfAuthenticated, (req, res) => {
   res.render('login', { title: 'Login' });
 });
 
