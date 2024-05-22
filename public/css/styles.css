@@ -1,11 +1,4 @@
 /* styles.css */
-/* body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 20px;
-  color: #333;
-} */
 
 body {
   font-family: Arial, sans-serif;
@@ -18,13 +11,6 @@ body {
   min-height: 100vh; /* Ensures the footer is at the bottom of the page */
 }
 
-/* form {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-} */
-
 form {
   background: white;
   padding: 20px;
@@ -34,15 +20,6 @@ form {
   width: 90%; /* Adjust width to fit your design preference */
   max-width: 500px; /* Maximum width */
 }
-
-/* input[type="text"], input[type="password"] {
-  width: calc(100% - 22px);
-  padding: 10px;
-  margin-top: 8px;
-  margin-bottom: 16px;
-  border: 1px solid #ddd;
-  box-sizing: border-box;
-} */
 
 input[type="text"], input[type="password"], input[type="email"] {
   width: calc(100% - 22px);
@@ -69,11 +46,33 @@ button:hover {
 
 /* Additional styles for login page */
 .login-button {
-  background-color: #4CAF50; /* Green */
+  background-color: #4CAF50;
 }
 
 .login-button:hover {
   background-color: #45a049;
+}
+
+.register-button {
+  background-color: rgb(255, 136, 0)
+}
+
+.register-button:hover {
+  background-color: rgb(255, 115, 0)
+}
+
+.delete-button {
+  background-color: rgb(255, 58, 28);
+}
+
+.delete-button:hover {
+  background-color: red;
+}
+
+input[disabled], input[readonly] {
+  background-color: #e0e0e0;
+  color: #686868;
+  cursor: not-allowed;
 }
 
 /*New*/
@@ -90,7 +89,7 @@ button:hover {
   list-style: none;
   display: flex;
   justify-content: center;
-  background-color: #333;
+  background-color: #5058e5;
 }
 
 .nav-tabs li {
@@ -106,28 +105,11 @@ button:hover {
 }
 
 .nav-tabs a:hover {
-  background-color: #555;
+  background-color: #9159ff;
 }
-
-/* Header
-header {
-  background-color: #333;
-  padding: 10px 0;
-}
-
-/* Footer */
-/* footer {
-  background-color: #333;
-  padding: 20px 0;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  color: white;
-  text-align: center;
-} */ 
 
 header, footer {
-  background-color: #333;
+  background-color: #5058e5;;
   color: white;
   padding: 10px 0;
   text-align: center;
@@ -136,14 +118,6 @@ header, footer {
 footer {
   margin-top: auto; /* Pushes the footer to the bottom */
 }
-
-/* Body to push footer to bottom */
-/* body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-} */
 
 main {
   flex: 1;

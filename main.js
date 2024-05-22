@@ -6,7 +6,8 @@ const app = express();
 const path = require('path');
 const errorController = require('./controllers/errorController');
 const httpStatus = require('http-status-codes');
-require('./config/database');
+const db = require('./config/database');
+const userRoutes = require('./routes/userRoutes');
 const profileRoutes = require('./routes/profileRoutes');
 
 app.set("port", process.env.PORT || 3000);
@@ -26,9 +27,6 @@ app.use(session({
 }));
 
 app.use('/', profileRoutes);
-
-// Import routes
-const userRoutes = require('./routes/userRoutes');
 
 // Use routes
 app.use(userRoutes);
