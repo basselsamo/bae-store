@@ -60,16 +60,27 @@ app.get('/login', redirectIfAuthenticated, (req, res) => {
 app.get('/logout', (req, res) => {
   req.session.destroy(err => {
       if (err) {
-          return console.log(err);
+          console.log(err);
+          res.send("Error logging out");
+      } else {
+          res.redirect('/login'); // Redirect to login page after logout
       }
-      res.redirect('/login'); // Redirect to login page after logout
   });
 });
-
 
 // Error handling middleware
 app.use(errorController.pageNotFoundError);
 app.use(errorController.internalServerError);
+
+// After all routes
+app.use((err, req, res, next) => {
+  if (res.headersSent) {
+    return next(err);
+  }
+  console.error(err);
+  res.status(500).send('Internal Server Error');
+});
+
 
 app.listen(app.get("port"), () => {
   console.log(`Server running at http://localhost:${app.get("port")}`);
