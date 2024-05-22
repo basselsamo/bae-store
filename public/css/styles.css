@@ -1,20 +1,50 @@
 /* styles.css */
+/* body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+} */
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   margin: 0;
   padding: 20px;
   color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the footer is at the bottom of the page */
 }
+
+/* form {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+} */
 
 form {
   background: white;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin: 20px auto; /* Centers the form */
+  width: 90%; /* Adjust width to fit your design preference */
+  max-width: 500px; /* Maximum width */
 }
 
-input[type="text"], input[type="password"] {
+/* input[type="text"], input[type="password"] {
+  width: calc(100% - 22px);
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+} */
+
+input[type="text"], input[type="password"], input[type="email"] {
   width: calc(100% - 22px);
   padding: 10px;
   margin-top: 8px;
@@ -79,14 +109,14 @@ button:hover {
   background-color: #555;
 }
 
-/* Header */
+/* Header
 header {
   background-color: #333;
   padding: 10px 0;
 }
 
 /* Footer */
-footer {
+/* footer {
   background-color: #333;
   padding: 20px 0;
   position: absolute;
@@ -94,15 +124,26 @@ footer {
   width: 100%;
   color: white;
   text-align: center;
+} */ 
+
+header, footer {
+  background-color: #333;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+footer {
+  margin-top: auto; /* Pushes the footer to the bottom */
 }
 
 /* Body to push footer to bottom */
-body {
+/* body {
   margin: 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
+} */
 
 main {
   flex: 1;

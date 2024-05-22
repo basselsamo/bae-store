@@ -3,12 +3,15 @@ const User = require('../models/User');
 const bcrypt = require('bcrypt');
 
 exports.registerUser = (req, res) => {
-  const { username, password } = req.body;
-  User.findOne({ username: username }).exec()
+  const { username, email, password, confirmPassword } = req.body;
+  if (password !== confirmPassword) {
+    return res.status(400).send("Passwords do not match!");
+  }
+  User.findOne({ $or: [{ username: username }, { email: email }] }).exec()
     .then(existingUser => {
       if (existingUser) {
-        res.status(409).send("Username already exists"); // Send response and stop further execution.
-        return Promise.reject('UserExistsError'); // Reject promise with a custom error to prevent further then blocks from executing.
+        res.status(409).send("Username or email already exists"); // Updated the error message for clarity
+        return Promise.reject('UserExistsError'); // Prevent further execution
       }
       return bcrypt.hash(password, 10); // Continue with password hashing if user does not exist.
     })
@@ -18,6 +21,7 @@ exports.registerUser = (req, res) => {
       }
       const newUser = new User({
         username: username,
+        email: email, // Include the email in the newUser object
         password: hashedPassword
       });
       return newUser.save(); // Save new user to the database.

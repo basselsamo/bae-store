@@ -34,7 +34,7 @@ const userRoutes = require('./routes/userRoutes');
 app.use(userRoutes);
 
 // Middleware to serve static files from 'views' directory
-app.use(express.static(path.join(__dirname, 'views')));
+//app.use(express.static(path.join(__dirname, 'views')));
 
 function redirectIfAuthenticated(req, res, next) {
   if (req.session.user) {
