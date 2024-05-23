@@ -1,0 +1,25 @@
+<%- include('partials/header', {title: 'Register'}) %>
+  <h2>Profile Details</h2>
+<form action="/profile/details" method="post">
+  Username: <input type="text" name="username" placeholder="UserName" value="<%= user.username %>" required>
+  New Password: <input type="password" name="password" placeholder="New Password">
+  Email: <input type="text" name="email" placeholder="Email" value="<%= user.email %>" disabled title="Currently Prohibited." required>
+  First Name: <input type="text" name="firstName" placeholder="First Name" value="<%= user.firstName %>">
+  Last Name: <input type="text" name="lastName" placeholder="Last Name" value="<%= user.lastName %>">
+  Full Address: <input type="text" name="address" placeholder="Address" value="<%= user.address %>">
+  Phone Number: <input type="text" name="phoneNumber" placeholder="Phone Number" value="<%= user.phoneNumber %>">
+  <button type="submit" value="Update" class="login-button">Update Profile Details</button>
+</form>
+<h2>Delete Your Profile</h2>
+<p>This action cannot be reversed. Enter your password to confirm deletion.</p>
+<form action="/profile/delete" method="post" onsubmit="return confirmDelete();">
+  <input type="password" name="password" placeholder="Enter your password" required>
+  <button type="submit" class="delete-button">Delete Profile</button>
+</form>
+
+<script>
+function confirmDelete() {
+  return confirm('Are you sure you want to delete your profile? This action cannot be reverted.');
+}
+</script>
+  <%- include('partials/footer') %>

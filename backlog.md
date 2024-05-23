@@ -2,7 +2,7 @@
 
 ## User Stories
 
-### User Story 1: Browse Exclusive Products
+### Browse Exclusive Products
 
 As a member of BAE-Store, I want to be able to browse exclusive products before their public release, so that I can make purchases before they sell out.
 
@@ -27,8 +27,10 @@ As a member of BAE-Store, I want to be able to browse exclusive products before 
   - [x] As a registered member, I can log in to my account to access exclusive products.
 
 - **User Profile:** 
-  - [x] As a member, I want to be redirected to my profile after I log in and would also be able to log out.
+  - [x] As a member, I want to be redirected to my profile after I log in and would also be able to log out. (s3)
 
+- **User Profile Details:** 
+  - [x] As a member, I want to be able to update my profile details (username, password...etc) or delete my account. (s4)
 - **Add to Cart:** 
   - I can add products to my shopping cart for purchase.
 
@@ -44,7 +46,7 @@ As a member of BAE-Store, I want to be able to browse exclusive products before 
 - **REST API:** 
   - There is a REST API available to retrieve product information in JSON format, enabling integration with other services.
 
-### User Story 2: Admin Product Management
+### Admin Product Management
 
 As a Site Administrator, I want to be able to add new products to the BAE-Store, so that I can keep the inventory up-to-date.
 
@@ -153,17 +155,52 @@ As a Site Administrator, I want to be able to add new products to the BAE-Store,
   - [x] Passwords are hashed before saving to the database using bcrypt.
   - [x] Model includes methods for user registration and authentication.
 
-### Ticket 3: Implement User Registration and Login
+### Ticket 3: Implement User Registration and Login (s3)
 - **Description:** Develop user registration and login functionality using the User model.
 - **Acceptance Criteria:**
   - [x] Users can register with a username and password.
   - [x] Users can log in using their credentials.
   - [x] Sessions are used to maintain login state across requests.
 
-### Ticket 4: Profile Page and Welcome Message
+### Ticket 4: Profile Page and Welcome Message (s3)
 - **Description:** After login, users are redirected to their profile page with a welcome message.
 - **Acceptance Criteria:**
   - [x] After login, redirect users to a profile page.
   - [x] Profile page displays a welcome message and the user's username.
   - [x] Ensure the session persists and the user remains logged in until they log out.
   - [x] Users can view their current profile information on the profile page.
+  
+  ## Sprint 05
+
+### Ticket 1: Integrate Controllers and Promises for Database Interactions
+- **Description:** Refactoring the app to integrate controllers and use promises to manage database interactions efficiently.
+- **Acceptance Criteria:**
+  - [x] Implement controllers for all current database interaction routes.
+  - [x] Use promises to handle asynchronous database operations.
+  - [x] Error handling is improved across all database interactions.
+  
+### Ticket 2: Implement Enhanced User Registration (s4)
+- **Description:** Upgrading the user registration process to include email verification and password confirmation to ensure data integrity and enhance security.
+- **Acceptance Criteria:**
+  - [x] Users must provide an email address along with their username during registration.
+  - [x] Users must confirm their password by entering it twice; registration proceeds only if the passwords match.
+  - [x] An initial check for existing username or email is implemented to avoid duplicate entries.
+  - [x] Appropriate error messages are displayed if the username or email already exists or if the passwords do not match.
+  - [x] Upon successful registration, users are directed to a confirmation page or directly to the login page.
+
+### Ticket 3: Implement Account Deletion Capability (s4)
+- **Description:** Providing users with the ability to delete their account from the profile settings page, including a confirmation step to verify user intent and password confirmation to enhance security.
+- **Acceptance Criteria:**
+  - [x] Users can initiate the account deletion process from the profile details page.
+  - [x] Users are required to confirm their password before the account can be deleted.
+  - [x] A confirmation prompt is displayed to ensure the user understands that deletion is irreversible.
+  - [x] Upon confirmation and correct password entry, the account is deleted from the database.
+  - [x] Users are redirected to the homepage with a message confirming account deletion.
+  - [x] Appropriate error messages are displayed for incorrect password entries or system errors during the deletion process.
+
+### Ticket 4: Implement Basic User Profile Editing (s4)
+- **Description:** Allow users to view and update their profile information stored in the database.
+- **Acceptance Criteria:**
+  - [x] Users can view their current profile information on the profile page.
+  - [x] Users can update their username, password and other personal details.
+  - [x] Changes are saved to the MongoDB database.

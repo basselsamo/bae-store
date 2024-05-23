@@ -1,10 +1,14 @@
 /* styles.css */
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   margin: 0;
   padding: 20px;
   color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the footer is at the bottom of the page */
 }
 
 form {
@@ -12,9 +16,12 @@ form {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin: 20px auto; /* Centers the form */
+  width: 90%; /* Adjust width to fit your design preference */
+  max-width: 500px; /* Maximum width */
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"], input[type="email"] {
   width: calc(100% - 22px);
   padding: 10px;
   margin-top: 8px;
@@ -39,11 +46,33 @@ button:hover {
 
 /* Additional styles for login page */
 .login-button {
-  background-color: #4CAF50; /* Green */
+  background-color: #4CAF50;
 }
 
 .login-button:hover {
   background-color: #45a049;
+}
+
+.register-button {
+  background-color: rgb(255, 136, 0)
+}
+
+.register-button:hover {
+  background-color: rgb(255, 115, 0)
+}
+
+.delete-button {
+  background-color: rgb(255, 58, 28);
+}
+
+.delete-button:hover {
+  background-color: red;
+}
+
+input[disabled], input[readonly] {
+  background-color: #e0e0e0;
+  color: #686868;
+  cursor: not-allowed;
 }
 
 /*New*/
@@ -60,7 +89,7 @@ button:hover {
   list-style: none;
   display: flex;
   justify-content: center;
-  background-color: #333;
+  background-color: #5058e5;
 }
 
 .nav-tabs li {
@@ -76,32 +105,18 @@ button:hover {
 }
 
 .nav-tabs a:hover {
-  background-color: #555;
+  background-color: #9159ff;
 }
 
-/* Header */
-header {
-  background-color: #333;
-  padding: 10px 0;
-}
-
-/* Footer */
-footer {
-  background-color: #333;
-  padding: 20px 0;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+header, footer {
+  background-color: #5058e5;;
   color: white;
+  padding: 10px 0;
   text-align: center;
 }
 
-/* Body to push footer to bottom */
-body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+footer {
+  margin-top: auto; /* Pushes the footer to the bottom */
 }
 
 main {
@@ -112,4 +127,98 @@ main {
   display: flex;
   align-items: center;
   gap: 20px; /* Adjust this value for the desired spacing */
+}
+
+/*New 2*/
+
+/* Layout styles for main content and sidebar */
+.container {
+  display: flex; /* Establishes a flex container */
+  min-height: 80vh; /* Adjust based on your header/footer height */
+}
+
+.sidebar {
+  width: 200px; /* Set width of the sidebar */
+  background-color: #f4f4f4; /* Light background for the sidebar */
+  padding: 20px;
+}
+
+.nav {
+  list-style-type: none; /* Removes bullets from list */
+}
+
+.nav li {
+  margin-bottom: 10px; /* Space between links */
+}
+
+/* Navigation link styles */
+.nav a {
+  color: #333; /* Dark text for readability */
+  text-decoration: none; /* Removes underline */
+  transition: background-color 0.3s ease; /* Smooth transition for background */
+  display: block; /* Makes the entire area clickable */
+  padding: 10px; /* Padding for better touch target size */
+}
+
+.nav a:hover, .nav a:active {
+  background-color: #9159ff; /* Purple background on hover/active */
+  color: white; /* White text for contrast */
+}
+
+.nav .active {
+  background-color: #5058e5; /* Darker shade for active link */
+  color: white; /* White text for visibility */
+}
+
+.main-content {
+  flex: 1; /* Takes up the remaining space */
+  padding: 20px;
+  background-color: white; /* Main content background */
+}
+
+/* Styles for responsive design */
+@media (max-width: 768px) {
+  .container {
+      flex-direction: column; /* Stack sidebar and main content on smaller screens */
+  }
+  .sidebar {
+      width: 100%; /* Full width for the sidebar on small screens */
+  }
+}
+
+.nav i {
+  margin-right: 5px; /* Space between icon and text */
+}
+
+/* Error Page Specific Styles */
+.error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+}
+
+.error-page h1 {
+  color: rgb(255, 58, 28); /* Red color for error headings */
+}
+
+.error-page p, .error-page ul {
+  color: #666;
+  line-height: 1.6;
+}
+
+.error-page a {
+  display: inline-block;
+  background-color: rgb(255, 58, 28);
+  color: white;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.error-page a:hover {
+  background-color: red;
 }

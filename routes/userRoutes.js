@@ -15,4 +15,13 @@ router.post('/login', userController.loginUser);
 // Access to exclusive products
 router.get('/exclusive-products', userController.getExclusiveProducts);
 
+// Fetch User Profile Settings
+router.get('/profile/details', userController.getUserDetails);
+
+// Update User Profile Settings
+router.post('/profile/details', userController.updateUserDetails);
+
+// Delete User Profile
+router.post('/profile/delete', userController.deleteUserProfile);
+
 module.exports = router;

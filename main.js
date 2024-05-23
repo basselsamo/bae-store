@@ -6,7 +6,8 @@ const app = express();
 const path = require('path');
 const errorController = require('./controllers/errorController');
 const httpStatus = require('http-status-codes');
-require('./config/database');
+const db = require('./config/database');
+const userRoutes = require('./routes/userRoutes');
 const profileRoutes = require('./routes/profileRoutes');
 
 app.set("port", process.env.PORT || 3000);
@@ -27,14 +28,11 @@ app.use(session({
 
 app.use('/', profileRoutes);
 
-// Import routes
-const userRoutes = require('./routes/userRoutes');
-
 // Use routes
 app.use(userRoutes);
 
 // Middleware to serve static files from 'views' directory
-app.use(express.static(path.join(__dirname, 'views')));
+//app.use(express.static(path.join(__dirname, 'views')));
 
 function redirectIfAuthenticated(req, res, next) {
   if (req.session.user) {
@@ -60,16 +58,27 @@ app.get('/login', redirectIfAuthenticated, (req, res) => {
 app.get('/logout', (req, res) => {
   req.session.destroy(err => {
       if (err) {
-          return console.log(err);
+          console.log(err);
+          res.send("Error logging out");
+      } else {
+          res.redirect('/login'); // Redirect to login page after logout
       }
-      res.redirect('/login'); // Redirect to login page after logout
   });
 });
-
 
 // Error handling middleware
 app.use(errorController.pageNotFoundError);
 app.use(errorController.internalServerError);
+
+// After all routes
+app.use((err, req, res, next) => {
+  if (res.headersSent) {
+    return next(err);
+  }
+  console.error(err);
+  res.status(500).send('Internal Server Error');
+});
+
 
 app.listen(app.get("port"), () => {
   console.log(`Server running at http://localhost:${app.get("port")}`);

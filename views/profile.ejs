@@ -3,14 +3,28 @@
 <head>
     <title>User Profile</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <%- include('partials/header', {title: 'Home Page'}) %>
-    <h1>Welcome, <%= username %>!</h1>
-    <p>This is your profile page.</p>
-    <!-- Logout Link -->
-    <a href="/logout">Logout</a>
-    <%- include('partials/footer') %>
     
+    <div class="container">
+        <aside class="sidebar">
+            <ul class="nav">
+                <li><a href="/profile"><i class="fas fa-home"></i>Profile Overview</a></li>
+                <li><a href="/profile/orders"><i class="fas fa-box"></i>Orders</a></li>
+                <li><a href="/profile/returns"><i class="fas fa-undo"></i>Returns</a></li>
+                <li><a href="/profile/wishlist"><i class="fas fa-heart"></i>Wish List</a></li>
+                <li><a href="/profile/details"><i class="fas fa-user-circle"></i>Profile Details</a></li>
+               <li><a href="/logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            </ul>
+        </aside>
+        <main class="main-content">
+            <h1>Welcome, <%= username %>!</h1>
+            <p>This is your profile page. Nothing to show yet.</p>
+        </main>
+    </div>
+
+    <%- include('partials/footer') %>
 </body>
 </html>
