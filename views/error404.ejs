@@ -2,14 +2,16 @@
 <html>
 <head>
     <title>Not Found</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <h1>Error 404! Page Not Found</h1>
-    <p>Sorry, but the page you were trying to view does not exist.</p>
-    <p>It looks like this was the result of either:</p>
-    <ul>
-        <li>a mistyped address</li>
-        <li>an out-of-date link</li>
-    </ul>
+    <%- include('partials/header', {title: 'Home Page'}) %>
+    <div class="error-page">
+        <h1>Error 404! Page Not Found</h1>
+        <p>Sorry, the page you are trying to view does not exist.</p>
+        <p>This result is due to a mistyped or outdated link. </p>
+        <a href="/">Return to Homepage</a>
+    </div>
+    <%- include('partials/footer') %>
 </body>
 </html>
