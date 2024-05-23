@@ -4,7 +4,7 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   margin: 0;
-  padding: 20px;
+  padding: 0px;
   color: #333;
   display: flex;
   flex-direction: column;
@@ -18,7 +18,17 @@ form {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   margin: 20px auto; /* Centers the form */
   width: 90%; /* Adjust width to fit your design preference */
-  max-width: 500px; /* Maximum width */
+  max-width: 500; /* Maximum width */
+}
+
+.profile-form {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin: 20px auto; /* Centers the form */
+  width: 90%; /* Adjust width to fit your design preference */
+  max-width: 1500px; /* Maximum width */
 }
 
 input[type="text"], input[type="password"], input[type="email"] {
@@ -221,4 +231,23 @@ main {
 
 .error-page a:hover {
   background-color: red;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px; /* Adds space between each row */
+}
+
+.form-column {
+  flex: 1; /* Each column takes up an equal amount of space */
+  margin-right: 10px; /* Adds some space between the columns */
+}
+
+.form-column:last-child {
+  margin-right: 0; /* Removes margin from the last column in each row */
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+  width: 100%; /* Ensures input fields take up the entire column width */
 }

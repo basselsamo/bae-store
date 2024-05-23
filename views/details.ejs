@@ -1,21 +1,61 @@
+<head>
+  <title>User Profile</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
 <%- include('partials/header', {title: 'Register'}) %>
-  <h2>Profile Details</h2>
-<form action="/profile/details" method="post">
-  Username: <input type="text" name="username" placeholder="UserName" value="<%= user.username %>" required>
-  New Password: <input type="password" name="password" placeholder="New Password">
-  Email: <input type="text" name="email" placeholder="Email" value="<%= user.email %>" disabled title="Currently Prohibited." required>
-  First Name: <input type="text" name="firstName" placeholder="First Name" value="<%= user.firstName %>">
-  Last Name: <input type="text" name="lastName" placeholder="Last Name" value="<%= user.lastName %>">
-  Full Address: <input type="text" name="address" placeholder="Address" value="<%= user.address %>">
-  Phone Number: <input type="text" name="phoneNumber" placeholder="Phone Number" value="<%= user.phoneNumber %>">
-  <button type="submit" value="Update" class="login-button">Update Profile Details</button>
+
+<div class="container">
+  <aside class="sidebar">
+      <ul class="nav">
+          <li><a href="/profile"><i class="fas fa-home"></i>Overview</a></li>
+          <li><a href="/profile/orders"><i class="fas fa-box"></i>Orders</a></li>
+          <li><a href="/profile/returns"><i class="fas fa-undo"></i>Returns</a></li>
+          <li><a href="/profile/wishlist"><i class="fas fa-heart"></i>Wish List</a></li>
+          <li><a href="/profile/details"><i class="fas fa-user-circle"></i>Profile Details</a></li>
+         <li><a href="/logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+      </ul>
+  </aside>
+  <main class="main-content">
+    <h2>Profile Details</h2>
+    <form action="/profile/details" method="post" class="profile-form">
+    <div class="form-row">
+        <div class="form-column">
+            Username: <input type="text" name="username" placeholder="UserName" value="<%= user.username %>" required>
+        </div>
+        <div class="form-column">
+            New Password: <input type="password" name="password" placeholder="New Password">
+        </div>
+        <div class="form-column">
+          Email: <input type="text" name="email" placeholder="Email" value="<%= user.email %>" disabled title="Currently Prohibited." required>
+      </div>
+    </div>
+    <div class="form-row">
+        <div class="form-column">
+            First Name: <input type="text" name="firstName" placeholder="First Name" value="<%= user.firstName %>">
+        </div>
+        <div class="form-column">
+          Last Name: <input type="text" name="lastName" placeholder="Last Name" value="<%= user.lastName %>">
+      </div>
+      <div class="form-column">
+          Full Address: <input type="text" name="address" placeholder="Address" value="<%= user.address %>">
+      </div>
+    </div>
+    <div class="form-row">
+        <div class="form-column">
+            Phone Number: <input type="text" name="phoneNumber" placeholder="Phone Number" value="<%= user.phoneNumber %>">
+        </div>
+    </div>
+    <button type="submit" value="Update" class="login-button">Update Profile Details</button>
 </form>
-<h2>Delete Your Profile</h2>
-<p>This action cannot be reversed. Enter your password to confirm deletion.</p>
-<form action="/profile/delete" method="post" onsubmit="return confirmDelete();">
-  <input type="password" name="password" placeholder="Enter your password" required>
-  <button type="submit" class="delete-button">Delete Profile</button>
-</form>
+
+    <h2>Delete Your Profile</h2>
+    <form action="/profile/delete" method="post" onsubmit="return confirmDelete();" class="profile-form">
+      This action cannot be reversed! Enter your password to confirm deletion:<input type="password" name="password" placeholder="Enter your password" required>
+      <button type="submit" class="delete-button">Delete Profile</button>
+    </form>
+  </main>
+</div>
 
 <script>
 function confirmDelete() {
