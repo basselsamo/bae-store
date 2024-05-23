@@ -11,8 +11,9 @@
           <li><a href="/profile"><i class="fas fa-home"></i>Overview</a></li>
           <li><a href="/profile/orders"><i class="fas fa-box"></i>Orders</a></li>
           <li><a href="/profile/returns"><i class="fas fa-undo"></i>Returns</a></li>
-          <li><a href="/profile/wishlist"><i class="fas fa-heart"></i>Wish List</a></li>
-          <li><a href="/profile/details"><i class="fas fa-user-circle"></i>Profile Details</a></li>
+          <li><a href="/profile/favorites"><i class="fas fa-heart"></i>Favorites</a></li>
+          <li><a href="/profile/details"><i class="fas fa-user-circle"></i>Details</a></li>
+          <li><a href="/profile/settings"><i class="fas fa-cog"></i>Settings</a></li>
          <li><a href="/logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
       </ul>
   </aside>
@@ -21,38 +22,33 @@
     <form action="/profile/details" method="post" class="profile-form">
     <div class="form-row">
         <div class="form-column">
-            Username: <input type="text" name="username" placeholder="UserName" value="<%= user.username %>" required>
+          First Name: <input type="text" name="firstName" placeholder="First Name" value="<%= user.firstName %>" required>
         </div>
         <div class="form-column">
-            New Password: <input type="password" name="password" placeholder="New Password">
+          Last Name: <input type="text" name="lastName" placeholder="Last Name" value="<%= user.lastName %>" required>  
         </div>
         <div class="form-column">
-          Email: <input type="text" name="email" placeholder="Email" value="<%= user.email %>" disabled title="Currently Prohibited." required>
+          Email Address: <input type="text" name="email" placeholder="Email" value="<%= user.email %>" disabled title="Currently Prohibited." required>
       </div>
     </div>
     <div class="form-row">
         <div class="form-column">
-            First Name: <input type="text" name="firstName" placeholder="First Name" value="<%= user.firstName %>">
+          Shipping Address: <input type="text" name="address" placeholder="Enter Full Address" value="<%= user.address %>">
         </div>
         <div class="form-column">
-          Last Name: <input type="text" name="lastName" placeholder="Last Name" value="<%= user.lastName %>">
+          Phone Number: <input type="text" name="phoneNumber" placeholder="+49XXXXXXXXXX" value="<%= user.phoneNumber %>">
       </div>
       <div class="form-column">
-          Full Address: <input type="text" name="address" placeholder="Address" value="<%= user.address %>">
+        Change Password: <input type="password" name="password" placeholder="Enter New Password">
       </div>
-    </div>
-    <div class="form-row">
-        <div class="form-column">
-            Phone Number: <input type="text" name="phoneNumber" placeholder="Phone Number" value="<%= user.phoneNumber %>">
-        </div>
     </div>
     <button type="submit" value="Update" class="login-button">Update Profile Details</button>
 </form>
 
     <h2>Delete Your Profile</h2>
     <form action="/profile/delete" method="post" onsubmit="return confirmDelete();" class="profile-form">
-      This action cannot be reversed! Enter your password to confirm deletion:<input type="password" name="password" placeholder="Enter your password" required>
-      <button type="submit" class="delete-button">Delete Profile</button>
+      This action cannot be reversed! Enter your password to confirm deletion:<input type="password" name="password" placeholder="Enter Your Password" required>
+      <button type="submit" class="delete-button">Delete Profile FOREVER</button>
     </form>
   </main>
 </div>

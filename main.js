@@ -43,7 +43,7 @@ function redirectIfAuthenticated(req, res, next) {
 
 
 app.get('/', (req, res) => {
-  res.render('index', { title: 'Home Page' });
+  res.render('index', { title: 'HomePage' });
 });
 
 app.get('/register', redirectIfAuthenticated, (req, res) => {

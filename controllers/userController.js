@@ -3,14 +3,15 @@ const User = require('../models/User');
 const bcrypt = require('bcrypt');
 
 exports.registerUser = (req, res) => {
-  const { username, email, password, confirmPassword } = req.body;
+  const { firstName, lastName, email, password, confirmPassword } = req.body;
+  
   if (password !== confirmPassword) {
     return res.status(400).send('Passwords do not match! <a href="/register">Return to registration form</a>');
   }
-  User.findOne({ $or: [{ username: username }, { email: email }] }).exec()
+  User.findOne({ $or: [{ email: email }] }).exec()
     .then(existingUser => {
       if (existingUser) {
-        res.status(409).send('Username or email already exists. <a href="/register">Return to registration form</a>'); // Updated the error message for clarity
+        res.status(409).send('Email already exists. <a href="/register">Return to registration form</a>'); // Updated the error message for clarity
         return Promise.reject('UserExistsError'); // Prevent further execution
       }
       return bcrypt.hash(password, 10); // Continue with password hashing if user does not exist.
@@ -20,7 +21,8 @@ exports.registerUser = (req, res) => {
         return; // Stop if the hashedPassword was not generated.
       }
       const newUser = new User({
-        username: username,
+        firstName: firstName,
+        lastName: lastName,
         email: email, // Include the email in the newUser object
         password: hashedPassword
       });
@@ -43,11 +45,11 @@ exports.registerUser = (req, res) => {
 
 exports.loginUser = (req, res) => {
   let foundUser; // Declare variable in a higher scope
-  const { username, password } = req.body;
-  User.findOne({ username: username }).exec()
+  const { email, password } = req.body;
+  User.findOne({ email: email }).exec()
     .then(user => {
       if (!user) {
-        res.status(401).send('Invalid username or password. <a href="/login">Return to login page</a>');
+        res.status(401).send('Invalid email or password. <a href="/login">Return to login page</a>');
         return Promise.reject('abort'); // Early exit from the promise chain
       }
       foundUser = user; // Save user to outer scope variable
@@ -55,9 +57,9 @@ exports.loginUser = (req, res) => {
     })
     .then(isMatch => {
       if (!isMatch) {
-        res.status(401).send('Invalid username or password. <a href="/login">Return to login page</a>');
+        res.status(401).send('Invalid email or password. <a href="/login">Return to login page</a>');
       } else {
-        req.session.user = { id: foundUser._id, username: foundUser.username }; // Use foundUser here
+        req.session.user = { id: foundUser._id, email: foundUser.email, firstName: foundUser.firstName }; // Use foundUser here
         res.redirect('/profile');
       }
     })
