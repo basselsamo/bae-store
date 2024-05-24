@@ -11,6 +11,14 @@ body {
   min-height: 100vh; /* Ensures the footer is at the bottom of the page */
 }
 
+.constructions-background {
+  background-image: url('/images/constructions.jpg');
+  background-size: cover; /* Cover the entire viewable area */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  min-height: 100vh; /* Ensure it covers at least the whole height of the viewport */
+}
+
 form {
   background: white;
   padding: 20px;
