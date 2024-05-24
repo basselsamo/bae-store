@@ -45,7 +45,7 @@
     <div class="form-actions">
     <button type="submit" value="Update" class="login-button">Update Profile Details</button>
     <% if (successMessage) { %>
-      <div class="alert alert-success">
+      <div class="alert-success-updating">
           <%= successMessage %>
       </div>
     <% } %>
@@ -55,7 +55,14 @@
     <h2>Delete Your Profile</h2>
     <form action="/profile/delete" method="post" onsubmit="return confirmDelete();" class="profile-form">
       This action cannot be reversed! Enter your password to confirm deletion:<input type="password" name="password" placeholder="Enter Your Password" required>
+      <div class="form-actions">
       <button type="submit" class="delete-button">Delete Profile FOREVER</button>
+      <% if (failMessage) { %>
+        <div class="alert-fail-deleting">
+            <%= failMessage %>
+        </div>
+      <% } %>
+    </div>
     </form>
   </main>
 </div>

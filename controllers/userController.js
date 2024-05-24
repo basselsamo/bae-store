@@ -6,12 +6,15 @@ exports.registerUser = (req, res) => {
   const { firstName, lastName, email, password, confirmPassword } = req.body;
   
   if (password !== confirmPassword) {
-    return res.status(400).send('Passwords do not match! <a href="/register">Return to registration form</a>');
+    req.flash('failMessage', 'Passwords Do Not Match!');
+    res.redirect('/register');
+    return;
   }
   User.findOne({ $or: [{ email: email }] }).exec()
     .then(existingUser => {
       if (existingUser) {
-        res.status(409).send('Email already exists. <a href="/register">Return to registration form</a>'); // Updated the error message for clarity
+        req.flash('failMessage', 'Email Already Registered! Use Different Email.');
+        res.redirect('/register');
         return Promise.reject('UserExistsError'); // Prevent further execution
       }
       return bcrypt.hash(password, 10); // Continue with password hashing if user does not exist.
@@ -30,14 +33,16 @@ exports.registerUser = (req, res) => {
     })
     .then(user => {
       if (user) {
-        res.status(201).send('User registered successfully. <a href="/login">Login to view profile</a>'); // Send success response.
+        req.flash('successMessage', 'User Registered Successfully! Login Now.');
+        res.redirect('/register');
       }
     })
     .catch(error => {
       if (error !== 'UserExistsError') {
         console.error("Registration error:", error);
         if (!res.headersSent) {
-          res.status(500).send("Error registering new user: " + error + '<a href="/register">Return to registration form/a>');
+          req.flash('failMessage', 'Unknown Error Occurred! Try Again Later.');
+          res.redirect('/register');
         }
       }
     });
@@ -49,7 +54,8 @@ exports.loginUser = (req, res) => {
   User.findOne({ email: email }).exec()
     .then(user => {
       if (!user) {
-        res.status(401).send('Invalid email or password. <a href="/login">Return to login page</a>');
+        req.flash('failMessage', 'Invalid Email! Check Typos.');
+        res.redirect('/login');
         return Promise.reject('abort'); // Early exit from the promise chain
       }
       foundUser = user; // Save user to outer scope variable
@@ -57,7 +63,8 @@ exports.loginUser = (req, res) => {
     })
     .then(isMatch => {
       if (!isMatch) {
-        res.status(401).send('Invalid email or password. <a href="/login">Return to login page</a>');
+        req.flash('failMessage', 'Password Incorrect! Re-Enter Password.');
+        res.redirect('/login');
       } else {
         req.session.user = { id: foundUser._id, email: foundUser.email, firstName: foundUser.firstName }; // Use foundUser here
         res.redirect('/profile');
@@ -65,7 +72,8 @@ exports.loginUser = (req, res) => {
     })
     .catch(error => {
       if (error !== 'abort') {
-        res.status(500).send("Login error: " + error + '<a href="/login">Return to login page</a>');
+        req.flash('failMessage', 'Unknown Error Occurred! Try Again Later.');
+        res.redirect('/login');
       }
     });
 };
@@ -86,7 +94,8 @@ exports.updateUserDetails = (req, res) => {
   if (password) { // Check if password field is not empty
     bcrypt.hash(password, 10, (err, hashedPassword) => {
       if (err) {
-        return res.status(500).send('Failed to update password. <a href="/profile/details">Return to profile details</a>');
+        req.flash('failMessage', 'Failed to update password!');
+        res.redirect('/profile/details');
       }
       updateObject.password = hashedPassword;
       updateProfile(updateObject, req, res);
@@ -99,7 +108,7 @@ exports.updateUserDetails = (req, res) => {
 function updateProfile(updateObject, req, res) {
   User.findByIdAndUpdate(req.session.user.id, { $set: updateObject }, { new: true }).exec()
     .then(() => {
-      req.flash('successMessage', 'Profile Updated Successfully!');
+      req.flash('successMessage', 'Profile Details Updated Successfully!');
       res.redirect('/profile/details');
     })
     .catch(error => res.status(500).send("Error updating user details: " + error + '<a href="/profile/details">Return to profile details</a>'));
@@ -113,21 +122,22 @@ exports.deleteUserProfile = (req, res) => {
   User.findById(req.session.user.id).exec()
     .then(user => {
       if (!user) {
-        res.status(404).send('User not found. <a href="/login">Return to login page</a>');
+        req.flash('failMessage', 'User Not Found!');
+      res.redirect('/login');
         return Promise.reject('UserNotFound');
       }
       return bcrypt.compare(password, user.password);
     })
     .then(passwordMatch => {
       if (!passwordMatch) {
-        res.status(401).send('Password incorrect and profile was not deleted. <a href="/">Return to homepage</a>');
+        req.flash('failMessage', 'Password Incorrect! Re-Enter Password.');
+        res.redirect('/profile/details');
         return Promise.reject('PasswordIncorrect');
       }
       return User.findByIdAndDelete(req.session.user.id).exec();
     })
     .then(() => {
       req.session.destroy();
-      //res.send('Profile deleted successfully. <a href="/">Return to homepage</a>');
       res.redirect('/profile');
     })
     .catch(error => {
@@ -135,7 +145,8 @@ exports.deleteUserProfile = (req, res) => {
         return; // Errors handled within the flow
       }
       console.error("Deletion error:", error);
-      res.status(500).send("Error deleting user profile: " + error + '<a href="/profile">Return to profile</a>');
+      req.flash('failMessage', 'Unknown Error Occurred! Try Again Later.');
+      res.redirect('/profile/details');
     });
 };
 
@@ -143,6 +154,7 @@ exports.getExclusiveProducts = (req, res) => {
   if (req.session.userId) {
     res.send('Exclusive products here');
   } else {
-    res.status(401).send('Please login to view this page. <a href="/login">Navigate to login page</a>');
+    req.flash('failMessage', 'Login To View This Page.');
+    res.redirect('/login');
   }
 };

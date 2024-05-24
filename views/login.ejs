@@ -16,6 +16,11 @@
             <button type="submit" class="login-button">Login</button>
             <p>Don't have an account? <a href="/register">Register</a></p>
         </div>
+        <% if (failMessage) { %>
+            <div class="alert-fail">
+                <%= failMessage %>
+            </div>
+        <% } %>
     </form>
     <%- include('partials/footer') %>
 </body>

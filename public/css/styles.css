@@ -252,6 +252,22 @@ input[type="text"], input[type="password"], input[type="email"] {
   width: 100%; /* Ensures input fields take up the entire column width */
 }
 
+.alert-success-updating {
+  color: green;
+}
+
+.alert-fail-deleting {
+  color: red;
+}
+
 .alert-success {
   color: green;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.alert-fail {
+  color: red;
+  padding-top: 20px;
+  text-align: center;
 }

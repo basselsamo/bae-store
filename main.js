@@ -33,6 +33,11 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use((req, res, next) => {
+  res.locals.failMessage = req.flash('failMessage');
+  next();
+});
+
 app.use('/', profileRoutes);
 
 // Use routes

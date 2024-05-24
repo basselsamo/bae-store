@@ -19,6 +19,16 @@
             <button type="submit" class="register-button">Register</button>
             <p>Already have an account? <a href="/login">Login</a></p>
         </div>
+        <% if (failMessage) { %>
+            <div class="alert-fail">
+                <%= failMessage %>
+            </div>
+        <% } %>
+        <% if (successMessage) { %>
+            <div class="alert-success">
+                <%= successMessage %>
+            </div>
+        <% } %>
     </form>
     <%- include('partials/footer') %>
 </body>
