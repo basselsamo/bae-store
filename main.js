@@ -12,7 +12,8 @@ const userRoutes = require('./routes/userRoutes');
 const profileRoutes = require('./routes/profileRoutes');
 
 app.set("port", process.env.PORT || 3000);
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 app.set("view engine", "ejs")
 
 // Middlewares for parsing request bodies
