@@ -251,3 +251,7 @@ main {
 input[type="text"], input[type="password"], input[type="email"] {
   width: 100%; /* Ensures input fields take up the entire column width */
 }
+
+.alert-success {
+  color: green;
+}

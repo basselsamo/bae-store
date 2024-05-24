@@ -1,6 +1,7 @@
 "use strict"
 const express = require('express');
 const bcrypt = require('bcrypt');
+const flash = require('connect-flash');
 const session = require('express-session');
 const app = express();
 const path = require('path');
@@ -25,6 +26,12 @@ app.use(session({
   saveUninitialized: true,
   cookie: { secure: 'auto' } // Set to true if using https
 }));
+app.use(flash());
+
+app.use((req, res, next) => {
+  res.locals.successMessage = req.flash('successMessage');
+  next();
+});
 
 app.use('/', profileRoutes);
 

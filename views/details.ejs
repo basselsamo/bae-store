@@ -42,7 +42,14 @@
         Change Password: <input type="password" name="password" placeholder="Enter New Password">
       </div>
     </div>
+    <div class="form-actions">
     <button type="submit" value="Update" class="login-button">Update Profile Details</button>
+    <% if (successMessage) { %>
+      <div class="alert alert-success">
+          <%= successMessage %>
+      </div>
+    <% } %>
+    </div>
 </form>
 
     <h2>Delete Your Profile</h2>

@@ -99,6 +99,7 @@ exports.updateUserDetails = (req, res) => {
 function updateProfile(updateObject, req, res) {
   User.findByIdAndUpdate(req.session.user.id, { $set: updateObject }, { new: true }).exec()
     .then(() => {
+      req.flash('successMessage', 'Profile Updated Successfully!');
       res.redirect('/profile/details');
     })
     .catch(error => res.status(500).send("Error updating user details: " + error + '<a href="/profile/details">Return to profile details</a>'));
@@ -126,7 +127,8 @@ exports.deleteUserProfile = (req, res) => {
     })
     .then(() => {
       req.session.destroy();
-      res.send('Profile deleted successfully. <a href="/">Return to homepage</a>');
+      //res.send('Profile deleted successfully. <a href="/">Return to homepage</a>');
+      res.redirect('/profile');
     })
     .catch(error => {
       if (['UserNotFound', 'PasswordIncorrect'].includes(error)) {
