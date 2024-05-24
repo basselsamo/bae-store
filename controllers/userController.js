@@ -80,8 +80,8 @@ exports.getUserDetails = (req, res) => {
 };
 
 exports.updateUserDetails = (req, res) => {
-  const { username, email, firstName, lastName, address, phoneNumber, password } = req.body;
-  let updateObject = { username, email, firstName, lastName, address, phoneNumber };
+  const { email, firstName, lastName, address, phoneNumber, password } = req.body;
+  let updateObject = { email, firstName, lastName, address, phoneNumber };
 
   if (password) { // Check if password field is not empty
     bcrypt.hash(password, 10, (err, hashedPassword) => {
