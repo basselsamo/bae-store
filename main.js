@@ -49,14 +49,18 @@ app.use(userRoutes);
 
 function redirectIfAuthenticated(req, res, next) {
   if (req.session.user) {
+    if (req.session.user.email === 'admin@localhost.com') {
+      return res.redirect('/dashboard'); // Redirect to the dashboard page if the admin is logged in
+    } else {
       return res.redirect('/profile');  // Redirect to the profile page if the user is logged in
+    }
   }
   next();  // Continue to the next middleware or route handler if not logged in
 }
 
-
 app.get('/', (req, res) => {
-  res.render('index', { title: 'HomePage' });
+  const isAdmin = req.session.user && req.session.user.email === 'admin@localhost.com';
+  res.render('index', { title: 'HomePage', isAdmin: isAdmin });
 });
 
 app.get('/register', redirectIfAuthenticated, (req, res) => {

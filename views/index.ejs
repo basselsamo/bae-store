@@ -6,7 +6,11 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body class="constructions-background">
-    <%- include('partials/header', {title: 'Home Page'}) %>
+    <% if (isAdmin) { %>
+        <%- include('partials/adminheader', {title: title}) %>
+    <% } else { %>
+        <%- include('partials/header', {title: title}) %>
+    <% } %>
     <h1>Welcome to the BAE-Store Homepage!</h1>
     <p>Nothing to show yet.</p>
     <%- include('partials/footer') %>
