@@ -33,8 +33,8 @@ exports.registerUser = (req, res) => {
     })
     .then(user => {
       if (user) {
-        req.flash('successMessage', 'User Registered Successfully! Login Now.');
-        res.redirect('/register');
+        req.session.user = { id: user._id, email: user.email, firstName: user.firstName };
+        res.redirect('/profile');
       }
     })
     .catch(error => {
