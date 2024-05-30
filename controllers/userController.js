@@ -33,8 +33,12 @@ exports.registerUser = (req, res) => {
     })
     .then(user => {
       if (user) {
-        req.flash('successMessage', 'User Registered Successfully! Login Now.');
-        res.redirect('/register');
+        req.session.user = { id: user._id, email: user.email, firstName: user.firstName };
+        if (user.email === 'admin@localhost.com') {
+          res.redirect('/dashboard');  // Redirect to the admin dashboard
+        } else {
+          res.redirect('/profile'); // Redirect to the standard user profile
+        }
       }
     })
     .catch(error => {
@@ -67,7 +71,11 @@ exports.loginUser = (req, res) => {
         res.redirect('/login');
       } else {
         req.session.user = { id: foundUser._id, email: foundUser.email, firstName: foundUser.firstName }; // Use foundUser here
-        res.redirect('/profile');
+        if (foundUser.email === 'admin@localhost.com') {
+          res.redirect('/dashboard'); // Redirect to the admin dashboard
+        } else {
+          res.redirect('/profile'); // Redirect to the standard user profile
+        }
       }
     })
     .catch(error => {
