@@ -1,4 +1,5 @@
-// controllers/userController.js
+"use strict"
+
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 
@@ -6,14 +7,14 @@ exports.registerUser = (req, res) => {
   const { firstName, lastName, email, password, confirmPassword } = req.body;
   
   if (password !== confirmPassword) {
-    req.flash('failMessage', 'Passwords Do Not Match!');
+    req.flash('failMessage', 'Entered Passwords Do Not Match!');
     res.redirect('/register');
     return;
   }
   User.findOne({ $or: [{ email: email }] }).exec()
     .then(existingUser => {
       if (existingUser) {
-        req.flash('failMessage', 'Email Already Registered! Use Different Email.');
+        req.flash('failMessage', 'User Already Registered! Use Different Email.');
         res.redirect('/register');
         return Promise.reject('UserExistsError'); // Prevent further execution
       }
@@ -45,7 +46,7 @@ exports.registerUser = (req, res) => {
       if (error !== 'UserExistsError') {
         console.error("Registration error:", error);
         if (!res.headersSent) {
-          req.flash('failMessage', 'Unknown Error Occurred! Try Again Later.');
+          req.flash('failMessage', 'An Unknown Error Occurred! Try Again Later.');
           res.redirect('/register');
         }
       }
@@ -58,7 +59,7 @@ exports.loginUser = (req, res) => {
   User.findOne({ email: email }).exec()
     .then(user => {
       if (!user) {
-        req.flash('failMessage', 'Invalid Email! Check Typos.');
+        req.flash('failMessage', 'User Not Found! Check Email Address.');
         res.redirect('/login');
         return Promise.reject('abort'); // Early exit from the promise chain
       }
@@ -67,7 +68,7 @@ exports.loginUser = (req, res) => {
     })
     .then(isMatch => {
       if (!isMatch) {
-        req.flash('failMessage', 'Password Incorrect! Re-Enter Password.');
+        req.flash('failMessage', 'Password Is Incorrect! Re-Enter Password.');
         res.redirect('/login');
       } else {
         req.session.user = { id: foundUser._id, email: foundUser.email, firstName: foundUser.firstName }; // Use foundUser here
@@ -80,7 +81,7 @@ exports.loginUser = (req, res) => {
     })
     .catch(error => {
       if (error !== 'abort') {
-        req.flash('failMessage', 'Unknown Error Occurred! Try Again Later.');
+        req.flash('failMessage', 'An Unknown Error Occurred! Try Again Later.');
         res.redirect('/login');
       }
     });
@@ -102,7 +103,7 @@ exports.updateUserDetails = (req, res) => {
   if (password) { // Check if password field is not empty
     bcrypt.hash(password, 10, (err, hashedPassword) => {
       if (err) {
-        req.flash('failMessage', 'Failed to update password!');
+        req.flash('failMessage', 'Failed With Updating The Password! Try Again.');
         res.redirect('/profile/details');
       }
       updateObject.password = hashedPassword;
@@ -146,7 +147,7 @@ exports.deleteUserProfile = (req, res) => {
     })
     .then(() => {
       req.session.destroy();
-      res.redirect('/profile');
+      res.redirect('/login');
     })
     .catch(error => {
       if (['UserNotFound', 'PasswordIncorrect'].includes(error)) {
@@ -160,9 +161,9 @@ exports.deleteUserProfile = (req, res) => {
 
 exports.getExclusiveProducts = (req, res) => {
   if (req.session.userId) {
-    res.send('Exclusive products here');
+    res.redirect('/products');
   } else {
-    req.flash('failMessage', 'Login To View This Page.');
+    req.flash('failMessage', 'Only Members Allowed! Login Or Register Now.');
     res.redirect('/login');
   }
 };
