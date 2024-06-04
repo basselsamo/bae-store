@@ -21,6 +21,14 @@ body {
 
 form {
   background: white;
+  border-radius: 8px;
+  margin: 20px auto; /* Centers the form */
+  width: 30%; /* Adjust width to fit your design preference */
+  max-width: 500; /* Maximum width */
+}
+
+.data-form {
+  background: white;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -278,4 +286,59 @@ input[type="text"], input[type="password"], input[type="email"] {
   color: red;
   padding-top: 20px;
   text-align: center;
+}
+
+/* Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  background-color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.product-card img {
+  max-width: 75%;
+  height: auto;
+}
+
+.basket-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* .basket-form label {
+  margin-bottom: 0;
+} */
+
+.basket-form input[type="number"] {
+  width: 50px;
+}
+
+.basket-form button {
+  padding: 5px 75px;
+}
+
+.basket-form input[disabled], .basket-form button[disabled] {
+  background-color: #e0e0e0;
+  color: #a0a0a0;
+  cursor: not-allowed;
+}
+
+/* Availability */
+.available {
+  color: green;
+}
+
+.not-available {
+  color: red;
 }

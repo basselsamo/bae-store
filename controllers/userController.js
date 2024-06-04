@@ -159,11 +159,11 @@ exports.deleteUserProfile = (req, res) => {
     });
 };
 
-exports.getExclusiveProducts = (req, res) => {
-  if (req.session.userId) {
-    res.redirect('/products');
-  } else {
-    req.flash('failMessage', 'Only Members Allowed! Login Or Register Now.');
-    res.redirect('/login');
-  }
-};
+// exports.getExclusiveProducts = (req, res) => {
+//   if (req.session.userId) {
+//     res.redirect('/products');
+//   } else {
+//     req.flash('failMessage', 'Only Members Allowed! Login Or Register Now.');
+//     res.redirect('/login');
+//   }
+// };

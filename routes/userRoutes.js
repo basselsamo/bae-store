@@ -20,6 +20,6 @@ router.post('/profile/details', userController.updateUserDetails);
 router.post('/profile/delete', userController.deleteUserProfile);
 
 // Access to exclusive products
-router.get('/products', userController.getExclusiveProducts);
+// router.get('/products', userController.getExclusiveProducts);
 
 module.exports = router;
