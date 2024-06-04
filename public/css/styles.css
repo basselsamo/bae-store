@@ -19,6 +19,14 @@ body {
   min-height: 100vh; /* Ensure it covers at least the whole height of the viewport */
 }
 
+.comingsoon-background {
+  background-image: url('/images/comingsoon.jpg');
+  background-size: cover; /* Cover the entire viewable area */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  min-height: 100vh; /* Ensure it covers at least the whole height of the viewport */
+}
+
 form {
   background: white;
   border-radius: 8px;
