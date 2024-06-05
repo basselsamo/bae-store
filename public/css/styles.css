@@ -27,6 +27,14 @@ body {
   min-height: 100vh; /* Ensure it covers at least the whole height of the viewport */
 }
 
+.error404-background {
+  background-image: url('/images/error404.jpg');
+  background-size: cover; /* Cover the entire viewable area */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  min-height: 100vh; /* Ensure it covers at least the whole height of the viewport */
+}
+
 form {
   background: white;
   border-radius: 8px;
@@ -230,7 +238,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 50vh;
+  height: 38vh;
 }
 
 .error-page h1 {
