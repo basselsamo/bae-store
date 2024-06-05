@@ -8,6 +8,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const userRoutes = require('./routes/userRoutes');
 const profileRoutes = require('./routes/profileRoutes');
+const productRoutes = require('./routes/productRoutes');
 const errorController = require('./controllers/errorController');
 
 // Database Connection
@@ -39,6 +40,7 @@ app.use((req, res, next) => {
 // Route definitions
 app.use('/', profileRoutes);
 app.use(userRoutes);
+app.use('/', productRoutes);
 
 // Helper function for route guarding (Authentication)
 function redirectIfAuthenticated(req, res, next) {
