@@ -12,7 +12,8 @@
     <div class="product-grid">
         <% products.forEach(product => { %>
             <div class="product-card">
-                <img src="<%= product.productImages[0] %>" alt="<%= product.productTitle %>">
+                <img src="<%= product.productImages[0] %>" alt="<%= product.productBrand %>" class="brand">
+                <img src="<%= product.productImages[1] %>" alt="<%= product.productTitle %>" class="item">
                 <h3><%= product.productTitle %></h3>
                 <p>Price: €<%= product.productPrice.toFixed(2) %></p>
                 <p>

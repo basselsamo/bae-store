@@ -319,9 +319,25 @@ input[type="text"], input[type="password"], input[type="email"] {
   text-align: center;
 }
 
-.product-card img {
+.product-card .brand {
+  float: left;
+  max-width: 25%;
+  height: auto;
+  padding-left: 10px;
+  margin-right: 10px;
+}
+
+.product-card .item {
   max-width: 75%;
   height: auto;
+  display: block;
+  margin: 10px auto;
+  clear: left;
+} 
+
+.product-card {
+  overflow: hidden; /* Ensures the container clears the floated elements */
+  margin-bottom: 20px; /* Adds space between product cards */
 }
 
 .basket-form {
@@ -358,3 +374,8 @@ input[type="text"], input[type="password"], input[type="email"] {
 .not-available {
   color: red;
 }
+
+
+
+
+
