@@ -12,7 +12,7 @@ As a member of BAE-Store, I want to be able to browse exclusive products before 
   - When I visit the BAE-Store website, I see a homepage displaying featured products and promotions.
 
 - **Product Listing:** 
-  - I can navigate to a page that lists all available exclusive products.
+  - [x] I can navigate to a page that lists all available exclusive products.
 
 - **Product Details:** 
   - When I click on a product, I can view its details such as name, description, price, sizes and release date.
@@ -53,7 +53,7 @@ As a Site Administrator, I want to be able to add new products to the BAE-Store,
 #### Acceptance Criteria:
 
 - **Admin Dashboard:** 
-  - Upon logging in, I have access to an admin dashboard where I can manage products.
+  - [x] Upon logging in, I have access to an admin dashboard where I can manage site.
 
 - **Add Product:** 
   - From the admin dashboard, I have the option to add a new product by providing details such as name, description, price, size and release date.
@@ -204,3 +204,28 @@ As a Site Administrator, I want to be able to add new products to the BAE-Store,
   - [x] Users can view their current profile information on the profile page.
   - [x] Users can update their username, password and other personal details.
   - [x] Changes are saved to the MongoDB database.
+
+  ## Sprint 06
+
+### Ticket 1: Implement Product Listing Page
+- **Description:** Develop a page that lists all available exclusive products for members to browse.
+- **Acceptance Criteria:**
+  - [x] A new route is created to serve the product listing page.
+  - [x] Product data is fetched from the database and displayed in a grid format.
+  - [x] Each product entry includes the title, brand, image, price.
+  - [x] Users can click to add product to cart.
+  - [x] The page is styled to match the overall site design.
+
+### Ticket 2: Implement Admin Dashboard Access
+- **Description:** Create an admin dashboard accessible upon logging in, where the site administrator can manage the site.
+- **Acceptance Criteria:**
+  - [x] A new route is created for the admin dashboard.
+  - [x] Access to the dashboard is restricted to authenticated administrators.
+  - [x] The dashboard includes links to manage products, track orders, manage users ...etc.
+  - [x] The dashboard is styled to provide a clear and user-friendly interface.
+
+### Ticket 3: User Authentication for Product Listing
+- **Description:** Ensure that only authenticated users can access the product listing and product details pages.
+- **Acceptance Criteria:**
+  - [x] Unauthenticated users attempting to access the product listing or details pages are redirected to the login page.
+  - [x] The session persists across pages to maintain the user's authenticated state.
