@@ -333,7 +333,7 @@ input[type="text"], input[type="password"], input[type="email"] {
   display: block;
   margin: 10px auto;
   clear: left;
-} 
+}
 
 .product-card {
   overflow: hidden; /* Ensures the container clears the floated elements */
@@ -342,18 +342,37 @@ input[type="text"], input[type="password"], input[type="email"] {
 
 .basket-form {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 10px;
   margin-top: 20px;
 }
 
-/* .basket-form label {
-  margin-bottom: 0;
-} */
+.size-options {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
 
-.basket-form input[type="number"] {
-  width: 50px;
+.size-option {
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+}
+
+.size-option.disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.size-option.selected {
+  border-color: #000;
+  font-weight: bold;
 }
 
 .basket-form button {
@@ -374,8 +393,3 @@ input[type="text"], input[type="password"], input[type="email"] {
 .not-available {
   color: red;
 }
-
-
-
-
-

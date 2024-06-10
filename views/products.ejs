@@ -5,27 +5,50 @@
     <title>Products</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        function selectSize(productId, size) {
+            document.querySelectorAll(`.size-option[data-product-id="${productId}"]`).forEach(option => {
+                option.classList.remove('selected');
+            });
+            document.querySelector(`.size-option[data-product-id="${productId}"][data-size="${size}"]`).classList.add('selected');
+            document.querySelector(`#size-${productId}`).value = size;
+        }
+    </script>
 </head>
 <body>
     <%- include('partials/header', {title: 'Products'}) %>
     <h1>Products</h1>
     <div class="product-grid">
-        <% products.forEach(product => { %>
+        <% products.forEach(product => { 
+            const inStock = product.productSizesStock.some(sizeStock => sizeStock.stock > 0);
+        %>
             <div class="product-card">
                 <img src="<%= product.productImages[0] %>" alt="<%= product.productBrand %>" class="brand">
                 <img src="<%= product.productImages[1] %>" alt="<%= product.productTitle %>" class="item">
                 <h3><%= product.productTitle %></h3>
                 <p>Price: €<%= product.productPrice.toFixed(2) %></p>
                 <p>
-                    <span class="<%= product.productAvailability ? 'available' : 'not-available' %>">
-                        <%= product.productAvailability ? 'In Stock' : 'Out Of Stock' %>
+                    <span class="<%= inStock ? 'available' : 'not-available' %>">
+                        <%= inStock ? 'In Stock' : 'Out Of Stock' %>
                     </span>
                 </p>
                 <form action="/basket" method="POST" class="basket-form">
                     <input type="hidden" name="productId" value="<%= product._id %>">
-                    <label for="quantity-<%= product._id %>">Qty:</label>
-                    <input type="number" name="quantity" id="quantity-<%= product._id %>" min="1" value="1" <%= product.productAvailability ? '' : 'disabled' %>>
-                    <button type="submit" class="fas fa-cart-plus" <%= product.productAvailability ? '' : 'disabled' %>></button>
+                    <input type="hidden" name="size" id="size-<%= product._id %>" value="">
+                    <div class="size-options">
+                        <% product.productSizesStock.forEach(sizeStock => { %>
+                            <div 
+                                class="size-option <%= sizeStock.stock > 0 ? '' : 'disabled' %>" 
+                                data-product-id="<%= product._id %>" 
+                                data-size="<%= sizeStock.size %>"
+                                <% if (sizeStock.stock > 0) { %>
+                                    onclick="selectSize('<%= product._id %>', '<%= sizeStock.size %>')"
+                                <% } %>>
+                                <%= sizeStock.size %>
+                            </div>
+                        <% }) %>
+                    </div>
+                    <button type="submit" class="fas fa-cart-plus" <%= inStock ? '' : 'disabled' %>></button>
                 </form>
             </div>
         <% }) %>

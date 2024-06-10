@@ -33,11 +33,9 @@ var products = [
     productSeasons: ["Spring"],
     productGenders: ["Men"],
     productColors: ["Olive", "Black", "White"],
-    productSizes: ["40", "41", "42", "43", "44", "45", "46", "47", "48"],
+    productSizesStock: [{ size: "40", stock: 10 }, { size: "41", stock: 15 }, { size: "42", stock: 8 }, { size: "43", stock: 12 }, { size: "44", stock: 5 }],
     productPrice: 159.00,
-    productImages: ["https://cdn-icons-png.flaticon.com/256/732/732084.png", "https://img001.prntscr.com/file/img001/eZgJdul-SEKbD7D0PTuDdQ.png"],
-    productAvailability: true,
-    productStock: 10
+    productImages: ["https://cdn-icons-png.flaticon.com/256/732/732084.png", "https://img001.prntscr.com/file/img001/eZgJdul-SEKbD7D0PTuDdQ.png"]
   },
   {
     productTitle: "Tommy Hilfiger Tommy Now",
@@ -50,11 +48,9 @@ var products = [
     productSeasons: ["Spring", "Summer"],
     productGenders: ["Men"],
     productColors: ["White", "Red", "Navy"],
-    productSizes: ["100ml"],
+    productSizesStock: [{ size: "100ml", stock: 20 }],
     productPrice: 39.99,
-    productImages: ["https://www.brandslex.de/img/logos/xl/t/logo-tommy-hilfiger-01.png", "https://img001.prntscr.com/file/img001/Ql9nk3giQgaQEmMRd6kQfA.png"],
-    productAvailability: true,
-    productStock: 3
+    productImages: ["https://www.brandslex.de/img/logos/xl/t/logo-tommy-hilfiger-01.png", "https://img001.prntscr.com/file/img001/Ql9nk3giQgaQEmMRd6kQfA.png"]
   },
   {
     productTitle: "Adidas Superstar",
@@ -67,11 +63,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Women"],
     productColors: ["White", "Black"],
-    productSizes: ["35", "36", "37", "38", "39", "40", "41"],
+    productSizesStock: [{ size: "35", stock: 0 }, { size: "36", stock: 12 }, { size: "37", stock: 14 }, { size: "38", stock: 0 }, { size: "39", stock: 7 }],
     productPrice: 85.00,
-    productImages: ["https://i.imgur.com/mU5X66K.png", "https://img001.prntscr.com/file/img001/pz73A7yiRn2sjln9FK1H7g.jpeg"],
-    productAvailability: true,
-    productStock: 20
+    productImages: ["https://i.imgur.com/mU5X66K.png", "https://img001.prntscr.com/file/img001/pz73A7yiRn2sjln9FK1H7g.jpeg"]
   },
   {
     productTitle: "Ray-Ban Aviator Classic",
@@ -84,11 +78,9 @@ var products = [
     productSeasons: ["Summer"],
     productGenders: ["Diverse"],
     productColors: ["Gold", "Blue"],
-    productSizes: ["55mm", "58mm", "62mm"],
+    productSizesStock: [{ size: "55mm", stock: 0 }, { size: "58mm", stock: 0 }, { size: "62mm", stock: 0 }],
     productPrice: 150.00,
-    productImages: ["https://cdn.iconscout.com/icon/free/png-256/free-ray-1-282334.png", "https://img001.prntscr.com/file/img001/O2QbSEeFSjKY09nOcfMuQQ.png"],
-    productAvailability: true,
-    productStock: 30
+    productImages: ["https://cdn.iconscout.com/icon/free/png-256/free-ray-1-282334.png", "https://img001.prntscr.com/file/img001/O2QbSEeFSjKY09nOcfMuQQ.png"]
   },
   {
     productTitle: "Levi's 501 Original Fit Jeans",
@@ -101,11 +93,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Men"],
     productColors: ["Blue"],
-    productSizes: ["28x30", "30x32", "32x34", "34x36"],
+    productSizesStock: [{ size: "28x30", stock: 10 }, { size: "30x32", stock: 8 }, { size: "32x34", stock: 12 }, { size: "34x36", stock: 6 }],
     productPrice: 60.00,
-    productImages: ["https://cdn.iconscout.com/icon/free/png-256/free-levis-2-202638.png", "https://img001.prntscr.com/file/img001/M2DSSHrUS92rYD8LlkuMgg.png"],
-    productAvailability: true,
-    productStock: 25
+    productImages: ["https://cdn.iconscout.com/icon/free/png-256/free-levis-2-202638.png", "https://img001.prntscr.com/file/img001/M2DSSHrUS92rYD8LlkuMgg.png"]
   },
   {
     productTitle: "Versace Medusa Chain Reaction",
@@ -118,11 +108,9 @@ var products = [
     productSeasons: ["Spring", "Summer"],
     productGenders: ["Men"],
     productColors: ["White", "Gold"],
-    productSizes: ["40", "41", "42", "43", "44", "45"],
+    productSizesStock: [{ size: "40", stock: 0 }, { size: "41", stock: 0 }, { size: "42", stock: 0 }, { size: "43", stock: 0 }],
     productPrice: 1095.00,
-    productImages: ["https://cdn.iconscout.com/icon/free/png-256/free-versace-1-202706.png", "https://img001.prntscr.com/file/img001/AmSoU7deRaiC8e9AR4oRPw.png"],
-    productAvailability: true,
-    productStock: 8
+    productImages: ["https://cdn.iconscout.com/icon/free/png-256/free-versace-1-202706.png", "https://img001.prntscr.com/file/img001/AmSoU7deRaiC8e9AR4oRPw.png"]
   },
   {
     productTitle: "Ralph Lauren Polo Shirt",
@@ -135,11 +123,9 @@ var products = [
     productSeasons: ["Spring", "Summer"],
     productGenders: ["Men"],
     productColors: ["Navy", "White", "Red", "Green"],
-    productSizes: ["S", "M", "L", "XL", "XXL"],
+    productSizesStock: [{ size: "S", stock: 10 }, { size: "M", stock: 20 }, { size: "L", stock: 15 }, { size: "XL", stock: 5 }, { size: "XXL", stock: 2 }],
     productPrice: 95.00,
-    productImages: ["https://img001.prntscr.com/file/img001/x8JyuuZRT5WZgE8ig9XyHA.jpg", "https://img001.prntscr.com/file/img001/zj8GJr6gRQysWo-NAQNzHg.png"],
-    productAvailability: true,
-    productStock: 25
+    productImages: ["https://img001.prntscr.com/file/img001/x8JyuuZRT5WZgE8ig9XyHA.jpg", "https://img001.prntscr.com/file/img001/zj8GJr6gRQysWo-NAQNzHg.png"]
   },
   {
     productTitle: "Tommy Hilfiger Puffer Jacket",
@@ -152,11 +138,9 @@ var products = [
     productSeasons: ["Winter"],
     productGenders: ["Boys"],
     productColors: ["Black"],
-    productSizes: ["S", "M", "L", "XL"],
+    productSizesStock: [{ size: "S", stock: 10 }, { size: "M", stock: 15 }, { size: "L", stock: 5 }, { size: "XL", stock: 7 }],
     productPrice: 120.00,
-    productImages: ["https://www.brandslex.de/img/logos/xl/t/logo-tommy-hilfiger-01.png", "https://img001.prntscr.com/file/img001/dkXXQXKFQwyGAmmGxAXZ4g.png"],
-    productAvailability: true,
-    productStock: 15
+    productImages: ["https://www.brandslex.de/img/logos/xl/t/logo-tommy-hilfiger-01.png", "https://img001.prntscr.com/file/img001/dkXXQXKFQwyGAmmGxAXZ4g.png"]
   },
   {
     productTitle: "Lacoste Classic Polo Shirt",
@@ -169,11 +153,9 @@ var products = [
     productSeasons: ["Spring", "Summer"],
     productGenders: ["Men"],
     productColors: ["White", "Navy", "Green", "Red"],
-    productSizes: ["S", "M", "L", "XL"],
+    productSizesStock: [{ size: "S", stock: 15 }, { size: "M", stock: 20 }, { size: "L", stock: 10 }, { size: "XL", stock: 5 }],
     productPrice: 85.00,
-    productImages: ["https://img001.prntscr.com/file/img001/pwUb1pxMTNyKkNbOOzVzKQ.png", "https://img001.prntscr.com/file/img001/BkdmypygQeavwcpRFSEdgw.png"],
-    productAvailability: true,
-    productStock: 20
+    productImages: ["https://img001.prntscr.com/file/img001/pwUb1pxMTNyKkNbOOzVzKQ.png", "https://img001.prntscr.com/file/img001/BkdmypygQeavwcpRFSEdgw.png"]
   },
   {
     productTitle: "Gant Original Hoodie",
@@ -186,11 +168,9 @@ var products = [
     productSeasons: ["Autumn", "Winter"],
     productGenders: ["Women"],
     productColors: ["Grey", "Black"],
-    productSizes: ["XS", "S", "M", "L"],
+    productSizesStock: [{ size: "XS", stock: 5 }, { size: "S", stock: 10 }, { size: "M", stock: 8 }, { size: "L", stock: 12 }],
     productPrice: 90.00,
-    productImages: ["https://img001.prntscr.com/file/img001/fu834qnmSnS8S7UObbyp1w.jpg", "https://img001.prntscr.com/file/img001/druW5JMbR_udkReQF8NlOg.png"],
-    productAvailability: true,
-    productStock: 10
+    productImages: ["https://img001.prntscr.com/file/img001/fu834qnmSnS8S7UObbyp1w.jpg", "https://img001.prntscr.com/file/img001/druW5JMbR_udkReQF8NlOg.png"]
   },
   {
     productTitle: "Guess 1981 Eau de Toilette",
@@ -203,11 +183,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Women"],
     productColors: ["Clear"],
-    productSizes: ["50ml", "100ml"],
+    productSizesStock: [{ size: "50ml", stock: 10 }, { size: "100ml", stock: 15 }],
     productPrice: 45.00,
-    productImages: ["https://img001.prntscr.com/file/img001/DOWZuEqISxSdeaVTkFHdRQ.jpg", "https://img001.prntscr.com/file/img001/PZpm_1WIRDK3034zN_Iwtw.png"],
-    productAvailability: true,
-    productStock: 25
+    productImages: ["https://img001.prntscr.com/file/img001/DOWZuEqISxSdeaVTkFHdRQ.jpg", "https://img001.prntscr.com/file/img001/PZpm_1WIRDK3034zN_Iwtw.png"]
   },
   {
     productTitle: "Michael Kors Jet Set Large Tote",
@@ -220,13 +198,11 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Women"],
     productColors: ["Brown", "Black"],
-    productSizes: ["One Size"],
+    productSizesStock: [{ size: "One Size", stock: 12 }],
     productPrice: 150.00,
-    productImages: ["https://img001.prntscr.com/file/img001/gxmgDH1wQ8S4fGWSNtj4RA.png", "https://img001.prntscr.com/file/img001/5hLO7e6JTuikJandWAlMRQ.png"],
-    productAvailability: true,
-    productStock: 12
+    productImages: ["https://img001.prntscr.com/file/img001/gxmgDH1wQ8S4fGWSNtj4RA.png", "https://img001.prntscr.com/file/img001/5hLO7e6JTuikJandWAlMRQ.png"]
   },
-   {
+  {
     productTitle: "Nike Air Max 90 GORE-TEX",
     productBrand: "Nike",
     productSKU: "FD5810-101",
@@ -237,11 +213,9 @@ var products = [
     productSeasons: ["Winter"],
     productGenders: ["Diverse"],
     productColors: ["White", "Crimson", "Black", "Grey"],
-    productSizes: ["38.5", "39", "40", "40.5", "41", "42", "42.5", "43", "44", "44.5", "45", "45.5", "46", "47", "47.5", "48.5", "49.5"],
+    productSizesStock: [{ size: "38.5", stock: 10 }, { size: "39", stock: 15 }, { size: "40", stock: 12 }, { size: "40.5", stock: 8 }, { size: "41", stock: 20 }],
     productPrice: 179.99,
-    productImages: ["https://cdn-icons-png.flaticon.com/256/732/732084.png", "https://img001.prntscr.com/file/img001/gEqhDnLXQry_YwyXrn96cg.png"],
-    productAvailability: false,
-    productStock: 0
+    productImages: ["https://cdn-icons-png.flaticon.com/256/732/732084.png", "https://img001.prntscr.com/file/img001/gEqhDnLXQry_YwyXrn96cg.png"]
   },
   {
     productTitle: "Polo Ralph Lauren Classic Fit",
@@ -254,11 +228,9 @@ var products = [
     productSeasons: ["Spring", "Summer"],
     productGenders: ["Men"],
     productColors: ["Blue", "White", "Red", "Green"],
-    productSizes: ["S", "M", "L", "XL"],
+    productSizesStock: [{ size: "S", stock: 10 }, { size: "M", stock: 20 }, { size: "L", stock: 15 }, { size: "XL", stock: 5 }],
     productPrice: 95.00,
-    productImages: ["https://img001.prntscr.com/file/img001/x8JyuuZRT5WZgE8ig9XyHA.jpg", "https://img001.prntscr.com/file/img001/VOZ0QNXnRoCFZmPg965z2g.png"],
-    productAvailability: true,
-    productStock: 30
+    productImages: ["https://img001.prntscr.com/file/img001/x8JyuuZRT5WZgE8ig9XyHA.jpg", "https://img001.prntscr.com/file/img001/VOZ0QNXnRoCFZmPg965z2g.png"]
   },
   {
     productTitle: "Timberland Waterproof Boots",
@@ -271,11 +243,9 @@ var products = [
     productSeasons: ["Autumn", "Winter"],
     productGenders: ["Men"],
     productColors: ["Wheat", "Black"],
-    productSizes: ["40", "41", "42", "43", "44", "45"],
+    productSizesStock: [{ size: "40", stock: 10 }, { size: "41", stock: 12 }, { size: "42", stock: 8 }, { size: "43", stock: 15 }, { size: "44", stock: 5 }],
     productPrice: 170.00,
-    productImages: ["https://img001.prntscr.com/file/img001/tOCTv1h9RN-FpNV3XPRCqA.jpg", "https://img001.prntscr.com/file/img001/yDVNd9h_QZW32eDYeIbGCw.png"],
-    productAvailability: true,
-    productStock: 20
+    productImages: ["https://img001.prntscr.com/file/img001/tOCTv1h9RN-FpNV3XPRCqA.jpg", "https://img001.prntscr.com/file/img001/yDVNd9h_QZW32eDYeIbGCw.png"]
   },
   {
     productTitle: "Converse Chuck Taylor All Star",
@@ -288,11 +258,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Diverse"],
     productColors: ["Black", "White"],
-    productSizes: ["35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45"],
+    productSizesStock: [{ size: "35", stock: 10 }, { size: "36", stock: 15 }, { size: "37", stock: 12 }, { size: "38", stock: 20 }, { size: "39", stock: 8 }, { size: "40", stock: 10 }],
     productPrice: 60.00,
-    productImages: ["https://img001.prntscr.com/file/img001/uRrTNiDYTKKjasEKLcwbyw.png", "https://img001.prntscr.com/file/img001/_6Ri_MBQR4qwIO1RHgxm0A.png"],
-    productAvailability: true,
-    productStock: 50
+    productImages: ["https://img001.prntscr.com/file/img001/uRrTNiDYTKKjasEKLcwbyw.png", "https://img001.prntscr.com/file/img001/_6Ri_MBQR4qwIO1RHgxm0A.png"]
   },
   {
     productTitle: "Under Armour Tech 2.0 T-Shirt",
@@ -305,11 +273,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Men"],
     productColors: ["Black", "Grey", "Red", "Blue"],
-    productSizes: ["S", "M", "L", "XL"],
+    productSizesStock: [{ size: "S", stock: 10 }, { size: "M", stock: 20 }, { size: "L", stock: 15 }, { size: "XL", stock: 5 }],
     productPrice: 25.00,
-    productImages: ["https://img001.prntscr.com/file/img001/qwfgQ50fR66CK7pceVm_0w.png", "https://img001.prntscr.com/file/img001/6dNCIhMXQr2VJdhZKzyo0w.png"],
-    productAvailability: true,
-    productStock: 40
+    productImages: ["https://img001.prntscr.com/file/img001/qwfgQ50fR66CK7pceVm_0w.png", "https://img001.prntscr.com/file/img001/6dNCIhMXQr2VJdhZKzyo0w.png"]
   },
   {
     productTitle: "Puma Suede Classic",
@@ -322,11 +288,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Diverse"],
     productColors: ["Black", "Blue", "Red", "Green"],
-    productSizes: ["36", "37", "38", "39", "40", "41", "42", "43", "44", "45"],
+    productSizesStock: [{ size: "36", stock: 10 }, { size: "37", stock: 12 }, { size: "38", stock: 15 }, { size: "39", stock: 8 }, { size: "40", stock: 20 }, { size: "41", stock: 5 }],
     productPrice: 70.00,
-    productImages: ["https://img001.prntscr.com/file/img001/ZxxUZMHzRvGqUYuFfhnK-g.jpg", "https://img001.prntscr.com/file/img001/9z3V26DcTdKoqPGa683mvA.png"],
-    productAvailability: true,
-    productStock: 35
+    productImages: ["https://img001.prntscr.com/file/img001/ZxxUZMHzRvGqUYuFfhnK-g.jpg", "https://img001.prntscr.com/file/img001/9z3V26DcTdKoqPGa683mvA.png"]
   },
   {
     productTitle: "Jack Wolfskin Knit Cap",
@@ -339,11 +303,9 @@ var products = [
     productSeasons: ["Winter"],
     productGenders: ["Diverse"],
     productColors: ["Black", "Grey", "Blue"],
-    productSizes: ["One Size"],
+    productSizesStock: [{ size: "One Size", stock: 25 }],
     productPrice: 30.00,
-    productImages: ["https://img001.prntscr.com/file/img001/md_uuu2PQFqNxNu_ztip1g.png", "https://img001.prntscr.com/file/img001/OcBFs4rWTYqw-sAsAwZw9w.png"],
-    productAvailability: true,
-    productStock: 25
+    productImages: ["https://img001.prntscr.com/file/img001/md_uuu2PQFqNxNu_ztip1g.png", "https://img001.prntscr.com/file/img001/OcBFs4rWTYqw-sAsAwZw9w.png"]
   },
   {
     productTitle: "The North Face Backpack",
@@ -356,11 +318,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Diverse"],
     productColors: ["Black", "Yellow"],
-    productSizes: ["One Size"],
+    productSizesStock: [{ size: "One Size", stock: 20 }],
     productPrice: 89.00,
-    productImages: ["https://img001.prntscr.com/file/img001/IdQye7wOQO2tdOSMW4afRw.png", "https://img001.prntscr.com/file/img001/9GA-QxZaRLqD7aAIdxwnow.png"],
-    productAvailability: true,
-    productStock: 20
+    productImages: ["https://img001.prntscr.com/file/img001/IdQye7wOQO2tdOSMW4afRw.png", "https://img001.prntscr.com/file/img001/9GA-QxZaRLqD7aAIdxwnow.png"]
   },
   {
     productTitle: "Gant Classic Chino Pants",
@@ -373,11 +333,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Men"],
     productColors: ["Beige", "Navy", "Black"],
-    productSizes: ["30", "32", "34", "36", "38"],
+    productSizesStock: [{ size: "30", stock: 10 }, { size: "32", stock: 15 }, { size: "34", stock: 8 }, { size: "36", stock: 5 }],
     productPrice: 100.00,
-    productImages: ["https://img001.prntscr.com/file/img001/fu834qnmSnS8S7UObbyp1w.jpg", "https://img001.prntscr.com/file/img001/Jk48cjvrTOuVsdmaeRxWVg.png"],
-    productAvailability: true,
-    productStock: 15
+    productImages: ["https://img001.prntscr.com/file/img001/fu834qnmSnS8S7UObbyp1w.jpg", "https://img001.prntscr.com/file/img001/Jk48cjvrTOuVsdmaeRxWVg.png"]
   },
   {
     productTitle: "Lacoste L.12.12 Blanc EDT",
@@ -390,11 +348,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Men"],
     productColors: ["Clear"],
-    productSizes: ["50ml", "100ml"],
+    productSizesStock: [{ size: "50ml", stock: 10 }, { size: "100ml", stock: 20 }],
     productPrice: 65.00,
-    productImages: ["https://img001.prntscr.com/file/img001/pwUb1pxMTNyKkNbOOzVzKQ.png", "https://img001.prntscr.com/file/img001/bV5445pXQsiZnew2Vpt5Fw.png"],
-    productAvailability: true,
-    productStock: 20
+    productImages: ["https://img001.prntscr.com/file/img001/pwUb1pxMTNyKkNbOOzVzKQ.png", "https://img001.prntscr.com/file/img001/bV5445pXQsiZnew2Vpt5Fw.png"]
   },
   {
     productTitle: "Tommy Hilfiger Backpack",
@@ -407,11 +363,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Diverse"],
     productColors: ["Navy", "Black"],
-    productSizes: ["One Size"],
+    productSizesStock: [{ size: "One Size", stock: 20 }],
     productPrice: 80.00,
-    productImages: ["https://www.brandslex.de/img/logos/xl/t/logo-tommy-hilfiger-01.png", "https://img001.prntscr.com/file/img001/z95ydE59Q_O7M9trEcwBvQ.png"],
-    productAvailability: true,
-    productStock: 20
+    productImages: ["https://www.brandslex.de/img/logos/xl/t/logo-tommy-hilfiger-01.png", "https://img001.prntscr.com/file/img001/z95ydE59Q_O7M9trEcwBvQ.png"]
   },
   {
     productTitle: "Guess Denim Jacket",
@@ -424,11 +378,9 @@ var products = [
     productSeasons: ["Spring", "Autumn"],
     productGenders: ["Women"],
     productColors: ["Blue"],
-    productSizes: ["XS", "S", "M", "L"],
+    productSizesStock: [{ size: "XS", stock: 5 }, { size: "S", stock: 10 }, { size: "M", stock: 8 }, { size: "L", stock: 7 }],
     productPrice: 110.00,
-    productImages: ["https://img001.prntscr.com/file/img001/DOWZuEqISxSdeaVTkFHdRQ.jpg", "https://img001.prntscr.com/file/img001/M9J2DPJHRp-WWhw8F3SpJA.png"],
-    productAvailability: true,
-    productStock: 10
+    productImages: ["https://img001.prntscr.com/file/img001/DOWZuEqISxSdeaVTkFHdRQ.jpg", "https://img001.prntscr.com/file/img001/M9J2DPJHRp-WWhw8F3SpJA.png"]
   },
   {
     productTitle: "Michael Kors Parker SS Watch",
@@ -441,11 +393,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Women"],
     productColors: ["Rose Gold"],
-    productSizes: ["One Size"],
+    productSizesStock: [{ size: "One Size", stock: 15 }],
     productPrice: 195.00,
-    productImages: ["https://img001.prntscr.com/file/img001/gxmgDH1wQ8S4fGWSNtj4RA.png", "https://img001.prntscr.com/file/img001/aEbFLvuSS8SWMfsv4_pVzg.png"],
-    productAvailability: true,
-    productStock: 15
+    productImages: ["https://img001.prntscr.com/file/img001/gxmgDH1wQ8S4fGWSNtj4RA.png", "https://img001.prntscr.com/file/img001/aEbFLvuSS8SWMfsv4_pVzg.png"]
   },
   {
     productTitle: "Polo Ralph Lauren Oxford Shirt",
@@ -458,11 +408,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Men"],
     productColors: ["White", "Blue", "Pink"],
-    productSizes: ["S", "M", "L", "XL"],
+    productSizesStock: [{ size: "S", stock: 10 }, { size: "M", stock: 20 }, { size: "L", stock: 15 }, { size: "XL", stock: 5 }],
     productPrice: 90.00,
-    productImages: ["https://img001.prntscr.com/file/img001/x8JyuuZRT5WZgE8ig9XyHA.jpg", "https://img001.prntscr.com/file/img001/H7t8Uqi8RqiY7H8vu7LSuw.png"],
-    productAvailability: true,
-    productStock: 25
+    productImages: ["https://img001.prntscr.com/file/img001/x8JyuuZRT5WZgE8ig9XyHA.jpg", "https://img001.prntscr.com/file/img001/H7t8Uqi8RqiY7H8vu7LSuw.png"]
   },
   {
     productTitle: "Nike Air Max 90",
@@ -475,11 +423,9 @@ var products = [
     productSeasons: ["Winter"],
     productGenders: ["Women"],
     productColors: ["White", "Lilac", "Grey"],
-    productSizes: ["35.5", "36", "36.5", "37.5", "38", "38.5", "39", "40", "40.5", "41", "42", "42.5", "43", "44", "44.5"],
+    productSizesStock: [{ size: "35.5", stock: 10 }, { size: "36", stock: 12 }, { size: "36.5", stock: 8 }, { size: "37.5", stock: 15 }, { size: "38", stock: 20 }],
     productPrice: 159.99,
-    productImages: ["https://cdn-icons-png.flaticon.com/256/732/732084.png", "https://img001.prntscr.com/file/img001/gl7ezTpNTIixEhLiM8IkDg.png"],
-    productAvailability: true,
-    productStock: 5
+    productImages: ["https://cdn-icons-png.flaticon.com/256/732/732084.png", "https://img001.prntscr.com/file/img001/gl7ezTpNTIixEhLiM8IkDg.png"]
   },
   {
     productTitle: "Timberland Classic Leather Belt",
@@ -492,11 +438,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Men"],
     productColors: ["Brown", "Black"],
-    productSizes: ["32", "34", "36", "38", "40"],
+    productSizesStock: [{ size: "32", stock: 10 }, { size: "34", stock: 12 }, { size: "36", stock: 8 }, { size: "38", stock: 20 }, { size: "40", stock: 15 }],
     productPrice: 40.00,
-    productImages: ["https://img001.prntscr.com/file/img001/tOCTv1h9RN-FpNV3XPRCqA.jpg", "https://img001.prntscr.com/file/img001/XUc1LTJARwGbf_Ca90Ky8Q.png"],
-    productAvailability: true,
-    productStock: 30
+    productImages: ["https://img001.prntscr.com/file/img001/tOCTv1h9RN-FpNV3XPRCqA.jpg", "https://img001.prntscr.com/file/img001/XUc1LTJARwGbf_Ca90Ky8Q.png"]
   },
   {
     productTitle: "Converse Chuck 70 High Top",
@@ -509,11 +453,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Diverse"],
     productColors: ["Black", "White"],
-    productSizes: ["35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45"],
+    productSizesStock: [{ size: "35", stock: 10 }, { size: "36", stock: 12 }, { size: "37", stock: 8 }, { size: "38", stock: 15 }, { size: "39", stock: 20 }, { size: "40", stock: 10 }],
     productPrice: 85.00,
-    productImages: ["https://img001.prntscr.com/file/img001/uRrTNiDYTKKjasEKLcwbyw.png", "https://img001.prntscr.com/file/img001/ni7A4A1IQ6utpvCOl5Ytnw.png"],
-    productAvailability: true,
-    productStock: 45
+    productImages: ["https://img001.prntscr.com/file/img001/uRrTNiDYTKKjasEKLcwbyw.png", "https://img001.prntscr.com/file/img001/ni7A4A1IQ6utpvCOl5Ytnw.png"]
   },
   {
     productTitle: "Under Armour Fleece Hoodie",
@@ -526,11 +468,9 @@ var products = [
     productSeasons: ["Autumn", "Winter"],
     productGenders: ["Men"],
     productColors: ["Black", "Grey"],
-    productSizes: ["S", "M", "L", "XL"],
+    productSizesStock: [{ size: "S", stock: 10 }, { size: "M", stock: 20 }, { size: "L", stock: 15 }, { size: "XL", stock: 5 }],
     productPrice: 75.00,
-    productImages: ["https://img001.prntscr.com/file/img001/qwfgQ50fR66CK7pceVm_0w.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 20
+    productImages: ["https://img001.prntscr.com/file/img001/qwfgQ50fR66CK7pceVm_0w.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Puma Essentials Logo Tee",
@@ -543,11 +483,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Women"],
     productColors: ["White", "Black", "Pink"],
-    productSizes: ["XS", "S", "M", "L"],
+    productSizesStock: [{ size: "XS", stock: 10 }, { size: "S", stock: 20 }, { size: "M", stock: 15 }, { size: "L", stock: 5 }],
     productPrice: 25.00,
-    productImages: ["https://img001.prntscr.com/file/img001/ZxxUZMHzRvGqUYuFfhnK-g.jpg", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 30
+    productImages: ["https://img001.prntscr.com/file/img001/ZxxUZMHzRvGqUYuFfhnK-g.jpg", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Jack Wolfskin Helium Jacket",
@@ -560,11 +498,9 @@ var products = [
     productSeasons: ["Winter"],
     productGenders: ["Diverse"],
     productColors: ["Black", "Blue", "Green"],
-    productSizes: ["S", "M", "L", "XL"],
+    productSizesStock: [{ size: "S", stock: 10 }, { size: "M", stock: 20 }, { size: "L", stock: 15 }, { size: "XL", stock: 5 }],
     productPrice: 130.00,
-    productImages: ["https://img001.prntscr.com/file/img001/md_uuu2PQFqNxNu_ztip1g.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 18
+    productImages: ["https://img001.prntscr.com/file/img001/md_uuu2PQFqNxNu_ztip1g.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Adidas Ultraboost 21",
@@ -577,11 +513,9 @@ var products = [
     productSeasons: ["Summer"],
     productGenders: ["Men"],
     productColors: ["Black", "White", "Blue"],
-    productSizes: ["40", "41", "42", "43", "44", "45"],
+    productSizesStock: [{ size: "40", stock: 10 }, { size: "41", stock: 15 }, { size: "42", stock: 12 }, { size: "43", stock: 8 }, { size: "44", stock: 20 }],
     productPrice: 180.00,
-    productImages: ["https://i.imgur.com/mU5X66K.png", "https://img001.prntscr.com/file/img001/tNIMsoTtSWqbRhlibvEi_Q.png"],
-    productAvailability: true,
-    productStock: 15
+    productImages: ["https://i.imgur.com/mU5X66K.png", "https://img001.prntscr.com/file/img001/tNIMsoTtSWqbRhlibvEi_Q.png"]
   },
   {
     productTitle: "The North Face Resolve 2 Jacket",
@@ -594,11 +528,9 @@ var products = [
     productSeasons: ["Spring", "Autumn"],
     productGenders: ["Men"],
     productColors: ["Black", "Grey", "Red"],
-    productSizes: ["S", "M", "L", "XL"],
+    productSizesStock: [{ size: "S", stock: 10 }, { size: "M", stock: 15 }, { size: "L", stock: 8 }, { size: "XL", stock: 5 }],
     productPrice: 99.00,
-    productImages: ["https://img001.prntscr.com/file/img001/IdQye7wOQO2tdOSMW4afRw.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 15
+    productImages: ["https://img001.prntscr.com/file/img001/IdQye7wOQO2tdOSMW4afRw.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Gant Original Slim Fit Jeans",
@@ -611,11 +543,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Men"],
     productColors: ["Blue", "Black"],
-    productSizes: ["30", "32", "34", "36", "38"],
+    productSizesStock: [{ size: "30", stock: 10 }, { size: "32", stock: 15 }, { size: "34", stock: 8 }, { size: "36", stock: 5 }],
     productPrice: 120.00,
-    productImages: ["https://img001.prntscr.com/file/img001/fu834qnmSnS8S7UObbyp1w.jpg", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 25
+    productImages: ["https://img001.prntscr.com/file/img001/fu834qnmSnS8S7UObbyp1w.jpg", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Hugo Boss Regular Fit Polo Shirt",
@@ -628,11 +558,9 @@ var products = [
     productSeasons: ["Spring", "Summer"],
     productGenders: ["Men"],
     productColors: ["White", "Black", "Blue"],
-    productSizes: ["S", "M", "L", "XL"],
+    productSizesStock: [{ size: "S", stock: 10 }, { size: "M", stock: 20 }, { size: "L", stock: 15 }, { size: "XL", stock: 5 }],
     productPrice: 110.00,
-    productImages: ["https://img001.prntscr.com/file/img001/jpUNBbcWQeKfi69cQNK9mw.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 20
+    productImages: ["https://img001.prntscr.com/file/img001/jpUNBbcWQeKfi69cQNK9mw.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Adidas Originals Trefoil Hoodie",
@@ -645,11 +573,9 @@ var products = [
     productSeasons: ["Autumn", "Winter"],
     productGenders: ["Men"],
     productColors: ["Black", "Grey", "Red"],
-    productSizes: ["S", "M", "L", "XL"],
+    productSizesStock: [{ size: "S", stock: 10 }, { size: "M", stock: 20 }, { size: "L", stock: 15 }, { size: "XL", stock: 5 }],
     productPrice: 75.00,
-    productImages: ["https://i.imgur.com/mU5X66K.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 30
+    productImages: ["https://i.imgur.com/mU5X66K.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Puma Essentials Logo T-Shirt",
@@ -662,11 +588,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Women"],
     productColors: ["White", "Black", "Pink"],
-    productSizes: ["XS", "S", "M", "L"],
+    productSizesStock: [{ size: "XS", stock: 10 }, { size: "S", stock: 20 }, { size: "M", stock: 15 }, { size: "L", stock: 5 }],
     productPrice: 25.00,
-    productImages: ["https://img001.prntscr.com/file/img001/ZxxUZMHzRvGqUYuFfhnK-g.jpg", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 30
+    productImages: ["https://img001.prntscr.com/file/img001/ZxxUZMHzRvGqUYuFfhnK-g.jpg", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "The North Face Bkpk 2.0",
@@ -679,11 +603,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Diverse"],
     productColors: ["Black", "Red", "Blue"],
-    productSizes: ["One Size"],
+    productSizesStock: [{ size: "One Size", stock: 20 }],
     productPrice: 89.00,
-    productImages: ["https://img001.prntscr.com/file/img001/IdQye7wOQO2tdOSMW4afRw.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 20
+    productImages: ["https://img001.prntscr.com/file/img001/IdQye7wOQO2tdOSMW4afRw.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Gant Classic Chino Pants",
@@ -696,11 +618,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Men"],
     productColors: ["Beige", "Navy", "Black"],
-    productSizes: ["30", "32", "34", "36", "38"],
+    productSizesStock: [{ size: "30", stock: 10 }, { size: "32", stock: 15 }, { size: "34", stock: 8 }, { size: "36", stock: 5 }],
     productPrice: 100.00,
-    productImages: ["https://img001.prntscr.com/file/img001/fu834qnmSnS8S7UObbyp1w.jpg", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 15
+    productImages: ["https://img001.prntscr.com/file/img001/fu834qnmSnS8S7UObbyp1w.jpg", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Guess Denim Jacket",
@@ -713,11 +633,9 @@ var products = [
     productSeasons: ["Spring", "Autumn"],
     productGenders: ["Women"],
     productColors: ["Blue"],
-    productSizes: ["XS", "S", "M", "L"],
+    productSizesStock: [{ size: "XS", stock: 5 }, { size: "S", stock: 10 }, { size: "M", stock: 8 }, { size: "L", stock: 7 }],
     productPrice: 110.00,
-    productImages: ["https://img001.prntscr.com/file/img001/DOWZuEqISxSdeaVTkFHdRQ.jpg", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 10
+    productImages: ["https://img001.prntscr.com/file/img001/DOWZuEqISxSdeaVTkFHdRQ.jpg", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Polo Ralph Lauren Oxford Shirt",
@@ -730,11 +648,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Men"],
     productColors: ["White", "Blue", "Pink"],
-    productSizes: ["S", "M", "L", "XL"],
+    productSizesStock: [{ size: "S", stock: 10 }, { size: "M", stock: 20 }, { size: "L", stock: 15 }, { size: "XL", stock: 5 }],
     productPrice: 90.00,
-    productImages: ["https://img001.prntscr.com/file/img001/x8JyuuZRT5WZgE8ig9XyHA.jpg", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 25
+    productImages: ["https://img001.prntscr.com/file/img001/x8JyuuZRT5WZgE8ig9XyHA.jpg", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Timberland Classic Leather Belt",
@@ -747,11 +663,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Men"],
     productColors: ["Brown", "Black"],
-    productSizes: ["32", "34", "36", "38", "40"],
+    productSizesStock: [{ size: "32", stock: 10 }, { size: "34", stock: 12 }, { size: "36", stock: 8 }, { size: "38", stock: 20 }, { size: "40", stock: 15 }],
     productPrice: 40.00,
-    productImages: ["https://img001.prntscr.com/file/img001/tOCTv1h9RN-FpNV3XPRCqA.jpg", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 30
+    productImages: ["https://img001.prntscr.com/file/img001/tOCTv1h9RN-FpNV3XPRCqA.jpg", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Converse Chuck 70 High Top",
@@ -764,11 +678,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Diverse"],
     productColors: ["Black", "White"],
-    productSizes: ["35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45"],
+    productSizesStock: [{ size: "35", stock: 10 }, { size: "36", stock: 12 }, { size: "37", stock: 8 }, { size: "38", stock: 15 }, { size: "39", stock: 20 }, { size: "40", stock: 10 }],
     productPrice: 85.00,
-    productImages: ["https://img001.prntscr.com/file/img001/uRrTNiDYTKKjasEKLcwbyw.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 45
+    productImages: ["https://img001.prntscr.com/file/img001/uRrTNiDYTKKjasEKLcwbyw.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Puma Essentials Logo Tee",
@@ -781,11 +693,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Women"],
     productColors: ["White", "Black", "Pink"],
-    productSizes: ["XS", "S", "M", "L"],
+    productSizesStock: [{ size: "XS", stock: 10 }, { size: "S", stock: 20 }, { size: "M", stock: 15 }, { size: "L", stock: 5 }],
     productPrice: 25.00,
-    productImages: ["https://img001.prntscr.com/file/img001/ZxxUZMHzRvGqUYuFfhnK-g.jpg", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 30
+    productImages: ["https://img001.prntscr.com/file/img001/ZxxUZMHzRvGqUYuFfhnK-g.jpg", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Jack Wolfskin Helium Jacket",
@@ -798,11 +708,9 @@ var products = [
     productSeasons: ["Winter"],
     productGenders: ["Diverse"],
     productColors: ["Black", "Blue", "Green"],
-    productSizes: ["S", "M", "L", "XL"],
+    productSizesStock: [{ size: "S", stock: 10 }, { size: "M", stock: 20 }, { size: "L", stock: 15 }, { size: "XL", stock: 5 }],
     productPrice: 130.00,
-    productImages: ["https://img001.prntscr.com/file/img001/md_uuu2PQFqNxNu_ztip1g.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 18
+    productImages: ["https://img001.prntscr.com/file/img001/md_uuu2PQFqNxNu_ztip1g.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "The North Face Resolve 2 Jacket",
@@ -815,11 +723,9 @@ var products = [
     productSeasons: ["Spring", "Autumn"],
     productGenders: ["Men"],
     productColors: ["Black", "Grey", "Red"],
-    productSizes: ["S", "M", "L", "XL"],
+    productSizesStock: [{ size: "S", stock: 10 }, { size: "M", stock: 15 }, { size: "L", stock: 8 }, { size: "XL", stock: 5 }],
     productPrice: 99.00,
-    productImages: ["https://img001.prntscr.com/file/img001/IdQye7wOQO2tdOSMW4afRw.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 15
+    productImages: ["https://img001.prntscr.com/file/img001/IdQye7wOQO2tdOSMW4afRw.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Gant Original Slim Fit Jeans",
@@ -832,11 +738,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Men"],
     productColors: ["Blue", "Black"],
-    productSizes: ["30", "32", "34", "36", "38"],
+    productSizesStock: [{ size: "30", stock: 10 }, { size: "32", stock: 15 }, { size: "34", stock: 8 }, { size: "36", stock: 5 }],
     productPrice: 120.00,
-    productImages: ["https://img001.prntscr.com/file/img001/fu834qnmSnS8S7UObbyp1w.jpg", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 25
+    productImages: ["https://img001.prntscr.com/file/img001/fu834qnmSnS8S7UObbyp1w.jpg", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Tommy Hilfiger Light Jacket",
@@ -849,11 +753,9 @@ var products = [
     productSeasons: ["Spring", "Autumn"],
     productGenders: ["Men"],
     productColors: ["Navy", "Black"],
-    productSizes: ["S", "M", "L", "XL"],
+    productSizesStock: [{ size: "S", stock: 10 }, { size: "M", stock: 12 }, { size: "L", stock: 8 }, { size: "XL", stock: 15 }],
     productPrice: 140.00,
-    productImages: ["https://www.brandslex.de/img/logos/xl/t/logo-tommy-hilfiger-01.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 12
+    productImages: ["https://www.brandslex.de/img/logos/xl/t/logo-tommy-hilfiger-01.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Adidas AC Classics Pants",
@@ -866,11 +768,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Diverse"],
     productColors: ["Black", "Blue", "Red"],
-    productSizes: ["XS", "S", "M", "L", "XL"],
+    productSizesStock: [{ size: "XS", stock: 10 }, { size: "S", stock: 20 }, { size: "M", stock: 15 }, { size: "L", stock: 5 }, { size: "XL", stock: 2 }],
     productPrice: 60.00,
-    productImages: ["https://i.imgur.com/mU5X66K.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 30
+    productImages: ["https://i.imgur.com/mU5X66K.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Lacoste Chaymon Trainers",
@@ -883,11 +783,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Men"],
     productColors: ["White", "Black", "Navy"],
-    productSizes: ["40", "41", "42", "43", "44", "45"],
+    productSizesStock: [{ size: "40", stock: 10 }, { size: "41", stock: 15 }, { size: "42", stock: 12 }, { size: "43", stock: 8 }, { size: "44", stock: 5 }],
     productPrice: 120.00,
-    productImages: ["https://img001.prntscr.com/file/img001/pwUb1pxMTNyKkNbOOzVzKQ.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 20
+    productImages: ["https://img001.prntscr.com/file/img001/pwUb1pxMTNyKkNbOOzVzKQ.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Levi's HR Skinny Jeans",
@@ -900,11 +798,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Women"],
     productColors: ["Blue", "Black"],
-    productSizes: ["24", "25", "26", "27", "28", "29", "30"],
+    productSizesStock: [{ size: "24", stock: 10 }, { size: "25", stock: 15 }, { size: "26", stock: 12 }, { size: "27", stock: 8 }, { size: "28", stock: 5 }],
     productPrice: 98.00,
-    productImages: ["https://cdn.iconscout.com/icon/free/png-256/free-levis-2-202638.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 18
+    productImages: ["https://cdn.iconscout.com/icon/free/png-256/free-levis-2-202638.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Superdry Vintage Logo Hoodie",
@@ -917,11 +813,9 @@ var products = [
     productSeasons: ["Autumn", "Winter"],
     productGenders: ["Men"],
     productColors: ["Navy", "Grey", "Black"],
-    productSizes: ["S", "M", "L", "XL"],
+    productSizesStock: [{ size: "S", stock: 10 }, { size: "M", stock: 20 }, { size: "L", stock: 15 }, { size: "XL", stock: 5 }],
     productPrice: 75.00,
-    productImages: ["https://img001.prntscr.com/file/img001/m-oBnHY3SGWQMA2O_8fFYA.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 20
+    productImages: ["https://img001.prntscr.com/file/img001/m-oBnHY3SGWQMA2O_8fFYA.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Mango Trench Coat",
@@ -934,11 +828,9 @@ var products = [
     productSeasons: ["Spring", "Autumn"],
     productGenders: ["Women"],
     productColors: ["Beige", "Black"],
-    productSizes: ["XS", "S", "M", "L"],
+    productSizesStock: [{ size: "XS", stock: 5 }, { size: "S", stock: 10 }, { size: "M", stock: 8 }, { size: "L", stock: 7 }],
     productPrice: 130.00,
-    productImages: ["https://img001.prntscr.com/file/img001/u9p31FVpRoiMFKzBF7Zryw.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 10
+    productImages: ["https://img001.prntscr.com/file/img001/u9p31FVpRoiMFKzBF7Zryw.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Esprit Regular Fit Jeans",
@@ -951,11 +843,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Men"],
     productColors: ["Blue", "Black"],
-    productSizes: ["30", "32", "34", "36", "38"],
+    productSizesStock: [{ size: "30", stock: 10 }, { size: "32", stock: 15 }, { size: "34", stock: 8 }, { size: "36", stock: 5 }],
     productPrice: 75.00,
-    productImages: ["https://img001.prntscr.com/file/img001/GbsXwKWYS5GiJrlSot3cSg.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 20
+    productImages: ["https://img001.prntscr.com/file/img001/GbsXwKWYS5GiJrlSot3cSg.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Fossil Jacqueline Watch",
@@ -968,11 +858,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Women"],
     productColors: ["Rose Gold", "Silver"],
-    productSizes: ["One Size"],
+    productSizesStock: [{ size: "One Size", stock: 15 }],
     productPrice: 120.00,
-    productImages: ["https://img001.prntscr.com/file/img001/ItkF74XiTfmDDdq5YIdU1w.jpg", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 15
+    productImages: ["https://img001.prntscr.com/file/img001/ItkF74XiTfmDDdq5YIdU1w.jpg", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "H&M Slim Fit Blazer",
@@ -985,11 +873,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Men"],
     productColors: ["Black", "Navy"],
-    productSizes: ["S", "M", "L", "XL"],
+    productSizesStock: [{ size: "S", stock: 10 }, { size: "M", stock: 15 }, { size: "L", stock: 8 }, { size: "XL", stock: 5 }],
     productPrice: 70.00,
-    productImages: ["https://img001.prntscr.com/file/img001/huSX8RU7Q2i8FZg8PhJffw.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 18
+    productImages: ["https://img001.prntscr.com/file/img001/huSX8RU7Q2i8FZg8PhJffw.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Zara Satin Effect Dress",
@@ -1002,11 +888,9 @@ var products = [
     productSeasons: ["Spring", "Summer"],
     productGenders: ["Women"],
     productColors: ["Black", "Red"],
-    productSizes: ["XS", "S", "M", "L"],
+    productSizesStock: [{ size: "XS", stock: 5 }, { size: "S", stock: 10 }, { size: "M", stock: 8 }, { size: "L", stock: 7 }],
     productPrice: 50.00,
-    productImages: ["https://img001.prntscr.com/file/img001/ujr9O49YR-2lU_iKZ1gMuA.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 20
+    productImages: ["https://img001.prntscr.com/file/img001/ujr9O49YR-2lU_iKZ1gMuA.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Jack & Jones Basic T-Shirt",
@@ -1019,11 +903,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Men"],
     productColors: ["White", "Black", "Grey"],
-    productSizes: ["S", "M", "L", "XL"],
+    productSizesStock: [{ size: "S", stock: 10 }, { size: "M", stock: 20 }, { size: "L", stock: 15 }, { size: "XL", stock: 5 }],
     productPrice: 20.00,
-    productImages: ["https://img001.prntscr.com/file/img001/dZy3pDuDRTGIQyauEh9H8Q.jpg", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 30
+    productImages: ["https://img001.prntscr.com/file/img001/dZy3pDuDRTGIQyauEh9H8Q.jpg", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Tom Tailor Knitted Sweater",
@@ -1036,11 +918,9 @@ var products = [
     productSeasons: ["Autumn", "Winter"],
     productGenders: ["Women"],
     productColors: ["Beige", "Grey", "Red"],
-    productSizes: ["XS", "S", "M", "L"],
+    productSizesStock: [{ size: "XS", stock: 5 }, { size: "S", stock: 10 }, { size: "M", stock: 8 }, { size: "L", stock: 7 }],
     productPrice: 45.00,
-    productImages: ["https://img001.prntscr.com/file/img001/N_GE2J3ORVy-uFzSSFGSoA.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 20
+    productImages: ["https://img001.prntscr.com/file/img001/N_GE2J3ORVy-uFzSSFGSoA.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Esprit A-Line Dress",
@@ -1053,11 +933,9 @@ var products = [
     productSeasons: ["Spring", "Summer"],
     productGenders: ["Women"],
     productColors: ["Red", "Navy", "Black"],
-    productSizes: ["XS", "S", "M", "L"],
+    productSizesStock: [{ size: "XS", stock: 5 }, { size: "S", stock: 10 }, { size: "M", stock: 8 }, { size: "L", stock: 7 }],
     productPrice: 60.00,
-    productImages: ["https://img001.prntscr.com/file/img001/GbsXwKWYS5GiJrlSot3cSg.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 20
+    productImages: ["https://img001.prntscr.com/file/img001/GbsXwKWYS5GiJrlSot3cSg.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Fossil Bifold Leather Wallet",
@@ -1070,11 +948,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Men"],
     productColors: ["Brown", "Black"],
-    productSizes: ["One Size"],
+    productSizesStock: [{ size: "One Size", stock: 25 }],
     productPrice: 40.00,
-    productImages: ["https://img001.prntscr.com/file/img001/ItkF74XiTfmDDdq5YIdU1w.jpg", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 25
+    productImages: ["https://img001.prntscr.com/file/img001/ItkF74XiTfmDDdq5YIdU1w.jpg", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "H&M Chino Shorts",
@@ -1087,11 +963,9 @@ var products = [
     productSeasons: ["Summer"],
     productGenders: ["Men"],
     productColors: ["Beige", "Navy", "Black"],
-    productSizes: ["S", "M", "L", "XL"],
+    productSizesStock: [{ size: "S", stock: 10 }, { size: "M", stock: 20 }, { size: "L", stock: 15 }, { size: "XL", stock: 5 }],
     productPrice: 25.00,
-    productImages: ["https://img001.prntscr.com/file/img001/huSX8RU7Q2i8FZg8PhJffw.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 30
+    productImages: ["https://img001.prntscr.com/file/img001/huSX8RU7Q2i8FZg8PhJffw.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Zara Slim Fit Jeans",
@@ -1104,11 +978,9 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Men"],
     productColors: ["Blue", "Black"],
-    productSizes: ["30", "32", "34", "36", "38"],
+    productSizesStock: [{ size: "30", stock: 10 }, { size: "32", stock: 15 }, { size: "34", stock: 8 }, { size: "36", stock: 5 }],
     productPrice: 45.00,
-    productImages: ["https://img001.prntscr.com/file/img001/ujr9O49YR-2lU_iKZ1gMuA.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 25
+    productImages: ["https://img001.prntscr.com/file/img001/ujr9O49YR-2lU_iKZ1gMuA.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
   },
   {
     productTitle: "Tom Tailor Casual Shirt",
@@ -1121,13 +993,11 @@ var products = [
     productSeasons: ["All"],
     productGenders: ["Men"],
     productColors: ["Blue", "White", "Grey"],
-    productSizes: ["S", "M", "L", "XL"],
+    productSizesStock: [{ size: "S", stock: 10 }, { size: "M", stock: 20 }, { size: "L", stock: 15 }, { size: "XL", stock: 5 }],
     productPrice: 35.00,
-    productImages: ["https://img001.prntscr.com/file/img001/N_GE2J3ORVy-uFzSSFGSoA.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"],
-    productAvailability: true,
-    productStock: 25
-  },
-]
+    productImages: ["https://img001.prntscr.com/file/img001/N_GE2J3ORVy-uFzSSFGSoA.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
+  }
+];
 
 const createUsers = async () => {
   for (const user of users) {
