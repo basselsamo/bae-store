@@ -7,7 +7,7 @@ const UserSchema = new mongoose.Schema({
   firstName: {type: String},
   lastName: {type: String},
   address: {type: String},
-  phoneNumber: {type: String},
+  phoneNumber: {type: String}
 });
 
 module.exports = mongoose.model('User', UserSchema);
