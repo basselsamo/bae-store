@@ -1,25 +1,14 @@
 <head>
-  <title>User Profile</title>
+  <title>User Account</title>
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<%- include('partials/header', {title: 'Register'}) %>
-
+<%- include('partials/in-header', {title: 'Register'}) %>
 <div class="container">
-  <aside class="sidebar">
-      <ul class="nav">
-          <li><a href="/profile"><i class="fas fa-home"></i>Overview</a></li>
-          <li><a href="/profile/orders"><i class="fas fa-box"></i>Orders</a></li>
-          <li><a href="/profile/returns"><i class="fas fa-undo"></i>Returns</a></li>
-          <li><a href="/profile/favorites"><i class="fas fa-heart"></i>Favorites</a></li>
-          <li><a href="/profile/details"><i class="fas fa-user-circle"></i>Details</a></li>
-          <li><a href="/profile/settings"><i class="fas fa-cog"></i>Settings</a></li>
-         <li><a href="/logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-      </ul>
-  </aside>
+  <%- include('partials/sidebar') %>
   <main class="main-content">
-    <h2>Profile Details</h2>
-    <form action="/profile/details" method="post" class="profile-form">
+    <h2>Account Details</h2>
+    <form action="/account/details" method="post" class="account-details-form">
     <div class="form-row">
         <div class="form-column">
           First Name: <input type="text" name="firstName" placeholder="First Name" value="<%= user.firstName %>" required>
@@ -43,7 +32,7 @@
       </div>
     </div>
     <div class="form-actions">
-    <button type="submit" value="Update" class="login-button">Update Profile Details</button>
+    <button type="submit" value="Update" class="update-details-button">Update My Account Details</button>
     <% if (successMessage) { %>
       <div class="alert-success-updating">
           <%= successMessage %>
@@ -52,11 +41,11 @@
     </div>
 </form>
 
-    <h2>Delete Your Profile</h2>
-    <form action="/profile/delete" method="post" onsubmit="return confirmDelete();" class="profile-form">
+    <h2>Delete Your Account</h2>
+    <form action="/account/delete" method="post" onsubmit="return confirmDelete();" class="account-details-form"">
       This action cannot be reversed! Enter your password to confirm deletion:<input type="password" name="password" placeholder="Enter Your Password" required>
       <div class="form-actions">
-      <button type="submit" class="delete-button">Delete Profile FOREVER</button>
+      <button type="submit" class="delete-account-button">Delete My Account Forever</button>
       <% if (failMessage) { %>
         <div class="alert-fail-deleting">
             <%= failMessage %>
@@ -69,7 +58,7 @@
 
 <script>
 function confirmDelete() {
-  return confirm('Are you sure you want to delete your profile? This action cannot be reverted.');
+  return confirm('Are you sure you want to delete your account? This action cannot be reverted.');
 }
 </script>
   <%- include('partials/footer') %>

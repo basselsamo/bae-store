@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 const session = require('express-session');
 const flash = require('connect-flash');
 const userRoutes = require('./routes/userRoutes');
-const profileRoutes = require('./routes/profileRoutes');
+const accountRoutes = require('./routes/accountRoutes');
 const productRoutes = require('./routes/productRoutes');
 const errorController = require('./controllers/errorController');
 
@@ -38,7 +38,7 @@ app.use((req, res, next) => {
 });
 
 // Route definitions
-app.use('/', profileRoutes);
+app.use('/', accountRoutes);
 app.use(userRoutes);
 app.use('/', productRoutes);
 
@@ -48,7 +48,7 @@ function redirectIfAuthenticated(req, res, next) {
     if (req.session.user.email === 'admin@localhost.com') {
       return res.redirect('/dashboard');
     } else {
-      return res.redirect('/profile');
+      return res.redirect('/account');
     }
   }
   next();

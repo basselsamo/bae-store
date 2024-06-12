@@ -10,14 +10,14 @@ router.post('/register', userController.registerUser);
 // User login
 router.post('/login', userController.loginUser);
 
-// Fetch User Profile Settings
-router.get('/profile/details', userController.getUserDetails);
+// Fetch User Account Details
+router.get('/account/details', userController.getUserDetails);
 
-// Update User Profile Settings
-router.post('/profile/details', userController.updateUserDetails);
+// Update User Account Details
+router.post('/account/details', userController.updateUserDetails);
 
-// Delete User Profile
-router.post('/profile/delete', userController.deleteUserProfile);
+// Delete User Account
+router.post('/account/delete', userController.deleteUserAccount);
 
 // Access to exclusive products
 // router.get('/products', userController.getExclusiveProducts);

@@ -14,7 +14,7 @@ exports.registerUser = (req, res) => {
   User.findOne({ $or: [{ email: email }] }).exec()
     .then(existingUser => {
       if (existingUser) {
-        req.flash('failMessage', 'User Already Registered! Use Different Email.');
+        req.flash('failMessage', 'User Is Already Registered! Use A Different Email Address.');
         res.redirect('/register');
         return Promise.reject('UserExistsError'); // Prevent further execution
       }
@@ -38,7 +38,7 @@ exports.registerUser = (req, res) => {
         if (user.email === 'admin@localhost.com') {
           res.redirect('/dashboard');  // Redirect to the admin dashboard
         } else {
-          res.redirect('/profile'); // Redirect to the standard user profile
+          res.redirect('/account'); // Redirect to the standard user Account
         }
       }
     })
@@ -46,7 +46,7 @@ exports.registerUser = (req, res) => {
       if (error !== 'UserExistsError') {
         console.error("Registration error:", error);
         if (!res.headersSent) {
-          req.flash('failMessage', 'An Unknown Error Occurred! Try Again Later.');
+          req.flash('failMessage', 'An Unknown Error Has Occurred! Please Try Again Later.');
           res.redirect('/register');
         }
       }
@@ -59,7 +59,7 @@ exports.loginUser = (req, res) => {
   User.findOne({ email: email }).exec()
     .then(user => {
       if (!user) {
-        req.flash('failMessage', 'User Not Found! Check Email Address.');
+        req.flash('failMessage', 'User Was Not Found! Please Check Your Email Address.');
         res.redirect('/login');
         return Promise.reject('abort'); // Early exit from the promise chain
       }
@@ -68,20 +68,20 @@ exports.loginUser = (req, res) => {
     })
     .then(isMatch => {
       if (!isMatch) {
-        req.flash('failMessage', 'Password Is Incorrect! Re-Enter Password.');
+        req.flash('failMessage', 'Your Password Is Incorrect! Re-Enter Your Password.');
         res.redirect('/login');
       } else {
         req.session.user = { id: foundUser._id, email: foundUser.email, firstName: foundUser.firstName }; // Use foundUser here
         if (foundUser.email === 'admin@localhost.com') {
           res.redirect('/dashboard'); // Redirect to the admin dashboard
         } else {
-          res.redirect('/profile'); // Redirect to the standard user profile
+          res.redirect('/account'); // Redirect to the standard user account
         }
       }
     })
     .catch(error => {
       if (error !== 'abort') {
-        req.flash('failMessage', 'An Unknown Error Occurred! Try Again Later.');
+        req.flash('failMessage', 'An Unknown Error Has Occurred! Please Try Again Later.');
         res.redirect('/login');
       }
     });
@@ -93,7 +93,7 @@ exports.getUserDetails = (req, res) => {
   }
   User.findById(req.session.user.id).exec()
     .then(user => res.render('details', { user }))
-    .catch(error => res.status(500).send("Error fetching user details: " + error) + '<a href="/profile">Return to profile</a>');
+    .catch(error => res.status(500).send("Error fetching user details: " + error) + '<a href="/account">Return to account</a>');
 };
 
 exports.updateUserDetails = (req, res) => {
@@ -103,27 +103,27 @@ exports.updateUserDetails = (req, res) => {
   if (password) { // Check if password field is not empty
     bcrypt.hash(password, 10, (err, hashedPassword) => {
       if (err) {
-        req.flash('failMessage', 'Failed With Updating The Password! Try Again.');
-        res.redirect('/profile/details');
+        req.flash('failMessage', 'Failed While Updating Your Password! Please Try Again.');
+        res.redirect('/account/details');
       }
       updateObject.password = hashedPassword;
-      updateProfile(updateObject, req, res);
+      updateDetails(updateObject, req, res);
     });
   } else {
-    updateProfile(updateObject, req, res);
+    updateDetails(updateObject, req, res);
   }
 };
 
-function updateProfile(updateObject, req, res) {
+function updateDetails(updateObject, req, res) {
   User.findByIdAndUpdate(req.session.user.id, { $set: updateObject }, { new: true }).exec()
     .then(() => {
-      req.flash('successMessage', 'Profile Details Updated Successfully!');
-      res.redirect('/profile/details');
+      req.flash('successMessage', 'Account Details Were Updated Successfully!');
+      res.redirect('/account/details');
     })
-    .catch(error => res.status(500).send("Error updating user details: " + error + '<a href="/profile/details">Return to profile details</a>'));
+    .catch(error => res.status(500).send("Error updating user details: " + error + '<a href="/account/details">Return to account details</a>'));
 }
 
-exports.deleteUserProfile = (req, res) => {
+exports.deleteUserAccount = (req, res) => {
   if (!req.session.user) {
     return res.redirect('/login');
   }
@@ -139,8 +139,8 @@ exports.deleteUserProfile = (req, res) => {
     })
     .then(passwordMatch => {
       if (!passwordMatch) {
-        req.flash('failMessage', 'Password Incorrect! Re-Enter Password.');
-        res.redirect('/profile/details');
+        req.flash('failMessage', 'Your Password Is Incorrect! Re-Enter Your Password.');
+        res.redirect('/account/details');
         return Promise.reject('PasswordIncorrect');
       }
       return User.findByIdAndDelete(req.session.user.id).exec();
@@ -154,16 +154,7 @@ exports.deleteUserProfile = (req, res) => {
         return; // Errors handled within the flow
       }
       console.error("Deletion error:", error);
-      req.flash('failMessage', 'Unknown Error Occurred! Try Again Later.');
-      res.redirect('/profile/details');
+      req.flash('failMessage', 'Unknown Error Has Occurred! Please Try Again Later.');
+      res.redirect('/account/details');
     });
 };
-
-// exports.getExclusiveProducts = (req, res) => {
-//   if (req.session.userId) {
-//     res.redirect('/products');
-//   } else {
-//     req.flash('failMessage', 'Only Members Allowed! Login Or Register Now.');
-//     res.redirect('/login');
-//   }
-// };

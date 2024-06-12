@@ -16,7 +16,7 @@
     </script>
 </head>
 <body>
-    <%- include('partials/header', {title: 'Products'}) %>
+    <%- include('partials/in-header', {title: 'Products'}) %>
     <h1>Products</h1>
     <div class="product-grid">
         <% products.forEach(product => { 
@@ -48,7 +48,12 @@
                             </div>
                         <% }) %>
                     </div>
-                    <button type="submit" class="fas fa-cart-plus" <%= inStock ? '' : 'disabled' %>></button>
+                    <div class="sub-buttons">
+                    <button type="submit" class="fas fa-cart-plus" <%= inStock ? '' : 'disabled' %>>Add</button>
+                    <div class="fav-item">
+                        <button type="submit" class="fas fa-heart"></button>
+                    </div>
+                </div>
                 </form>
             </div>
         <% }) %>

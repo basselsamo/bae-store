@@ -1,63 +1,63 @@
 /* styles.css */
 
+/*General*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 0px;
-  color: #333;
+  background-color: #F5F5F2;
+  /* margin: 0;
+  padding: 0px; */
+  color: #252520;
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* Ensures the footer is at the bottom of the page */
 }
-
-.constructions-background {
-  background-image: url('/images/constructions.jpg');
-  background-size: cover; /* Cover the entire viewable area */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Prevent the image from repeating */
-  min-height: 100vh; /* Ensure it covers at least the whole height of the viewport */
-}
-
-.comingsoon-background {
-  background-image: url('/images/comingsoon.jpg');
-  background-size: cover; /* Cover the entire viewable area */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Prevent the image from repeating */
-  min-height: 100vh; /* Ensure it covers at least the whole height of the viewport */
-}
-
-.error404-background {
-  background-image: url('/images/error404.jpg');
-  background-size: cover; /* Cover the entire viewable area */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Prevent the image from repeating */
-  min-height: 100vh; /* Ensure it covers at least the whole height of the viewport */
-}
-
-form {
-  background: white;
+form input {
   border-radius: 8px;
-  margin: 20px auto; /* Centers the form */
-  width: 30%; /* Adjust width to fit your design preference */
-  max-width: 500; /* Maximum width */
+  height: 50px;
 }
-
-.data-form {
-  background: white;
-  padding: 20px;
+button {
+  border: none;
+  padding: 10px 20px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  margin: 20px auto; /* Centers the form */
-  width: 30%; /* Adjust width to fit your design preference */
-  max-width: 500; /* Maximum width */
 }
 
-.profile-form {
-  background: #f4f4f4;
+/* Login & Register */
+.login-form, .register-form {
+  border-radius: 8px;
+  margin: 50px auto; /* Centers the form */
+  padding: 0 40px 0 40px;
+  width: 675px; /* Adjust width to fit your design preference */
+}
+.login-form h1, .register-form h1 {
+  text-align: center;
+  padding-bottom: 20px;
+}
+.login-form p, .register-form p {
+  padding-bottom: 20px;
+  font-weight: bold;
+}
+.login-button, .register-button {
+  color: white;
+  background-color: #34A853;
+  width: 595px;
+  height: 45px;
+}
+.login-button:hover, .register-button:hover {
+  background-color: #2b9a49;
+}
+
+/* Profile Details*/
+.account-details-form {
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
   margin: 20px auto; /* Centers the form */
   width: 90%; /* Adjust width to fit your design preference */
   max-width: 1500px; /* Maximum width */
@@ -72,43 +72,24 @@ input[type="text"], input[type="password"], input[type="email"] {
   box-sizing: border-box;
 }
 
-button {
-  background-color: #5c67f2;
+.update-details-button {
   color: white;
-  border: none;
-  padding: 10px 20px;
-  text-transform: uppercase;
-  cursor: pointer;
-  border-radius: 4px;
+  background-color: #34A853;
+  width: 410px;
+  height: 45px;
+}
+.delete-account-button {
+  color: white;
+  background-color: #EA4335;
+  width: 410px;
+  height: 45px;
 }
 
-button:hover {
-  background-color: #5058e5;
+.delete-account-button:hover {
+  background-color: #de2514;
 }
-
-/* Additional styles for login page */
-.login-button {
-  background-color: #4CAF50;
-}
-
-.login-button:hover {
-  background-color: #45a049;
-}
-
-.register-button {
-  background-color: rgb(255, 136, 0)
-}
-
-.register-button:hover {
-  background-color: rgb(255, 115, 0)
-}
-
-.delete-button {
-  background-color: rgb(255, 58, 28);
-}
-
-.delete-button:hover {
-  background-color: red;
+.update-details-button:hover {
+  background-color: #2b9a49;
 }
 
 input[disabled], input[readonly] {
@@ -117,58 +98,131 @@ input[disabled], input[readonly] {
   cursor: not-allowed;
 }
 
-/*New*/
-
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Navigation Tabs */
-.nav-tabs {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  background-color: #5058e5;
-}
-
-.nav-tabs li {
-  margin: 0 10px;
-}
-
-.nav-tabs a {
-  display: block;
-  padding: 10px 20px;
-  color: white;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.nav-tabs a:hover {
-  background-color: #9159ff;
-}
-
-header, footer {
-  background-color: #5058e5;
+footer {
+  background-image: linear-gradient(to bottom right, #fe8a1f, #fc9434);
   color: white;
   padding: 10px 0;
   text-align: center;
 }
 
+header {
+  background-image: linear-gradient(to bottom right, #fe8a1f, #fc9434);
+  /* padding: 10px 0; */
+  text-align: center;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  padding-top: 35px;
+}
+
+.out-logo {
+  width: 150px;
+  height: auto;
+  padding-top: 35px;
+}
+
+.nav-tabs {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+}
+
+/* Navigation Tabs */
+.nav-tabs-left {
+  list-style: none;
+  display: flex;
+  justify-content: left;
+}
+
+.nav-tabs-right {
+  list-style: none;
+  display: flex;
+  justify-content: right;
+}
+
+.nav-tabs-left a {
+  display: block;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  transition: background-color 0.3s ease;
+}
+
+.nav-tabs-left a:hover {
+  border-bottom: 3px solid #252520;
+}
+
+.nav-tabs-right a {
+  display: block;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  transition: background-color 0.3s ease;
+}
+
+.nav-tabs-right a:hover {
+  border-bottom: 3px solid #252520;
+}
+
+
 footer {
-  margin-top: auto; /* Pushes the footer to the bottom */
+  margin-top: auto;
 }
 
 main {
   flex: 1;
 }
 
-.form-actions {
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place the video behind other content */
+  overflow: hidden;
+}
+
+.video-background iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Ensure the video doesn't block interactions with other elements */
+  /* filter: blur(10px); */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f2ef;
+}
+
+.pack {
   display: flex;
-  align-items: center;
-  gap: 20px; /* Adjust this value for the desired spacing */
+  gap: 20px;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .video-background iframe {
+      height: 300%;
+      top: -100%;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .video-background iframe {
+      width: 300%;
+      left: -100%;
+  }
 }
 
 /*New 2*/
@@ -176,12 +230,16 @@ main {
 /* Layout styles for main content and sidebar */
 .container {
   display: flex; /* Establishes a flex container */
-  min-height: 80vh; /* Adjust based on your header/footer height */
 }
 
 .sidebar {
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
   width: 200px; /* Set width of the sidebar */
-  background-color: #f4f4f4; /* Light background for the sidebar */
+  padding: 20px;
+}
+
+.main-content {
+  flex: 1; /* Takes up the remaining space */
   padding: 20px;
 }
 
@@ -208,15 +266,10 @@ main {
 }
 
 .nav .active {
-  background-color: #5058e5; /* Darker shade for active link */
+  background-color: #4285F4; /* Darker shade for active link */
   color: white; /* White text for visibility */
 }
 
-.main-content {
-  flex: 1; /* Takes up the remaining space */
-  padding: 20px;
-  background-color: white; /* Main content background */
-}
 
 /* Styles for responsive design */
 @media (max-width: 768px) {
@@ -237,12 +290,12 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: end;
   height: 38vh;
 }
 
 .error-page h1 {
-  color: rgb(255, 58, 28); /* Red color for error headings */
+  color: #EA4335;
 }
 
 .error-page p, .error-page ul {
@@ -252,7 +305,7 @@ main {
 
 .error-page a {
   display: inline-block;
-  background-color: rgb(255, 58, 28);
+  background-color: #EA4335;
   color: white;
   padding: 10px 20px;
   margin-top: 20px;
@@ -262,7 +315,7 @@ main {
 }
 
 .error-page a:hover {
-  background-color: red;
+  background-color: #EA4335;
 }
 
 .form-row {
@@ -285,23 +338,25 @@ input[type="text"], input[type="password"], input[type="email"] {
 }
 
 .alert-success-updating {
-  color: green;
+  color: #34A853;
 }
 
 .alert-fail-deleting {
-  color: red;
+  color: #EA4335;
 }
 
 .alert-success {
-  color: green;
+  color: #34A853;
   padding-top: 20px;
   text-align: center;
 }
 
 .alert-fail {
-  color: red;
+  color: #EA4335;
   padding-top: 20px;
   text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 /* Product Grid */
@@ -321,7 +376,7 @@ input[type="text"], input[type="password"], input[type="email"] {
 
 .product-card .brand {
   float: left;
-  max-width: 25%;
+  max-width: 15%;
   height: auto;
   padding-left: 10px;
   margin-right: 10px;
@@ -331,8 +386,16 @@ input[type="text"], input[type="password"], input[type="email"] {
   max-width: 75%;
   height: auto;
   display: block;
-  margin: 10px auto;
+  margin: auto;
   clear: left;
+}
+
+.product-card h3 {
+  margin-bottom: 10px;
+}
+
+.product-card p {
+  margin-bottom: 10px;
 }
 
 .product-card {
@@ -353,7 +416,7 @@ input[type="text"], input[type="password"], input[type="email"] {
   display: flex;
   gap: 10px;
   justify-content: center;
-  margin-top: 10px;
+ 
 }
 
 .size-option {
@@ -363,6 +426,7 @@ input[type="text"], input[type="password"], input[type="email"] {
   cursor: pointer;
   user-select: none;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .size-option.disabled {
@@ -376,7 +440,24 @@ input[type="text"], input[type="password"], input[type="email"] {
 }
 
 .basket-form button {
-  padding: 5px 75px;
+  padding: 10px 85px;
+  background-color: #fbbc05;
+}
+
+
+.fav-item button {
+  display: flex;
+  padding: 10px 15px;
+  background-color: #EA4335;
+  margin-left: 10px;
+}
+
+.sub-buttons {
+  display: flex;
+}
+
+.basket-form button:hover {
+  background-color: #34A853;
 }
 
 .basket-form input[disabled], .basket-form button[disabled] {
@@ -387,9 +468,9 @@ input[type="text"], input[type="password"], input[type="email"] {
 
 /* Availability */
 .available {
-  color: green;
+  color: #34A853;
 }
 
 .not-available {
-  color: red;
+  color: #EA4335;
 }
