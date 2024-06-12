@@ -75,7 +75,7 @@ exports.loginUser = (req, res) => {
         if (foundUser.email === 'admin@localhost.com') {
           res.redirect('/dashboard'); // Redirect to the admin dashboard
         } else {
-          res.redirect('/account'); // Redirect to the standard user account
+          res.redirect('/products'); // Redirect to the standard user account
         }
       }
     })
@@ -147,7 +147,7 @@ exports.deleteUserAccount = (req, res) => {
     })
     .then(() => {
       req.session.destroy();
-      res.redirect('/login');
+      res.redirect('/');
     })
     .catch(error => {
       if (['UserNotFound', 'PasswordIncorrect'].includes(error)) {

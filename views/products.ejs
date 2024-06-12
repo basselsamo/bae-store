@@ -17,6 +17,20 @@
 </head>
 <body>
     <%- include('partials/in-header', {title: 'Products'}) %>
+    <div class="container">
+    <aside class="sidebar">
+        <ul class="nav">
+            <h2>Filter Products</h2>
+            <p>No filters to apply yet.</p>
+            <!-- <li><a href="/account/orders"><i class="fas fa-box"></i>Recent Orders</a></li>
+            <li><a href="/account/returns"><i class="fas fa-undo"></i>Recent Returns</a></li>
+            <li><a href="/account/favorites"><i class="fas fa-heart"></i>Favorite Products</a></li>
+            <li><a href="/account/details"><i class="fas fa-user-circle"></i>Personal Details</a></li>
+            <li><a href="/account/settings"><i class="fas fa-cog"></i>Account Settings</a></li>
+            <li><a href="/logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li> -->
+        </ul>
+    </aside>
+    <main class="main-content">
     <h1>Products</h1>
     <div class="product-grid">
         <% products.forEach(product => { 
@@ -49,7 +63,7 @@
                         <% }) %>
                     </div>
                     <div class="sub-buttons">
-                    <button type="submit" class="fas fa-cart-plus" <%= inStock ? '' : 'disabled' %>>Add</button>
+                    <button type="submit" <%= inStock ? '' : 'disabled' %>> <i class="fas fa-cart-plus"></i> ADD TO CART</button>
                     <div class="fav-item">
                         <button type="submit" class="fas fa-heart"></button>
                     </div>
@@ -58,6 +72,8 @@
             </div>
         <% }) %>
     </div>
+</main>
+</div>
     <%- include('partials/footer') %>
 </body>
 </html>

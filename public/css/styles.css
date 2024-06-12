@@ -111,39 +111,41 @@ header {
   text-align: center;
 }
 
-.logo {
-  width: 150px;
+.logo, .out-logo {
+  width: 70px;
   height: auto;
-  padding-top: 35px;
+  padding-top: 15px;
+  
+  display: inline;
 }
 
-.out-logo {
-  width: 150px;
-  height: auto;
-  padding-top: 35px;
-}
+/* .nav-tabs {
+  width: 20%;
+  display: inline;
+  
+} */
 
-.nav-tabs {
+.nav-pos {
   display: flex;
+  flex-direction: row;
   align-items: end;
   justify-content: space-between;
+  padding: 0px 10px 10px 30px;
 }
 
 /* Navigation Tabs */
-.nav-tabs-left {
+.nav-tabs-left ul {
   list-style: none;
-  display: flex;
-  justify-content: left;
+  justify-content: center;
+  
 }
 
-.nav-tabs-right {
+.nav-tabs-right ul {
   list-style: none;
-  display: flex;
-  justify-content: right;
+  justify-content: center;
 }
 
 .nav-tabs-left a {
-  display: block;
   padding: 10px 20px;
   color: white;
   text-decoration: none;
@@ -156,7 +158,6 @@ header {
 }
 
 .nav-tabs-right a {
-  display: block;
   padding: 10px 20px;
   color: white;
   text-decoration: none;
@@ -233,9 +234,9 @@ main {
 }
 
 .sidebar {
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  width: 200px; /* Set width of the sidebar */
-  padding: 20px;
+  /* box-shadow: 0 0 10px rgba(0,0,0,0.1); */
+  width: 350px; /* Set width of the sidebar */
+  /* padding: 20px; */
 }
 
 .main-content {
@@ -245,6 +246,8 @@ main {
 
 .nav {
   list-style-type: none; /* Removes bullets from list */
+  padding-top: 100px;
+  padding-left: 175px;
 }
 
 .nav li {
@@ -253,22 +256,22 @@ main {
 
 /* Navigation link styles */
 .nav a {
-  color: #333; /* Dark text for readability */
+  color: #252520; /* Dark text for readability */
   text-decoration: none; /* Removes underline */
   transition: background-color 0.3s ease; /* Smooth transition for background */
   display: block; /* Makes the entire area clickable */
   padding: 10px; /* Padding for better touch target size */
+  /* padding-left: 175px; */
 }
 
-.nav a:hover, .nav a:active {
-  background-color: #9159ff; /* Purple background on hover/active */
-  color: white; /* White text for contrast */
+.nav a:hover {
+  color: #fc9434;
 }
 
-.nav .active {
-  background-color: #4285F4; /* Darker shade for active link */
-  color: white; /* White text for visibility */
-}
+/* .nav .active {
+  background-color: #4285F4; 
+  color: white;
+} */
 
 
 /* Styles for responsive design */
@@ -362,9 +365,10 @@ input[type="text"], input[type="password"], input[type="email"] {
 /* Product Grid */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 20px;
+  padding-right: 175px;
 }
 
 .product-card {
@@ -416,7 +420,6 @@ input[type="text"], input[type="password"], input[type="email"] {
   display: flex;
   gap: 10px;
   justify-content: center;
- 
 }
 
 .size-option {
@@ -441,7 +444,8 @@ input[type="text"], input[type="password"], input[type="email"] {
 
 .basket-form button {
   padding: 10px 85px;
-  background-color: #fbbc05;
+  background-color: #fc9434;
+  color: white;
 }
 
 
@@ -449,6 +453,7 @@ input[type="text"], input[type="password"], input[type="email"] {
   display: flex;
   padding: 10px 15px;
   background-color: #EA4335;
+  color: white;
   margin-left: 10px;
 }
 

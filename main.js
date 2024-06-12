@@ -71,7 +71,7 @@ app.get('/logout', (req, res) => {
           console.log(err);
           res.redirect("Error logging out");
       } else {
-          res.redirect('/login');
+          res.redirect('/');
       }
   });
 });
