@@ -4,21 +4,29 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 body {
   font-family: Arial, sans-serif;
   background-color: #F5F5F2;
-  /* margin: 0;
-  padding: 0px; */
   color: #252520;
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* Ensures the footer is at the bottom of the page */
 }
-form input {
+input[type="text"], input[type="password"], input[type="email"] {
+  width: calc(100% - 22px);
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
   border-radius: 8px;
   height: 50px;
+}
+input[disabled], input[readonly] {
+  background-color: #e0e0e0;
+  color: #686868;
+  cursor: not-allowed;
 }
 button {
   border: none;
@@ -29,10 +37,10 @@ button {
   border-radius: 8px;
 }
 
-/* Login & Register */
+/* Login & Register Pages*/
 .login-form, .register-form {
   border-radius: 8px;
-  margin: 50px auto; /* Centers the form */
+  margin: 100px auto; /* Centers the form */
   padding: 0 40px 0 40px;
   width: 675px; /* Adjust width to fit your design preference */
 }
@@ -47,83 +55,61 @@ button {
 .login-button, .register-button {
   color: white;
   background-color: #34A853;
-  width: 595px;
+  width: 673px;
   height: 45px;
 }
 .login-button:hover, .register-button:hover {
   background-color: #2b9a49;
 }
 
-/* Profile Details*/
-.account-details-form {
-  padding: 30px;
-  border-radius: 8px;
-  margin: 20px auto; /* Centers the form */
-  width: 90%; /* Adjust width to fit your design preference */
-  max-width: 1500px; /* Maximum width */
+/*Headers, Footers * Navigators*/
+header {
+  background-image: linear-gradient(to bottom right, #fe8a1f, #fc9434);
+  text-align: center;
 }
-
-input[type="text"], input[type="password"], input[type="email"] {
-  width: calc(100% - 22px);
-  padding: 10px;
-  margin-top: 8px;
-  margin-bottom: 16px;
-  border: 1px solid #ddd;
-  box-sizing: border-box;
-}
-
-.update-details-button {
-  color: white;
-  background-color: #34A853;
-  width: 410px;
-  height: 45px;
-}
-.delete-account-button {
-  color: white;
-  background-color: #EA4335;
-  width: 410px;
-  height: 45px;
-}
-
-.delete-account-button:hover {
-  background-color: #de2514;
-}
-.update-details-button:hover {
-  background-color: #2b9a49;
-}
-
-input[disabled], input[readonly] {
-  background-color: #e0e0e0;
-  color: #686868;
-  cursor: not-allowed;
-}
-
 footer {
   background-image: linear-gradient(to bottom right, #fe8a1f, #fc9434);
   color: white;
   padding: 10px 0;
   text-align: center;
+  margin-top: auto;
 }
-
-header {
-  background-image: linear-gradient(to bottom right, #fe8a1f, #fc9434);
-  /* padding: 10px 0; */
-  text-align: center;
-}
-
 .logo, .out-logo {
   width: 70px;
   height: auto;
   padding-top: 15px;
-  
   display: inline;
 }
 
-/* .nav-tabs {
-  width: 20%;
-  display: inline;
-  
-} */
+/* Profile Details Page*/
+.account-details-form {
+  padding: 50px 175px 50px 20px;
+}
+.update-details-button {
+  color: white;
+  background-color: #34A853;
+  width: 360px;
+  height: 45px;
+}
+.update-details-button:hover {
+  background-color: #2b9a49;
+}
+.delete-account-button {
+  color: white;
+  background-color: #EA4335;
+  width: 360px;
+  height: 45px;
+}
+.delete-account-button:hover {
+  background-color: #de2514;
+}
+.confirm-pass-to-del {
+  margin-top: 30px;
+  width: 740px;
+}
+
+
+
 
 .nav-pos {
   display: flex;
@@ -133,11 +119,9 @@ header {
   padding: 0px 10px 10px 30px;
 }
 
-/* Navigation Tabs */
 .nav-tabs-left ul {
   list-style: none;
   justify-content: center;
-  
 }
 
 .nav-tabs-right ul {
@@ -170,13 +154,8 @@ header {
 }
 
 
-footer {
-  margin-top: auto;
-}
 
-main {
-  flex: 1;
-}
+
 
 .video-background {
   position: fixed;
@@ -226,20 +205,15 @@ main {
   }
 }
 
-/*New 2*/
-
-/* Layout styles for main content and sidebar */
 .container {
   display: flex; /* Establishes a flex container */
 }
 
 .sidebar {
-  /* box-shadow: 0 0 10px rgba(0,0,0,0.1); */
   width: 350px; /* Set width of the sidebar */
-  /* padding: 20px; */
 }
 
-.main-content {
+main {
   flex: 1; /* Takes up the remaining space */
   padding: 20px;
 }
@@ -266,22 +240,6 @@ main {
 
 .nav a:hover {
   color: #fc9434;
-}
-
-/* .nav .active {
-  background-color: #4285F4; 
-  color: white;
-} */
-
-
-/* Styles for responsive design */
-@media (max-width: 768px) {
-  .container {
-      flex-direction: column; /* Stack sidebar and main content on smaller screens */
-  }
-  .sidebar {
-      width: 100%; /* Full width for the sidebar on small screens */
-  }
 }
 
 .nav i {
@@ -341,17 +299,29 @@ input[type="text"], input[type="password"], input[type="email"] {
 }
 
 .alert-success-updating {
+  padding-top: 55px;
+  padding-left: 10px ;
   color: #34A853;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
 }
 
 .alert-fail-deleting {
   color: #EA4335;
+  padding-top: 20px;
+  padding-right: 400px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .alert-success {
   color: #34A853;
   padding-top: 20px;
+  text-transform: uppercase;
   text-align: center;
+  font-weight: bold;
 }
 
 .alert-fail {
@@ -361,6 +331,8 @@ input[type="text"], input[type="password"], input[type="email"] {
   text-transform: uppercase;
   font-weight: bold;
 }
+
+Producst
 
 /* Product Grid */
 .product-grid {

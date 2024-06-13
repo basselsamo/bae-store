@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>User Account</title>
+    <title>My Account</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
+<header>
     <%- include('partials/in-header', {title: 'Home Page'}) %>
+</header>
+<body>
     <div class="container">
         <%- include('partials/sidebar') %>
-        <main class="main-content">
+        <main>
             <h1>Welcome, <%= firstName %>!</h1>
             <p>This is your account page. Nothing to show yet.</p>
         </main>
