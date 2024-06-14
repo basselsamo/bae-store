@@ -4,15 +4,17 @@
     <meta charset="utf-8">
     <title><%= title %></title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body class="comingsoon-background">
+<body>
     <% if (isAdmin) { %>
-        <%- include('partials/adminheader', {title: title}) %>
+        <%- include('partials/admin-header', {title: title}) %>
     <% } else { %>
-        <%- include('partials/header', {title: title}) %>
+        <%- include('partials/out-header', {title: title}) %>
     <% } %>
-    <!-- <h1>Welcome to the BAE-Store Homepage!</h1>
-    <p>Nothing to show yet.</p> -->
+    <div class="video-background">
+        <iframe id="video" src="https://www.youtube.com/embed/06wZsa-55UE?autoplay=1&mute=1&controls=0&loop=1&start=0&end=47&playlist=06wZsa-55UE" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
     <%- include('partials/footer') %>
 </body>
 </html>

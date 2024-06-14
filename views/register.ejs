@@ -5,20 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <%- include('partials/header', {title: 'Register'}) %>
-    <h2>Register</h2>
-    <form action="/register" method="POST" class="data-form">
-        First Name: <input type="text" name="firstName" required><br>
-        Last Name: <input type="text" name="lastName" required><br>
-        Email: <input type="email" name="email" required><br>
-        Password: <input type="password" name="password" required><br>
-        Confirm Password: <input type="password" name="confirmPassword" required><br>
-        <div class="form-actions">
-            <button type="submit" class="register-button">Register</button>
-            <p>Already have an account? <a href="/login">Login</a></p>
+    <%- include('partials/out-header', {title: 'Register'}) %>
+    <!-- <div class="video-background">
+        <iframe id="video" src="https://www.youtube.com/embed/06wZsa-55UE?autoplay=1&mute=1&controls=0&loop=1&start=0&end=47&playlist=06wZsa-55UE" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <div class="overlay"></div> -->
+    </div>
+    <form action="/register" method="POST" class="register-form">
+        <h1>I'm new here</h1>
+        <div class="pack">
+            <input type="text" placeholder="First Name*" name="firstName" required>
+            <input type="text" placeholder="Last Name*" name="lastName" required>
         </div>
+        <input type="email" placeholder="Email*" name="email" required>
+        <input type="password" placeholder="Password*" name="password" required><br>
+        <input type="password" placeholder="Confirm Password*" name="confirmPassword" required><br>
+        <button type="submit" class="register-button">Register</button>
+        <p>Already have an account? <a href="/login">Login</a></p>
         <% if (failMessage) { %>
             <div class="alert-fail">
                 <%= failMessage %>

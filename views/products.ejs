@@ -16,43 +16,45 @@
     </script>
 </head>
 <body>
-    <%- include('partials/header', {title: 'Products'}) %>
-    <h1>Products</h1>
-    <div class="product-grid">
-        <% products.forEach(product => { 
-            const inStock = product.productSizesStock.some(sizeStock => sizeStock.stock > 0);
-        %>
-            <div class="product-card">
-                <img src="<%= product.productImages[0] %>" alt="<%= product.productBrand %>" class="brand">
-                <img src="<%= product.productImages[1] %>" alt="<%= product.productTitle %>" class="item">
-                <h3><%= product.productTitle %></h3>
-                <p>Price: €<%= product.productPrice.toFixed(2) %></p>
-                <p>
-                    <span class="<%= inStock ? 'available' : 'not-available' %>">
-                        <%= inStock ? 'In Stock' : 'Out Of Stock' %>
-                    </span>
-                </p>
-                <form action="/basket" method="POST" class="basket-form">
-                    <input type="hidden" name="productId" value="<%= product._id %>">
-                    <input type="hidden" name="size" id="size-<%= product._id %>" value="">
-                    <div class="size-options">
-                        <% product.productSizesStock.forEach(sizeStock => { %>
-                            <div 
-                                class="size-option <%= sizeStock.stock > 0 ? '' : 'disabled' %>" 
-                                data-product-id="<%= product._id %>" 
-                                data-size="<%= sizeStock.size %>"
-                                <% if (sizeStock.stock > 0) { %>
-                                    onclick="selectSize('<%= product._id %>', '<%= sizeStock.size %>')"
-                                <% } %>>
-                                <%= sizeStock.size %>
+    <%- include('partials/in-header', {title: 'Products' }) %>
+        <div class="container">
+            <aside class="sidebar">
+                    <h2>Filter Products</h2>
+                    <p>No filters available to apply yet.</p>
+            </aside>
+            <main>
+                <h1>Products</h1>
+                <div class="product-grid">
+                    <% products.forEach(product=> {
+                        const inStock = product.productSizesStock.some(sizeStock => sizeStock.stock > 0);
+                        %>
+                        <div class="product-card">
+                            <img src="<%= product.productImages[0] %>" alt="<%= product.productBrand %>" class="brand-icon">
+                            <img src="<%= product.productImages[1] %>" alt="<%= product.productTitle %>" class="product-image">
+                            <h4><%= product.productTitle %></h4>
+                            <p>Price: €<%= product.productPrice.toFixed(2) %></p>
+                            <p class="<%= inStock ? 'available' : 'not-available' %>"><%= inStock ? 'In Stock' : 'Out Of Stock' %></p>
+                            <!-- <input type="hidden" name="productId" value="<%= product._id %>">
+                            <input type="hidden" name="size" id="size-<%= product._id %>" value=""> -->
+                            <div class="available-sizes">
+                                <% product.productSizesStock.forEach(sizeStock=> { %>
+                                    <div class="size-option <%= sizeStock.stock > 0 ? '' : 'disabled' %>"
+                                        data-product-id="<%= product._id %>" data-size="<%= sizeStock.size %>" <% if
+                                        (sizeStock.stock> 0) { %>
+                                        onclick="selectSize('<%= product._id %>', '<%= sizeStock.size %>')"
+                                                <% } %>>
+                                                    <%= sizeStock.size %>
+                                    </div>
+                                    <% }) %>
                             </div>
+                            <div class="addtocart-button">
+                                <button type="submit" <%=inStock ? '' : 'disabled' %>> <i class="fas fa-cart-plus"></i> Add to cart</button>
+                            </div>
+                        </div>
                         <% }) %>
-                    </div>
-                    <button type="submit" class="fas fa-cart-plus" <%= inStock ? '' : 'disabled' %>></button>
-                </form>
-            </div>
-        <% }) %>
-    </div>
-    <%- include('partials/footer') %>
+                </div>
+            </main>
+        </div>
+        <%- include('partials/footer') %>
 </body>
 </html>

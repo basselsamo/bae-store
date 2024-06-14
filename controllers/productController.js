@@ -13,7 +13,7 @@ exports.getAllProducts = (req, res) => {
         res.status(500).send("Error fetching products: " + error);
       });
   } else {
-    req.flash('failMessage', 'Only Members Allowed! Login or Register Now.');
+    req.flash('failMessage', 'Only Members Allowed! Login Or Register Now.');
     res.redirect('/login');
   }
 };

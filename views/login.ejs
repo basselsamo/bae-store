@@ -5,23 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <%- include('partials/header', {title: 'Login'}) %>
-    <h2>Login</h2>
-    <form action="/login" method="POST" class="data-form">
-        Email: <input type="email" name="email" required><br>
-        Password: <input type="password" name="password" required><br>
-        <div class="form-actions">
+    <div>
+        <%- include('partials/out-header', {title: 'Login'}) %>
+        <!-- <div class="video-background">
+            <iframe id="video" src="https://www.youtube.com/embed/06wZsa-55UE?autoplay=1&mute=1&controls=0&loop=1&start=0&end=47&playlist=06wZsa-55UE" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            <div class="overlay"></div>
+        </div> -->
+        <form action="/login" method="POST" class="login-form">
+            <h1>Welcome back!</h1>
+            <input type="email" placeholder="Email" name="email" required><br>
+            <input type="password" placeholder="Password" name="password" required><br>
             <button type="submit" class="login-button">Login</button>
             <p>Don't have an account? <a href="/register">Register</a></p>
-        </div>
-        <% if (failMessage) { %>
-            <div class="alert-fail">
-                <%= failMessage %>
-            </div>
-        <% } %>
-    </form>
+            <% if (failMessage) { %>
+                <div class="alert-fail">
+                    <p><%= failMessage %></p>
+                </div>
+            <% } %>
+        </form>
+    </div>
     <%- include('partials/footer') %>
 </body>
 </html>

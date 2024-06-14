@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Admin Dashboard</title>
+    <title>My Account</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <%- include('partials/admin-header', {title: 'Dashboard'}) %>
+    <%- include('partials/in-header', {title: 'Account'}) %>
     <div class="container">
         <aside class="sidebar">
-            <%- include('partials/admin-sidebar') %>
+            <%- include('partials/sidebar', {title: 'Home Page'}) %>
         </aside>
         <main>
-            <h1>Welcome, Boss! It's time to take the lead! :)</h1>
-            <p>This is your administration dashboard. Nothing to show yet.</p>
+            <h1>Welcome, <%= firstName %>!</h1>
+            <p>This is your account page. Nothing to show yet.</p>
         </main>
     </div>
     <%- include('partials/footer') %>

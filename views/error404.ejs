@@ -4,12 +4,12 @@
     <title>Not Found</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
-<body class="error404-background">
+<body>
+    <%- include('partials/out-header', {title: 'Home Page'}) %>
     <div class="error-page">
-        <!-- <h1>Error 404! Page Not Found</h1>
+        <h1>Error 404! Page Not Found</h1>
         <p>Sorry, the page you are trying to view does not exist.</p>
-        <p>This result is due to a mistyped or outdated link. </p> -->
-        <a href="/">Return Home</a>
+        <p>This result is due to a mistyped or outdated link. </p>
     </div>
     <%- include('partials/footer') %>
 </body>
