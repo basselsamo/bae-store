@@ -11,17 +11,17 @@ body {
   color: #252520;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Ensures the footer is at the bottom of the page */
+  min-height: 100vh;
 }
 input[type="text"], input[type="password"], input[type="email"] {
-  width: calc(100% - 22px);
   padding: 10px;
-  margin-top: 8px;
-  margin-bottom: 16px;
+  margin: 10px 0px;
   border: 1px solid #ddd;
   box-sizing: border-box;
   border-radius: 8px;
   height: 50px;
+  font-size: small;
+  width: 100%;
 }
 input[disabled], input[readonly] {
   background-color: #e0e0e0;
@@ -31,18 +31,43 @@ input[disabled], input[readonly] {
 button {
   border: none;
   padding: 10px 20px;
-  margin-top: 40px;
-  margin-bottom: 20px;
   text-transform: uppercase;
   border-radius: 8px;
+  width: 100%;
+  margin: 25px 0px;
+}
+main {
+  padding: 20px;
+  width: 970px;
+}
+.container {
+  display: flex;
+  margin: 0px 250px;
+}
+.pack  {
+  display: flex;
+  gap: 20px;
+}
+.alert-success {
+  color: #34A853;
+  padding-top: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+}
+.alert-fail {
+  color: #EA4335;
+  padding-top: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 /* Login & Register Pages*/
 .login-form, .register-form {
   border-radius: 8px;
-  margin: 100px auto; /* Centers the form */
-  padding: 0 40px 0 40px;
-  width: 675px; /* Adjust width to fit your design preference */
+  margin: 100px auto;
+  width:
 }
 .login-form h1, .register-form h1 {
   text-align: center;
@@ -55,14 +80,14 @@ button {
 .login-button, .register-button {
   color: white;
   background-color: #34A853;
-  width: 673px;
   height: 45px;
+  font-size: small;
 }
 .login-button:hover, .register-button:hover {
   background-color: #2b9a49;
 }
 
-/*Headers, Footers * Navigators*/
+/*Headers, Footers*/
 header {
   background-image: linear-gradient(to bottom right, #fe8a1f, #fc9434);
   text-align: center;
@@ -81,116 +106,117 @@ footer {
   display: inline;
 }
 
-/* Profile Details Page*/
-.account-details-form {
-  padding: 50px 175px 50px 20px;
-}
-.update-details-button {
-  color: white;
-  background-color: #34A853;
-  width: 360px;
-  height: 45px;
-}
-.update-details-button:hover {
-  background-color: #2b9a49;
-}
-.delete-account-button {
-  color: white;
-  background-color: #EA4335;
-  width: 360px;
-  height: 45px;
-}
-.delete-account-button:hover {
-  background-color: #de2514;
-}
-.confirm-pass-to-del {
-  margin-top: 30px;
-  width: 740px;
-}
-
-
-
-
-.nav-pos {
+/*Navigators & Sidebars*/
+.nav-tabs-position {
   display: flex;
   flex-direction: row;
   align-items: end;
   justify-content: space-between;
   padding: 0px 10px 10px 30px;
 }
-
-.nav-tabs-left ul {
+.nav-tabs ul {
   list-style: none;
   justify-content: center;
 }
-
-.nav-tabs-right ul {
-  list-style: none;
-  justify-content: center;
-}
-
-.nav-tabs-left a {
+.nav-tabs a {
   padding: 10px 20px;
   color: white;
   text-decoration: none;
   border-bottom: 3px solid transparent;
-  transition: background-color 0.3s ease;
 }
-
-.nav-tabs-left a:hover {
+.nav-tabs a:hover {
   border-bottom: 3px solid #252520;
 }
-
-.nav-tabs-right a {
-  padding: 10px 20px;
-  color: white;
+.sidebar {
+  width: 200px;
+  padding-top: 100px;
+  flex: 0 0 auto;
+}
+.sidebar ul {
+  list-style-type: none;
+}
+.sidebar li {
+  margin-bottom: 10px;
+}
+.sidebar i {
+  margin-right: 5px; 
+}
+.sidebar a {
+  color: #252520;
   text-decoration: none;
-  border-bottom: 3px solid transparent;
-  transition: background-color 0.3s ease;
+  display: block;
+  padding: 10px;
+}
+.sidebar a:hover {
+  color: #fc9434;
 }
 
-.nav-tabs-right a:hover {
-  border-bottom: 3px solid #252520;
+/* Profile Details Page*/
+.account-details-form {
+  padding: 10px 10px 100px 10px;
+  align-items: center;
+}
+.account-details-form input {
+  width: 50%;
+}
+.account-details-form p {
+  color: #252520;
+  line-height: 2;
+}
+.update-details-button {
+  color: white;
+  background-color: #34A853;
+  width: calc(50% - 10px);
+  height: 45px;
+  font-size: small;
+}
+.update-details-button:hover {
+  background-color: #2b9a49;
+}
+.alert-success-updating {
+  padding-top: 55px;
+  padding-left: 10px ;
+  color: #34A853;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.delete-account-button {
+  color: white;
+  background-color: #EA4335;
+  width: calc(50% - 10px);
+  height: 45px;
+  font-size: small;
+  margin-top: 13px;
+}
+.delete-account-button:hover {
+  background-color: #de2514;
+}
+.alert-fail-deleting {
+  color: #EA4335;
+  padding-top: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
-
-
-
-
+/*Background Video*/
 .video-background {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* Place the video behind other content */
+  z-index: -1;
   overflow: hidden;
 }
-
 .video-background iframe {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none; /* Ensure the video doesn't block interactions with other elements */
-  /* filter: blur(10px); */
+  pointer-events: none;
 }
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #f5f5f2ef;
-}
-
-.pack {
-  display: flex;
-  gap: 20px;
-}
-
 @media (min-aspect-ratio: 16/9) {
   .video-background iframe {
       height: 300%;
@@ -198,55 +224,7 @@ footer {
   }
 }
 
-@media (max-aspect-ratio: 16/9) {
-  .video-background iframe {
-      width: 300%;
-      left: -100%;
-  }
-}
-
-.container {
-  display: flex; /* Establishes a flex container */
-}
-
-.sidebar {
-  width: 350px; /* Set width of the sidebar */
-}
-
-main {
-  flex: 1; /* Takes up the remaining space */
-  padding: 20px;
-}
-
-.nav {
-  list-style-type: none; /* Removes bullets from list */
-  padding-top: 100px;
-  padding-left: 175px;
-}
-
-.nav li {
-  margin-bottom: 10px; /* Space between links */
-}
-
-/* Navigation link styles */
-.nav a {
-  color: #252520; /* Dark text for readability */
-  text-decoration: none; /* Removes underline */
-  transition: background-color 0.3s ease; /* Smooth transition for background */
-  display: block; /* Makes the entire area clickable */
-  padding: 10px; /* Padding for better touch target size */
-  /* padding-left: 175px; */
-}
-
-.nav a:hover {
-  color: #fc9434;
-}
-
-.nav i {
-  margin-right: 5px; /* Space between icon and text */
-}
-
-/* Error Page Specific Styles */
+/* Error 404 & 500*/
 .error-page {
   display: flex;
   flex-direction: column;
@@ -254,200 +232,90 @@ main {
   justify-content: end;
   height: 38vh;
 }
-
 .error-page h1 {
   color: #EA4335;
 }
-
 .error-page p, .error-page ul {
-  color: #666;
+  color: #252520;
   line-height: 1.6;
 }
 
-.error-page a {
-  display: inline-block;
-  background-color: #EA4335;
-  color: white;
-  padding: 10px 20px;
-  margin-top: 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.error-page a:hover {
-  background-color: #EA4335;
-}
-
-.form-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px; /* Adds space between each row */
-}
-
-.form-column {
-  flex: 1; /* Each column takes up an equal amount of space */
-  margin-right: 10px; /* Adds some space between the columns */
-}
-
-.form-column:last-child {
-  margin-right: 0; /* Removes margin from the last column in each row */
-}
-
-input[type="text"], input[type="password"], input[type="email"] {
-  width: 100%; /* Ensures input fields take up the entire column width */
-}
-
-.alert-success-updating {
-  padding-top: 55px;
-  padding-left: 10px ;
-  color: #34A853;
-  text-transform: uppercase;
-  text-align: center;
-  font-weight: bold;
-}
-
-.alert-fail-deleting {
-  color: #EA4335;
-  padding-top: 20px;
-  padding-right: 400px;
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-.alert-success {
-  color: #34A853;
-  padding-top: 20px;
-  text-transform: uppercase;
-  text-align: center;
-  font-weight: bold;
-}
-
-.alert-fail {
-  color: #EA4335;
-  padding-top: 20px;
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-Producst
-
-/* Product Grid */
+/*Producst Page*/
 .product-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 20px;
-  padding-right: 175px;
 }
-
 .product-card {
+  width: 281px;
   border: 1px solid #ddd;
+  border-radius: 8px;
   background-color: white;
   padding: 10px;
+  margin:10px;
   text-align: center;
 }
-
-.product-card .brand {
-  float: left;
-  max-width: 15%;
-  height: auto;
+.product-card .brand-icon {
+  display: flex;
+  align-items: end;
+  max-width: 50px;
+  max-height: 50px;
   padding-left: 10px;
-  margin-right: 10px;
 }
-
-.product-card .item {
-  max-width: 75%;
-  height: auto;
-  display: block;
-  margin: auto;
-  clear: left;
+.product-card .product-image {
+  max-width: 250px;
+  max-height: 250px;
 }
-
-.product-card h3 {
+.product-card h4 {
   margin-bottom: 10px;
 }
-
 .product-card p {
   margin-bottom: 10px;
 }
-
-.product-card {
-  overflow: hidden; /* Ensures the container clears the floated elements */
-  margin-bottom: 20px; /* Adds space between product cards */
+.available {
+  color: #34A853;
 }
-
-.basket-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
+.not-available {
+  color: #EA4335;
 }
-
-.size-options {
+.available-sizes {
   display: flex;
   gap: 10px;
   justify-content: center;
 }
-
 .size-option {
-  padding: 5px 10px;
-  background-color: #f0f0f0;
+  padding: 10px 10px;
+  background-color: #F5F5F2;
   border: 1px solid #ccc;
-  cursor: pointer;
-  user-select: none;
+  border-radius: 8px;
   text-align: center;
-  margin-bottom: 20px;
 }
-
 .size-option.disabled {
   color: #ccc;
   cursor: not-allowed;
 }
-
 .size-option.selected {
-  border-color: #000;
-  font-weight: bold;
-}
-
-.basket-form button {
-  padding: 10px 85px;
+  border-color: #fc9434;
+  color: white;
   background-color: #fc9434;
+}
+.size-option:hover {
+  border-color: #fc9434;
+  background-color: #fc9434;;
   color: white;
 }
-
-
-.fav-item button {
-  display: flex;
-  padding: 10px 15px;
-  background-color: #EA4335;
-  color: white;
-  margin-left: 10px;
-}
-
-.sub-buttons {
-  display: flex;
-}
-
-.basket-form button:hover {
+.addtocart-button button {
   background-color: #34A853;
+  color: white;
+  text-transform: uppercase;
+  width: 250px;
+  height: 45px;
+  font-size: small;
 }
-
-.basket-form input[disabled], .basket-form button[disabled] {
+.addtocart-button button:hover {
+  background-color: #2b9a49;
+}
+.addtocart-button button[disabled] {
   background-color: #e0e0e0;
   color: #a0a0a0;
   cursor: not-allowed;
-}
-
-/* Availability */
-.available {
-  color: #34A853;
-}
-
-.not-available {
-  color: #EA4335;
 }

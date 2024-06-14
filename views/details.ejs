@@ -1,59 +1,60 @@
+<!DOCTYPE html>
+<html>
 <head>
   <title>Personal Details</title>
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script>
+    function confirmDelete() {
+      return confirm('Are you sure you want to permanently delete your account?');
+    }
+  </script>
 </head>
-<header>
-  <%- include('partials/in-header', {title: 'Register' }) %>
-</header>
 <body>
-    <div class="container">
+  <%- include('partials/in-header', {title: 'Personal Details' }) %>
+  <div class="container">
+    <aside class="sidebar">
       <%- include('partials/sidebar') %>
-        <main>
-          <h2>Account Details</h2>
-          <form action="/account/details" method="post" class="account-details-form">
-            <div class="pack">
-              <input type="text" name="firstName" placeholder="First Name" value="<%= user.firstName %>" required>
-              <input type="text" name="lastName" placeholder="Last Name" value="<%= user.lastName %>" required>
-              <input type="text" name="email" placeholder="Email" value="<%= user.email %>" disabled
-                title="Currently Prohibited." required>
+    </aside>
+    <main>
+      <h2>Account Details</h2>
+      <form action="/account/details" method="post" class="account-details-form">
+        <div class="pack">
+          <input type="text" name="firstName" placeholder="First Name" value="<%= user.firstName %>" required>
+          <input type="text" name="lastName" placeholder="Last Name" value="<%= user.lastName %>" required>
+        </div>
+        <div class="pack">
+          <input type="text" name="email" placeholder="Email" value="<%= user.email %>" disabled title="Currently Prohibited." required>
+          <input type="text" name="address" placeholder="Enter Full Address" value="<%= user.address %>">
+        </div>
+        <div class="pack">
+          <input type="text" name="phoneNumber" placeholder="0049XXXXXXXXXX" value="<%= user.phoneNumber %>">
+          <input type="password" name="password" placeholder="Enter New Password">
+        </div>
+        <div class="pack">
+          <button type="submit" value="Update" class="update-details-button">Update My Account Details</button>
+          <% if (successMessage) { %>
+            <div class="alert-success-updating">
+              <%= successMessage %>
             </div>
-            <div class="pack">
-              <input type="text" name="address" placeholder="Enter Full Address" value="<%= user.address %>">
-              <input type="text" name="phoneNumber" placeholder="0049XXXXXXXXXX" value="<%= user.phoneNumber %>">
-              <input type="password" name="password" placeholder="Enter New Password">
-            </div>
-            <div class="pack">
-              <button type="submit" value="Update" class="update-details-button">Update My Account Details</button>
-              <% if (successMessage) { %>
-                <div class="alert-success-updating">
-                  <%= successMessage %>
-                </div>
-                <% } %>
-            </div>
-          </form>
-          <br>
-          <h2>Delete Your Account</h2>
-          <form action="/account/delete" method="post" onsubmit="return confirmDelete();" class="account-details-form"">
-            <p>This action cannot be reversed! Enter your password to confirm deletion:</p>
-            <div class=" pack">
-              <div class="confirm-pass-to-del">
-                <input type="password" name="password" placeholder="Enter Your Password" required>
-              </div>
-              <button type="submit" class="delete-account-button">Delete My Account Forever</button>
-            </div>
-            <% if (failMessage) { %>
-              <div class="alert-fail-deleting">
-                <%= failMessage %>
-              </div>
             <% } %>
-          </form>
-        </main>
-      </div>
+        </div>
+      </form>
+      <h2>Delete Your Account</h2>
+      <form action="/account/delete" method="post" onsubmit="return confirmDelete();" class="account-details-form"">
+        <p>This action cannot be reverted! Enter your password to proceed with deletion:</p>
+        <div class=" pack">
+          <input type="password" name="password" placeholder="Enter Your Password" required>
+          <button type="submit" class="delete-account-button">Delete My Account Forever</button>
+        </div>
+        <% if (failMessage) { %>
+          <div class="alert-fail-deleting">
+            <%= failMessage %>
+          </div>
+          <% } %>
+      </form>
+    </main>
+  </div>
 </body>
-<script>
-  function confirmDelete() {
-    return confirm('Are you sure you want to delete your account? This action cannot be reverted.');
-  }
-</script>
 <%- include('partials/footer') %>
+</html>
