@@ -67,7 +67,7 @@ main {
 .login-form, .register-form {
   border-radius: 8px;
   margin: 100px auto;
-  width:
+  width: 675px;
 }
 .login-form h1, .register-form h1 {
   text-align: center;

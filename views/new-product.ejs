@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create New Product</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <%- include('partials/admin-header', {title: 'Create New Product'}) %>
+    <div class="container">
+        <aside class="sidebar">
+            <%- include('partials/sidebar', {title: 'Sidebar'}) %>
+        </aside>
+        <main>
+            <h1>Add New Product</h1>
+            <form action="/products/new-product" method="post" class="new-product-form" onsubmit="return validateCheckboxes()">
+                <label for="productTitle" class="section-label">Product Title:</label>
+                <input type="text" name="productTitle" required><br>
+
+                <label for="productBrand" class="section-label">Product Brand:</label>
+                <input type="text" name="productBrand" required><br>
+
+                <label for="productSKU" class="section-label">Product SKU:</label>
+                <input type="text" name="productSKU" required><br>
+
+                <label for="productYear" class="section-label">Product Year:</label>
+                <input type="number" name="productYear" required><br>
+
+                <label for="productMaterials" class="section-label">Product Materials:</label>
+                <input type="text" name="productMaterials" required><br>
+
+                <label for="productDescription" class="section-label">Product Description:</label>
+                <input type="text" name="productDescription" required><br>
+
+                <label for="productCategories" class="section-label">Product Categories:</label>
+                <input type="text" name="productCategories" required><br>
+
+                <label for="productSeasons" class="section-label">Product Seasons:</label>
+                <input type="text" name="productSeasons" required><br>
+
+                <label for="productGenders" class="section-label">Product Genders:</label>
+                <input type="text" name="productGenders" required><br>
+
+                <label for="productColors" class="section-label">Product Colors:</label>
+                <input type="text" name="productColors" required><br>
+
+                <label for="productSizesStock" class="section-label">Product Sizes and Stock:</label>
+                <div id="sizes-stock-container">
+                    <div class="size-stock-item">
+                        <input type="text" name="productSizesStock[size][]" placeholder="Size" required>
+                        <input type="number" name="productSizesStock[stock][]" placeholder="Stock" required>
+                        <button type="button" onclick="removeSizeStockItem(this)">Remove</button>
+                    </div>
+                </div>
+                <button type="button" onclick="addSizeStockItem()">Add Size</button><br>
+
+                <label for="productPrice" class="section-label">Product Price:</label>
+                <input type="number" name="productPrice" required><br>
+
+                <label for="productImages" class="section-label">Product Images (URLs):</label>
+                <div id="images-container">
+                    <input type="text" name="productImages[]" required><br>
+                </div>
+                <button type="button" onclick="addImageField()">Add Image</button><br>
+
+                <button type="submit">Create Product</button>
+            </form>
+        </main>
+    </div>
+    <%- include('partials/footer', {title: 'Admin Footer'}) %>
+
+    <script>
+        function validateCheckboxes() {
+            // Add your validation logic here if needed
+            return true;
+        }
+
+        function addSizeStockItem() {
+            const container = document.getElementById('sizes-stock-container');
+            const div = document.createElement('div');
+            div.className = 'size-stock-item';
+            div.innerHTML = `
+                <input type="text" name="productSizesStock[size][]" placeholder="Size" required>
+                <input type="number" name="productSizesStock[stock][]" placeholder="Stock" required>
+                <button type="button" onclick="removeSizeStockItem(this)">Remove</button>
+            `;
+            container.appendChild(div);
+        }
+
+        function removeSizeStockItem(button) {
+            button.parentElement.remove();
+        }
+
+        function addImageField() {
+            const container = document.getElementById('images-container');
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.name = 'productImages[]';
+            input.required = true;
+            container.appendChild(input);
+            container.appendChild(document.createElement('br'));
+        }
+    </script>
+</body>
+</html>
