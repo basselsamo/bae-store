@@ -56,7 +56,7 @@ As a Site Administrator, I want to be able to add new products to the BAE-Store,
   - [x] Upon logging in, I have access to an admin dashboard where I can manage site.
 
 - **Add Product:** 
-  - From the admin dashboard, I have the option to add a new product by providing details such as name, description, price, size and release date.
+  - [x]From the admin dashboard, I have the option to add a new product by providing details such as name, description, price, size and release date.
 
 - **Edit Product:** 
   - I can edit existing product details, such as name, description, price, and release date, from the admin dashboard.
@@ -71,7 +71,7 @@ As a Site Administrator, I want to be able to add new products to the BAE-Store,
   - I can upload, update, or remove product images to accompany product listings.
 
 - **Category Management:** 
-  - I can assign products to specific categories or tags for better organization and filtering on the frontend.
+  - [x] I can assign products to specific categories or tags for better organization and filtering on the frontend.
 
 - **Inventory Management:** 
   - I can track inventory levels for each product and receive notifications when stock is running low.
@@ -229,3 +229,49 @@ As a Site Administrator, I want to be able to add new products to the BAE-Store,
 - **Acceptance Criteria:**
   - [x] Unauthenticated users attempting to access the product listing or details pages are redirected to the login page.
   - [x] The session persists across pages to maintain the user's authenticated state.
+
+  ## Sprint 07
+
+### Ticket 0 : CRUD operations on the database
+- **Description:** Ensure CRUD operations are implemented for all necessary models.
+- **Acceptance Criteria:**
+  - [x] CRUD operations are implemented for User, and partially Product.
+  
+#### Ticket 1: Implement Create Operation for Products
+- **Description:** Implement the functionality to add new products to the store.
+- **Acceptance Criteria:**
+  - [x] Admin can add a new product with details such as name, description, price, size, and release date..etc.
+  - [x] Product is saved to the MongoDB database.
+
+#### Ticket 2: Implement Read Operation for each Product
+- **Description:** Implement the functionality to view product details.
+- **Acceptance Criteria:**
+  - [] Users can view product details by clicking on a product.
+  - [] Product details are fetched from the database and displayed.
+
+#### Ticket 3: Implement Update Operation for Products
+- **Description:** Implement the functionality to update product details.
+- **Acceptance Criteria:**
+  - [] Admin can update product details from the admin dashboard.
+  - [] Changes are saved to the MongoDB database.
+
+#### Ticket 4: Implement Delete Operation for Products
+- **Description:** Implement the functionality to delete a product.
+- **Acceptance Criteria:**
+  - [] Admin can delete a product from the admin dashboard.
+  - [] Product is removed from the MongoDB database.
+
+## Sprint 08 (Already Done)
+
+#### Ticket 1: Implement User Login (s3)
+- **Description:** Add support for user login, including password hashing.
+- **Acceptance Criteria:**
+  - [x] Users can log in using their email and password.
+  - [x] Passwords are hashed using bcrypt.
+  - [x] Sessions are used to maintain login state.
+
+### Ticket 2: User login, password hashing
+- **Description:** Add support for user login based on user ID and password.
+- **Acceptance Criteria:**
+  - [x] Login functionality is implemented.
+  - [x] Passwords are securely hashed using bcrypt.
