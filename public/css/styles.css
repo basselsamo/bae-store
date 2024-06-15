@@ -13,7 +13,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
-input[type="text"], input[type="password"], input[type="email"] {
+input[type="text"], input[type="password"], input[type="email"], input[type="number"] {
   padding: 10px;
   margin: 10px 0px;
   border: 1px solid #ddd;
@@ -22,6 +22,16 @@ input[type="text"], input[type="password"], input[type="email"] {
   height: 50px;
   font-size: small;
   width: 100%;
+}
+textarea {
+  padding: 10px;
+  margin: 10px 0px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  font-size: small;
+  width: calc(100% - 20px);
 }
 input[disabled], input[readonly] {
   background-color: #e0e0e0;
@@ -35,6 +45,7 @@ button {
   border-radius: 8px;
   width: 100%;
   margin: 25px 0px;
+  color: white;
 }
 main {
   padding: 20px;
@@ -47,6 +58,14 @@ main {
 .pack  {
   display: flex;
   gap: 20px;
+}
+.pack2  {
+  display: flex;
+  gap: 40px;
+  margin-right: 20px;
+}
+.pack2 input {
+  margin-top: 22px;
 }
 .alert-success {
   color: #34A853;
@@ -67,7 +86,7 @@ main {
 .login-form, .register-form {
   border-radius: 8px;
   margin: 100px auto;
-  width:
+  width: 675px;
 }
 .login-form h1, .register-form h1 {
   text-align: center;
@@ -318,4 +337,73 @@ footer {
   background-color: #e0e0e0;
   color: #a0a0a0;
   cursor: not-allowed;
+}
+
+/*Manage Product Page*/
+.new-product-button {
+  display: flex;
+  float: right;
+  width: 163px;
+  margin: 20px 0;
+  padding: 10px 20px;
+  background-color: #34A853;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.new-product-button:hover {
+  background-color: #2b9a49;
+}
+
+/*Manage Product Form*/
+
+.new-product-form button {
+  width: calc(50% - 30px);
+  height: 45px;
+  font-size: small;
+  background-color: #4285f4;
+}
+
+.new-product-form button:hover {
+  background-color: #337bef;
+}
+
+.pack-buttons {
+  display: flex;
+  gap: 20px;
+  margin-right: 20px;
+}
+
+.pack-buttons button:nth-child(1){
+  background-color: #34A853;
+}
+
+.pack-buttons button:nth-child(1):hover{
+  background-color: #2b9a49;
+}
+
+.pack-buttons button:nth-child(2){
+  background-color: #ffa600;
+}
+
+.pack-buttons button:nth-child(2):hover{
+  background-color: #f49f01;
+}
+
+.pack-buttons button:nth-child(3){
+  background-color:#EA4335;
+}
+
+.pack-buttons button:nth-child(3):hover{
+  background-color:#de2514
+}
+
+.flex button {
+  width: 98%;
+}
+
+.image-item {
+  display: flex;
+  gap: 20px;
 }

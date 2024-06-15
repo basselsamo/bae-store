@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create New Product</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <%- include('partials/admin-header', {title: 'Create New Product'}) %>
+    <div class="container">
+        <aside class="sidebar">
+            <%- include('partials/admin-sidebar', {title: 'Sidebar'}) %>
+        </aside>
+        <main>
+            <h1>Create New Product</h1>
+            <form action="/dashboard/manage-products/new-product" method="post" class="new-product-form" onsubmit="return validateCheckboxes()">
+                <div class="pack">
+                    <input type="text" name="productTitle" placeholder="Product Title (E.g. Nike Air Max 90)" required><br>
+                </div>
+                <div class="pack">
+                    <input type="text" name="productBrand" placeholder="Product Brand (E.g. Nike)" required><br>
+                    <input type="text" name="productSKU" placeholder="Product SKU, UPC or Model Number (E.g. CN8490-003)" required><br>
+                </div>
+                <div class="pack">
+                    <input type="number" name="productYear" placeholder="Product Release Year (E.g. 2024)" required><br>
+                    <input type="text" name="productMaterials" placeholder="Product Materials (E.g. Leather)" required><br>
+                </div>
+                <textarea name="productDescription" placeholder="Product Description (E.g. Air Max 90 is one of the...etc)" rows="5" required></textarea><br>
+                <div class="pack">
+                    <input type="text" name="productCategories" placeholder="Product Categories (E.g. Sneaker)" required><br>
+                    <input type="text" name="productSeasons" placeholder="Product Season (E.g. Summer)" required><br>
+                </div>
+                <div class="pack">
+                    <input type="text" name="productGenders" placeholder="Product Genders (E.g. Women)" required><br>
+                    <input type="text" name="productColors" placeholder="Product Colors (E.g. Black)" required><br>
+                </div>
+                <div id="sizes-stock-container">
+                    <div class="pack2">
+                        <input type="text" name="productSizesStock[size][]" placeholder="Size (E.g. XL or 42)" required>
+                        <input type="number" name="productSizesStock[stock][]" placeholder="Stock (E.g. 7)" required>
+                    </div>
+                </div>
+                <div class="flex">
+                    <button type="button" onclick="addSizeStockItem()">Add Another Size</button><br>
+                </div>
+                <div id="images-container">
+                    <div class="image-item">
+                        <input type="number" name="productPrice" placeholder="Product Price (E.g. 159.99)" required><br>
+                        <input type="text" name="productImages[]" placeholder="Image URL (Logo comes first! E.g. https://example.com/brand-logo.jpg)" required><br>
+                    </div>
+                </div>
+                <div class="flex">
+                    <button type="button" onclick="addImageField()">Add Another Image</button><br>
+                </div>
+                <div class="pack-buttons">
+                    <button type="submit">Save & Publish</button>
+                    <button type="reset">Reset All Input</button>
+                    <button type="button" onclick="window.location.href='/dashboard/manage-products';">Cancel & Go Back</button> 
+                </div>
+            </form>
+        </main>
+    </div>
+    <%- include('partials/footer', {title: 'Footer'}) %>
+
+    <script>
+        function addSizeStockItem() {
+            const container = document.getElementById('sizes-stock-container');
+            const div = document.createElement('div');
+            div.className = 'pack2';
+            div.innerHTML = `
+                <input type="text" name="productSizesStock[size][]" placeholder="Size (E.g. XL or 42)" required>
+                <input type="number" name="productSizesStock[stock][]" placeholder="Stock (E.g. 7)" required>
+                <button type="button" onclick="removeSizeStockItem(this)" style="background-color: #EA4335;" onmouseover="this.style.backgroundColor='#de2514';" onmouseout="this.style.backgroundColor='#EA4335';">Remove Size</button>
+            `;
+            container.appendChild(div);
+        }
+
+        function removeSizeStockItem(button) {
+            const container = document.getElementById('sizes-stock-container');
+            if (container.children.length > 1) {
+                button.parentElement.remove();
+            } else {
+                alert('At least one size and stock field is required.');
+            }
+        }
+
+        function addImageField() {
+            const container = document.getElementById('images-container');
+            const div = document.createElement('div');
+            div.className = 'pack2';
+            div.innerHTML = `
+                <input type="text" name="productImages[]" placeholder="Product URL (E.g. https://example.com/image.jpg)" required><br>
+                <button type="button" onclick="removeImageField(this)" style="background-color: #EA4335;" onmouseover="this.style.backgroundColor='#de2514';" onmouseout="this.style.backgroundColor='#EA4335';">Remove Additional Image</button>
+            `;
+            container.appendChild(div);
+        }
+
+        function removeImageField(button) {
+            const container = document.getElementById('images-container');
+            if (container.children.length > 1) {
+                button.parentElement.remove();
+            } else {
+                alert('At least one image field is required.');
+            }
+        }
+    </script>
+</body>
+</html>
