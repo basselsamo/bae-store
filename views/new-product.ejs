@@ -9,96 +9,109 @@
     <%- include('partials/admin-header', {title: 'Create New Product'}) %>
     <div class="container">
         <aside class="sidebar">
-            <%- include('partials/sidebar', {title: 'Sidebar'}) %>
+            <%- include('partials/admin-sidebar', {title: 'Sidebar'}) %>
         </aside>
         <main>
-            <h1>Add New Product</h1>
-            <form action="/products/new-product" method="post" class="new-product-form" onsubmit="return validateCheckboxes()">
-                <label for="productTitle" class="section-label">Product Title:</label>
-                <input type="text" name="productTitle" required><br>
+            <h1>Create New Product</h1>
+            <form action="/dashboard/manage-products/new-product" method="post" class="new-product-form" onsubmit="return validateCheckboxes()">
+                <!-- <label for="productTitle" class="section-label">Product Title:</label> -->
+                <input type="text" name="productTitle" placeholder="Product Title (E.g. Nike Air Max 90)" required><br>
 
-                <label for="productBrand" class="section-label">Product Brand:</label>
-                <input type="text" name="productBrand" required><br>
+                <!-- <label for="productBrand" class="section-label">Product Brand:</label> -->
+                <input type="text" name="productBrand" placeholder="Product Brand (E.g. Nike)" required><br>
 
-                <label for="productSKU" class="section-label">Product SKU:</label>
-                <input type="text" name="productSKU" required><br>
+                <!-- <label for="productSKU" class="section-label">Product SKU:</label> -->
+                <input type="text" name="productSKU" placeholder="Product SKU, UPC or Model Number (E.g. CN8490-003)" required><br>
 
-                <label for="productYear" class="section-label">Product Year:</label>
-                <input type="number" name="productYear" required><br>
+                <!-- <label for="productYear" class="section-label">Product Year:</label> -->
+                <input type="number" name="productYear" placeholder="Product Release Year (E.g. 2024)" required><br>
 
-                <label for="productMaterials" class="section-label">Product Materials:</label>
-                <input type="text" name="productMaterials" required><br>
+                <!-- <label for="productMaterials" class="section-label">Product Materials:</label> -->
+                <input type="text" name="productMaterials" placeholder="Product Materials (E.g. Leather)" required><br>
 
-                <label for="productDescription" class="section-label">Product Description:</label>
-                <input type="text" name="productDescription" required><br>
+                <!-- <label for="productDescription" class="section-label">Product Description:</label> -->
+                <input type="text" name="productDescription" placeholder="Product Description (E.g. Air Max 90 is one of the...etc)" required><br>
 
-                <label for="productCategories" class="section-label">Product Categories:</label>
-                <input type="text" name="productCategories" required><br>
+                <!-- <label for="productCategories" class="section-label">Product Categories:</label> -->
+                <input type="text" name="productCategories" placeholder="Product Categories (E.g. Sneaker)" required><br>
 
-                <label for="productSeasons" class="section-label">Product Seasons:</label>
-                <input type="text" name="productSeasons" required><br>
+                <!-- <label for="productSeasons" class="section-label">Product Seasons:</label> -->
+                <input type="text" name="productSeasons" placeholder="Product Season (E.g. Summer)" required><br>
 
-                <label for="productGenders" class="section-label">Product Genders:</label>
-                <input type="text" name="productGenders" required><br>
+                <!-- <label for="productGenders" class="section-label">Product Genders:</label> -->
+                <input type="text" name="productGenders" placeholder="Product Genders (E.g. Women)" required><br>
 
-                <label for="productColors" class="section-label">Product Colors:</label>
-                <input type="text" name="productColors" required><br>
+                <!-- <label for="productColors" class="section-label">Product Colors:</label> -->
+                <input type="text" name="productColors" placeholder="Product Colors (E.g. Black)" required><br>
 
-                <label for="productSizesStock" class="section-label">Product Sizes and Stock:</label>
+                <!-- <label for="productSizesStock" class="section-label">Product Sizes and Stock:</label> -->
                 <div id="sizes-stock-container">
                     <div class="size-stock-item">
-                        <input type="text" name="productSizesStock[size][]" placeholder="Size" required>
-                        <input type="number" name="productSizesStock[stock][]" placeholder="Stock" required>
-                        <button type="button" onclick="removeSizeStockItem(this)">Remove</button>
+                        <input type="text" name="productSizesStock[size][]" placeholder="Size (E.g. XL or 42)" required>
+                        <input type="number" name="productSizesStock[stock][]" placeholder="Stock (E.g. 7)" required>
+                        <button type="button" onclick="removeSizeStockItem(this)">Remove Size Field</button>
                     </div>
                 </div>
-                <button type="button" onclick="addSizeStockItem()">Add Size</button><br>
+                <button type="button" onclick="addSizeStockItem()">Add Another Size</button><br>
 
-                <label for="productPrice" class="section-label">Product Price:</label>
-                <input type="number" name="productPrice" required><br>
+                <!-- <label for="productPrice" class="section-label">Product Price:</label> -->
+                <input type="number" name="productPrice" placeholder="Product Price (E.g. 159.99)" required><br>
 
-                <label for="productImages" class="section-label">Product Images (URLs):</label>
+                <!-- <label for="productImages" class="section-label">Product Images (URLs):</label> -->
                 <div id="images-container">
-                    <input type="text" name="productImages[]" required><br>
+                    <div class="image-item">
+                        <input type="text" name="productImages[]" placeholder="Product URL (E.g. https://example.xom/image.jpg" required><br>
+                        <button type="button" onclick="removeImageField(this)">Remove Image Field</button>
+                    </div>
                 </div>
-                <button type="button" onclick="addImageField()">Add Image</button><br>
+                <button type="button" onclick="addImageField()">Add Another Image</button><br>
 
-                <button type="submit">Create Product</button>
+                <button type="submit">Save And Publish Product</button>
             </form>
         </main>
     </div>
     <%- include('partials/footer', {title: 'Admin Footer'}) %>
 
     <script>
-        function validateCheckboxes() {
-            // Add your validation logic here if needed
-            return true;
-        }
-
         function addSizeStockItem() {
             const container = document.getElementById('sizes-stock-container');
             const div = document.createElement('div');
             div.className = 'size-stock-item';
             div.innerHTML = `
-                <input type="text" name="productSizesStock[size][]" placeholder="Size" required>
-                <input type="number" name="productSizesStock[stock][]" placeholder="Stock" required>
+                <input type="text" name="productSizesStock[size][]" placeholder="Size (E.g. XL or 42)" required>
+                <input type="number" name="productSizesStock[stock][]" placeholder="Stock (E.g. 7)" required>
                 <button type="button" onclick="removeSizeStockItem(this)">Remove</button>
             `;
             container.appendChild(div);
         }
 
         function removeSizeStockItem(button) {
-            button.parentElement.remove();
+            const container = document.getElementById('sizes-stock-container');
+            if (container.children.length > 1) {
+                button.parentElement.remove();
+            } else {
+                alert('At least one size and stock field is required.');
+            }
         }
 
         function addImageField() {
             const container = document.getElementById('images-container');
-            const input = document.createElement('input');
-            input.type = 'text';
-            input.name = 'productImages[]';
-            input.required = true;
-            container.appendChild(input);
-            container.appendChild(document.createElement('br'));
+            const div = document.createElement('div');
+            div.className = 'image-item';
+            div.innerHTML = `
+                <input type="text" name="productImages[]" placeholder="Product URL (E.g. https://example.xom/image.jpg" required><br>
+                <button type="button" onclick="removeImageField(this)">Remove</button>
+            `;
+            container.appendChild(div);
+        }
+
+        function removeImageField(button) {
+            const container = document.getElementById('images-container');
+            if (container.children.length > 1) {
+                button.parentElement.remove();
+            } else {
+                alert('At least one image field is required.');
+            }
         }
     </script>
 </body>

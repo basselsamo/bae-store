@@ -18,6 +18,14 @@ exports.getAllProducts = (req, res) => {
   }
 };
 
+exports.renderProductManagementPage = (req, res) => {
+  if (req.session.user && req.session.user.email === 'admin@localhost.com') {
+    res.render('manage-products');
+  } else {
+    res.redirect('/products');
+  }
+};
+
 exports.renderNewProductPage = (req, res) => {
   if (req.session.user && req.session.user.email === 'admin@localhost.com') {
     res.render('new-product');
@@ -74,6 +82,6 @@ exports.addNewProduct = (req, res) => {
     .catch(error => {
       console.error("Error adding product:", error);
       req.flash('failMessage', 'Error Adding Product');
-      res.redirect('/products/new-product');
+      res.redirect('/dashboard/manage-products/new-product');
     });
 };
