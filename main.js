@@ -63,7 +63,7 @@ app.get('/login', redirectIfAuthenticated, (req, res) => {
 });
 app.get('/', (req, res) => {
   const isAdmin = req.session.user && req.session.user.email === 'admin@localhost.com';
-  res.render('index', { title: 'HomePage', isAdmin: isAdmin });
+  res.render('index', { title: 'Home', isAdmin: isAdmin });
 });
 app.get('/logout', (req, res) => {
   req.session.destroy(err => {

@@ -1,65 +1,73 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Create New Product</title>
+    <title>Edit Product</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <%- include('partials/admin-header', {title: 'Create New Product'}) %>
+    <%- include('partials/admin-header', {title: 'Edit Product'}) %>
     <div class="container">
         <aside class="sidebar">
             <%- include('partials/admin-sidebar', {title: 'Sidebar'}) %>
         </aside>
         <main>
-            <h1>Create New Product</h1>
-            <form action="/dashboard/manage-products/new-product" method="post" class="new-product-form" onsubmit="return validateCheckboxes()">
+            <h1>Edit Existing Product</h1>
+            <form action="/dashboard/manage-products/edit-product/<%= product._id %>" method="post" class="new-product-form" onsubmit="return validateCheckboxes()">
                 <div class="pack-buttons">
                     <button type="button" onclick="window.location.href='/dashboard/manage-products';"><i class="fas fa-cancel"></i> Cancel & Go Back</button> 
-                    <button type="reset"><i class="fas fa-trash"></i> Empty All Fields</button>
+                    <button type="reset"><i class="fas fa-undo"></i> Undo Field Changes</button>
                     <button type="submit"><i class="fas fa-save"></i> Save & Publish</button>
                 </div>
                 <div class="pack">
-                    <input type="text" name="productTitle" placeholder="Product Title (E.g. Nike Air Max 90)" required><br>
+                    <input type="text" name="productTitle" value="<%= product.productTitle %>" placeholder="Product Title (E.g. Nike Air Max 90)" required><br>
                 </div>
                 <div class="pack">
-                    <input type="text" name="productBrand" placeholder="Product Brand (E.g. Nike)" required><br>
-                    <input type="text" name="productSKU" placeholder="Product SKU, UPC or Model Number (E.g. CN8490-003)" required><br>
+                    <input type="text" name="productBrand" value="<%= product.productBrand %>" placeholder="Product Brand (E.g. Nike)" required><br>
+                    <input type="text" name="productSKU" value="<%= product.productSKU %>"  placeholder="Product SKU, UPC or Model Number (E.g. CN8490-003)" required><br>
                 </div>
                 <div class="pack">
-                    <input type="number" name="productYear" placeholder="Product Release Year (E.g. 2024)" required><br>
-                    <input type="text" name="productMaterials" placeholder="Product Materials (E.g. Leather)" required><br>
+                    <input type="number" name="productYear" value="<%= product.productYear %>" placeholder="Product Release Year (E.g. 2024)" required><br>
+                    <input type="text" name="productMaterials" value="<%= product.productMaterials.join(', ') %>" placeholder="Product Materials (E.g. Leather)" required><br>
                 </div>
-                <textarea name="productDescription" placeholder="Product Description (E.g. Air Max 90 is one of the...etc)" rows="5" required></textarea><br>
+                <textarea name="productDescription" placeholder="Product Description (E.g. Air Max 90 is one of the...etc)" rows="5" required><%= product.productDescription.join(' ') %></textarea><br>
                 <div class="pack">
-                    <input type="text" name="productCategories" placeholder="Product Categories (E.g. Sneaker)" required><br>
-                    <input type="text" name="productSeasons" placeholder="Product Season (E.g. Summer)" required><br>
+                    <input type="text" name="productCategories" value="<%= product.productCategories.join(', ') %>" placeholder="Product Categories (E.g. Sneaker)" required><br>
+                    <input type="text" name="productSeasons" value="<%= product.productSeasons.join(', ') %>" placeholder="Product Season (E.g. Summer)" required><br>
                 </div>
                 <div class="pack">
-                    <input type="text" name="productGenders" placeholder="Product Genders (E.g. Women)" required><br>
-                    <input type="text" name="productColors" placeholder="Product Colors (E.g. Black)" required><br>
+                    <input type="text" name="productGenders" value="<%= product.productGenders.join(', ') %>" placeholder="Product Genders (E.g. Women)" required><br>
+                    <input type="text" name="productColors" value="<%= product.productColors.join(', ') %>" placeholder="Product Colors (E.g. Black)" required><br>
                 </div>
                 <div id="sizes-stock-container">
-                    <div class="pack2">
-                        <input type="text" name="productSizesStock[size][]" placeholder="Size (E.g. XL or 42)" required>
-                        <input type="number" name="productSizesStock[stock][]" placeholder="Stock (E.g. 7)" required>
-                    </div>
+                    <% product.productSizesStock.forEach((sizeStock, index) => { %>
+                        <div class="pack2">
+                            <input type="text" name="productSizesStock[size][]" value="<%= sizeStock.size %>" placeholder="Size (E.g. XL or 42)" required>
+                            <input type="number" name="productSizesStock[stock][]" value="<%= sizeStock.stock %>" placeholder="Stock (E.g. 7)" required>
+                            <button type="button" onclick="removeSizeStockItem(this)" style="background-color: #EA4335;" onmouseover="this.style.backgroundColor='#de2514';" onmouseout="this.style.backgroundColor='#EA4335';">Remove Size</button>
+                        </div>
+                    <% }) %>
                 </div>
                 <div class="flex">
                     <a type="button" onclick="addSizeStockItem()"><i class="fas fa-plus"></i> Add Another Size</a><br>
                 </div>
+                <div class="price-field">
+                    <input type="number" name="productPrice" value="<%= product.productPrice %>" placeholder="Product Price (E.g. 159.99)" required><br>
+                </div>
                 <div id="images-container">
-                    <div class="image-item">
-                        <input type="number" name="productPrice" placeholder="Product Price (E.g. 159.99)" required><br>
-                        <input type="text" name="productImages[]" placeholder="Image URL (Logo comes first! E.g. https://example.com/brand-logo.jpg)" required><br>
-                    </div>
+                    <% product.productImages.forEach((image, index) => { %>
+                        <div class="pack2">
+                            <input type="text" name="productImages[]" value="<%= image %>" placeholder="Image URL (Logo comes first! E.g. https://example.com/brand-logo.jpg)" required><br>
+                            <button type="button" onclick="removeImageField(this)" style="background-color: #EA4335;" onmouseover="this.style.backgroundColor='#de2514';" onmouseout="this.style.backgroundColor='#EA4335';">Remove Image URL</button>
+                        </div>
+                    <% }) %>
                 </div>
                 <div class="flex">
                     <a type="button" onclick="addImageField()"><i class="fas fa-plus"></i> Add Another Image</a><br>
                 </div>
                 <div class="pack-buttons">
                     <button type="button" onclick="window.location.href='/dashboard/manage-products';"><i class="fas fa-cancel"></i> Cancel & Go Back</button> 
-                    <button type="reset"><i class="fas fa-trash"></i> Empty All Fields</button>
+                    <button type="reset"><i class="fas fa-undo"></i> Undo Field Changes</button>
                     <button type="submit"><i class="fas fa-save"></i> Save & Publish</button>
                 </div>
             </form>
