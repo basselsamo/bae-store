@@ -65,7 +65,7 @@ var products = [
     productColors: ["White", "Black"],
     productSizesStock: [{ size: "35", stock: 0 }, { size: "36", stock: 12 }, { size: "37", stock: 14 }, { size: "38", stock: 0 }, { size: "39", stock: 7 }],
     productPrice: 85.00,
-    productImages: ["https://i.imgur.com/mU5X66K.png", "https://img001.prntscr.com/file/img001/pz73A7yiRn2sjln9FK1H7g.jpeg"]
+    productImages: ["https://i.imgur.com/mU5X66K.png", "https://img001.prntscr.com/file/img001/iXktjA7hTju-KhKiGVppFA.png"]
   },
   {
     productTitle: "Ray-Ban Aviator Classic",
@@ -458,6 +458,21 @@ var products = [
     productImages: ["https://img001.prntscr.com/file/img001/uRrTNiDYTKKjasEKLcwbyw.png", "https://img001.prntscr.com/file/img001/ni7A4A1IQ6utpvCOl5Ytnw.png"]
   },
   {
+    productTitle: "Adidas Ultraboost 21",
+    productBrand: "Adidas",
+    productSKU: "FY0372",
+    productYear: 2024,
+    productMaterials: ["Synthetic", "Textile"],
+    productDescription: "The Adidas Ultraboost 21 is designed for maximum comfort and performance, featuring a responsive Boost midsole and a supportive Primeknit upper.",
+    productCategories: ["Running Shoes"],
+    productSeasons: ["Summer"],
+    productGenders: ["Men"],
+    productColors: ["Black", "White", "Blue"],
+    productSizesStock: [{ size: "40", stock: 10 }, { size: "41", stock: 15 }, { size: "42", stock: 12 }, { size: "43", stock: 8 }, { size: "44", stock: 20 }],
+    productPrice: 180.00,
+    productImages: ["https://i.imgur.com/mU5X66K.png", "https://img001.prntscr.com/file/img001/tNIMsoTtSWqbRhlibvEi_Q.png"]
+  },
+  {
     productTitle: "Under Armour Fleece Hoodie",
     productBrand: "Under Armour",
     productSKU: "1357031",
@@ -501,21 +516,6 @@ var products = [
     productSizesStock: [{ size: "S", stock: 10 }, { size: "M", stock: 20 }, { size: "L", stock: 15 }, { size: "XL", stock: 5 }],
     productPrice: 130.00,
     productImages: ["https://img001.prntscr.com/file/img001/md_uuu2PQFqNxNu_ztip1g.png", "https://wstandard.com.my/wp-content/uploads/2020/10/unavailable-image-300x300.jpg"]
-  },
-  {
-    productTitle: "Adidas Ultraboost 21",
-    productBrand: "Adidas",
-    productSKU: "FY0372",
-    productYear: 2024,
-    productMaterials: ["Synthetic", "Textile"],
-    productDescription: "The Adidas Ultraboost 21 is designed for maximum comfort and performance, featuring a responsive Boost midsole and a supportive Primeknit upper.",
-    productCategories: ["Running Shoes"],
-    productSeasons: ["Summer"],
-    productGenders: ["Men"],
-    productColors: ["Black", "White", "Blue"],
-    productSizesStock: [{ size: "40", stock: 10 }, { size: "41", stock: 15 }, { size: "42", stock: 12 }, { size: "43", stock: 8 }, { size: "44", stock: 20 }],
-    productPrice: 180.00,
-    productImages: ["https://i.imgur.com/mU5X66K.png", "https://img001.prntscr.com/file/img001/tNIMsoTtSWqbRhlibvEi_Q.png"]
   },
   {
     productTitle: "The North Face Resolve 2 Jacket",
