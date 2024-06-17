@@ -13,7 +13,12 @@
         </aside>
         <main>
             <h1>Create New Product</h1>
-            <form action="/dashboard/manage-products/new-product" method="post" class="new-product-form" onsubmit="return validateCheckboxes()">
+            <form action="/dashboard/manage-products/new-product" method="post" class="create-edit-product-form" onsubmit="return validateCheckboxes()">
+                <div class="create-edit-action-buttons">
+                    <button type="button" onclick="window.location.href='/dashboard/manage-products';"><i class="fas fa-times-circle"></i> Cancel & Go Back</button> 
+                    <button type="reset"><i class="fas fa-trash"></i> Empty All Fields</button>
+                    <button type="submit"><i class="fas fa-save"></i> Save & Publish</button>
+                </div>
                 <div class="pack">
                     <input type="text" name="productTitle" placeholder="Product Title (E.g. Nike Air Max 90)" required><br>
                 </div>
@@ -40,8 +45,8 @@
                         <input type="number" name="productSizesStock[stock][]" placeholder="Stock (E.g. 7)" required>
                     </div>
                 </div>
-                <div class="flex">
-                    <button type="button" onclick="addSizeStockItem()">Add Another Size</button><br>
+                <div class="additionals-button">
+                    <a type="button" onclick="addSizeStockItem()"><i class="fas fa-plus"></i> Add Another Size</a><br>
                 </div>
                 <div id="images-container">
                     <div class="image-item">
@@ -49,13 +54,13 @@
                         <input type="text" name="productImages[]" placeholder="Image URL (Logo comes first! E.g. https://example.com/brand-logo.jpg)" required><br>
                     </div>
                 </div>
-                <div class="flex">
-                    <button type="button" onclick="addImageField()">Add Another Image</button><br>
+                <div class="additionals-button">
+                    <a type="button" onclick="addImageField()"><i class="fas fa-plus"></i> Add Another Image</a><br>
                 </div>
-                <div class="pack-buttons">
-                    <button type="submit">Save & Publish</button>
-                    <button type="reset">Reset All Input</button>
-                    <button type="button" onclick="window.location.href='/dashboard/manage-products';">Cancel & Go Back</button> 
+                <div class="create-edit-action-buttons">
+                    <button type="button" onclick="window.location.href='/dashboard/manage-products';"><i class="fas fa-times-circle"></i> Cancel & Go Back</button> 
+                    <button type="reset"><i class="fas fa-trash"></i> Empty All Fields</button>
+                    <button type="submit"><i class="fas fa-save"></i> Save & Publish</button>
                 </div>
             </form>
         </main>
@@ -70,7 +75,7 @@
             div.innerHTML = `
                 <input type="text" name="productSizesStock[size][]" placeholder="Size (E.g. XL or 42)" required>
                 <input type="number" name="productSizesStock[stock][]" placeholder="Stock (E.g. 7)" required>
-                <button type="button" onclick="removeSizeStockItem(this)" style="background-color: #EA4335;" onmouseover="this.style.backgroundColor='#de2514';" onmouseout="this.style.backgroundColor='#EA4335';">Remove Size</button>
+                <button type="button" onclick="removeSizeStockItem(this)" style="background-color: #EA4335;" onmouseover="this.style.backgroundColor='#de2514';" onmouseout="this.style.backgroundColor='#EA4335';"><i class="fa fa-remove"></i> Remove Size</button>
             `;
             container.appendChild(div);
         }
@@ -90,7 +95,7 @@
             div.className = 'pack2';
             div.innerHTML = `
                 <input type="text" name="productImages[]" placeholder="Product URL (E.g. https://example.com/image.jpg)" required><br>
-                <button type="button" onclick="removeImageField(this)" style="background-color: #EA4335;" onmouseover="this.style.backgroundColor='#de2514';" onmouseout="this.style.backgroundColor='#EA4335';">Remove Additional Image</button>
+                <button type="button" onclick="removeImageField(this)" style="background-color: #EA4335;" onmouseover="this.style.backgroundColor='#de2514';" onmouseout="this.style.backgroundColor='#EA4335';"><i class="fa fa-remove"></i> Remove Image URL</button>
             `;
             container.appendChild(div);
         }

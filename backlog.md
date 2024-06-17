@@ -4,7 +4,7 @@
 
 ### Browse Exclusive Products
 
-As a member of BAE-Store, I want to be able to browse exclusive products before their public release, so that I can make purchases before they sell out.
+As a member of BAE-Store, I want to be able to browse exclusive products, so that I can make valuable purchases before they sell out.
 
 #### Acceptance Criteria:
 
@@ -15,7 +15,7 @@ As a member of BAE-Store, I want to be able to browse exclusive products before 
   - [x] I can navigate to a page that lists all available exclusive products.
 
 - **Product Details:** 
-  - When I click on a product, I can view its details such as name, description, price, sizes and release date.
+  - [] When I click on a product, I can view its details such as name, description, price, sizes and release date.
 
 - **User Authentication:** 
   - [x] To access exclusive products, I must be authenticated as a BAE-Store member.
@@ -29,26 +29,36 @@ As a member of BAE-Store, I want to be able to browse exclusive products before 
 - **User Profile:** 
   - [x] As a member, I want to be redirected to my profile after I log in and would also be able to log out. (s3)
 
-- **User Profile Details:** 
+- **Personal Details:** 
   - [x] As a member, I want to be able to update my profile details (username, password...etc) or delete my account. (s4)
+
 - **Add to Cart:** 
-  - I can add products to my shopping cart for purchase.
+  - [] I can add products to my shopping cart for purchase.
 
 - **Checkout Process:** 
-  - Once I've selected the products I want to purchase, I can proceed to a checkout process to complete my order.
+  - [] Once I've selected the products I want to purchase, I can proceed to a checkout process to complete my order.
 
 - **Order History:** 
-  - As a member, I can view my order history to track past purchases.
+  - [] As a member, I can view my order history to track past purchases.
+
+  **Return History:** 
+  - [] As a member, I can view my return history to track past returns.
+
+  **Favorite Products:** 
+  - [] As a member, I can view a list of all favorite products that I haven't purchased yet.
+
+  **Account Settings:** 
+  - [] As a member, I can access my account settings, control and update them however I like.
 
 - **Real-Time Notifications:** 
-  - I receive real-time notifications about new exclusive products or promotions via a notification service.
+  - [] I receive real-time notifications about new exclusive products, promotions order/return status via a notification service.
 
 - **REST API:** 
-  - There is a REST API available to retrieve product information in JSON format, enabling integration with other services.
+  - [] There is a REST API available to retrieve product information in JSON format, enabling integration with other services.
 
 ### Admin Product Management
 
-As a Site Administrator, I want to be able to add new products to the BAE-Store, so that I can keep the inventory up-to-date.
+As a Site Administrator, I want to be able to manage products at the BAE-Store, so that I can keep the inventory up-to-date.
 
 #### Acceptance Criteria:
 
@@ -56,25 +66,44 @@ As a Site Administrator, I want to be able to add new products to the BAE-Store,
   - [x] Upon logging in, I have access to an admin dashboard where I can manage site.
 
 - **Add Product:** 
-  - [x]From the admin dashboard, I have the option to add a new product by providing details such as name, description, price, size and release date.
+  - [x] From the admin dashboard, I have the option to add a new product by providing details such as name, description, price, etc...
 
 - **Edit Product:** 
-  - I can edit existing product details, such as name, description, price, and release date, from the admin dashboard.
+  - [x] I can edit existing product details, such as name, description, price, and release date from the admin dashboard.
 
 - **Delete Product:** 
-  - I have the ability to delete products that are no longer available or relevant from the admin dashboard.
+  - [x] I have the ability to delete products that are no longer available or relevant from the admin dashboard.
 
 - **View Product Inventory:** 
-  - I can view a list of all products currently available in the BAE-Store inventory from the admin dashboard.
+  - [x] I can view a list of all products currently available in the BAE-Store inventory from the admin dashboard.
 
 - **Product Image Management:** 
-  - I can upload, update, or remove product images to accompany product listings.
+  - [x] I can search through a list of all exisitng products to find a specific one I'm looking for, in order to update or delete it.
 
 - **Category Management:** 
   - [x] I can assign products to specific categories or tags for better organization and filtering on the frontend.
 
 - **Inventory Management:** 
-  - I can track inventory levels for each product and receive notifications when stock is running low.
+  - [] I can receive notifications when stock is running low.
+
+- **Incoming Orders:**
+  - [] I can see a list of all recent orders, and search and filter that list based on order status.
+
+- **Processing Orders:**
+  - [] I can click each order individually to view its details, update/delete them and change the processing status accordingly.
+
+- **Incoming Returns:** 
+  - [] I can see a list of all recent returns, and search and filter that list based on return status.
+
+  - **Processing Return:**
+  - [] I can click each return individually to view its details, update/delete them and change the processing status accordingly.
+
+- **Site Clients:** 
+  - [] I can see a list of all site clients, search and filter that list based on specific entries as well as update/delete their data individually.
+
+- **Manage Site Settings:**  
+  - [] I can see a list of all site settings, manage and update them accordingly.
+
 
 ## Sprint 01
 
@@ -246,20 +275,21 @@ As a Site Administrator, I want to be able to add new products to the BAE-Store,
 #### Ticket 2: Implement Read Operation for each Product
 - **Description:** Implement the functionality to view product details.
 - **Acceptance Criteria:**
+  - [x] Admin can view an overview list of all exisiting products and search it for specific product.
   - [] Users can view product details by clicking on a product.
   - [] Product details are fetched from the database and displayed.
 
 #### Ticket 3: Implement Update Operation for Products
 - **Description:** Implement the functionality to update product details.
 - **Acceptance Criteria:**
-  - [] Admin can update product details from the admin dashboard.
-  - [] Changes are saved to the MongoDB database.
+  - [x] Admin can update product details from the admin dashboard.
+  - [x] Changes are saved to the MongoDB database.
 
 #### Ticket 4: Implement Delete Operation for Products
 - **Description:** Implement the functionality to delete a product.
 - **Acceptance Criteria:**
-  - [] Admin can delete a product from the admin dashboard.
-  - [] Product is removed from the MongoDB database.
+  - [x] Admin can delete a product from the admin dashboard.
+  - [x] Product is removed from the MongoDB database.
 
 ## Sprint 08 (Already Done)
 
@@ -275,3 +305,4 @@ As a Site Administrator, I want to be able to add new products to the BAE-Store,
 - **Acceptance Criteria:**
   - [x] Login functionality is implemented.
   - [x] Passwords are securely hashed using bcrypt.
+  - [] Users can reset their password when they forget it via a link sent to their email address.
