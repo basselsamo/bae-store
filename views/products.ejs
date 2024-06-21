@@ -13,17 +13,153 @@
             document.querySelector(`.size-option[data-product-id="${productId}"][data-size="${size}"]`).classList.add('selected');
             document.querySelector(`#size-${productId}`).value = size;
         }
+
+        function toggleFilterOptions(category) {
+            var options = document.getElementById(category + '-options');
+            var symbol = document.getElementById(category + '-symbol');
+            if (options.style.display === 'none' || options.style.display === '') {
+                options.style.display = 'block';
+                symbol.textContent = '–';
+            } else {
+                options.style.display = 'none';
+                symbol.textContent = '+';
+            }
+        }
+
+        function resetFilters() {
+            document.querySelectorAll('#filter-form input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            document.querySelector('#filter-form input[name="minPrice"]').value = '';
+            document.querySelector('#filter-form input[name="maxPrice"]').value = '';
+            document.getElementById('filter-form').submit();
+        }
     </script>
 </head>
 <body>
     <%- include('partials/in-header', {title: 'Products' }) %>
         <div class="container">
             <aside class="sidebar">
-                    <h2>Filter Products</h2>
-                    <p>No filters available to apply yet.</p>
+                <h2>Filter Products</h2>
+                <form id="filter-form" action="/products" method="GET">
+                    <div class="pack">
+                        <button type="submit">Apply</button>
+                        <button type="button" onclick="resetFilters()">Reset</button>
+                    </div>
+                    <div>
+                        <h3 class="filter-category" onclick="toggleFilterOptions('brand')">Brand</h3>
+                        <div id="brand-options" class="filter-options">
+                            <% brands.forEach(brand=> { %>
+                                <label>
+                                    <input type="checkbox" name="brand" value="<%= brand %>" <%=selectedFilters.brand &&
+                                        selectedFilters.brand.includes(brand) ? 'checked' : '' %> >
+                                    <%= brand %>
+                                </label><br>
+                                <% }) %>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="filter-category" onclick="toggleFilterOptions('year')">Year</h3>
+                        <div id="year-options" class="filter-options">
+                            <% years.forEach(year=> { %>
+                                <label>
+                                    <input type="checkbox" name="year" value="<%= year %>" <%=selectedFilters.year &&
+                                        selectedFilters.year.includes(year.toString()) ? 'checked' : '' %> >
+                                    <%= year %>
+                                </label><br>
+                                <% }) %>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="filter-category" onclick="toggleFilterOptions('material')">Materials</h3>
+                        <div id="material-options" class="filter-options">
+                            <% materials.forEach(material=> { %>
+                                <label>
+                                    <input type="checkbox" name="material" value="<%= material %>"
+                                        <%=selectedFilters.material && selectedFilters.material.includes(material)
+                                        ? 'checked' : '' %> >
+                                    <%= material %>
+                                </label><br>
+                                <% }) %>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="filter-category" onclick="toggleFilterOptions('category')">Categories</h3>
+                        <div id="category-options" class="filter-options">
+                            <% categories.forEach(category=> { %>
+                                <label>
+                                    <input type="checkbox" name="category" value="<%= category %>"
+                                        <%=selectedFilters.category && selectedFilters.category.includes(category)
+                                        ? 'checked' : '' %> >
+                                    <%= category %>
+                                </label><br>
+                                <% }) %>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="filter-category" onclick="toggleFilterOptions('season')">Seasons</h3>
+                        <div id="season-options" class="filter-options">
+                            <% seasons.forEach(season=> { %>
+                                <label>
+                                    <input type="checkbox" name="season" value="<%= season %>" <%=selectedFilters.season
+                                        && selectedFilters.season.includes(season) ? 'checked' : '' %> >
+                                    <%= season %>
+                                </label><br>
+                                <% }) %>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="filter-category" onclick="toggleFilterOptions('gender')">Genders</h3>
+                        <div id="gender-options" class="filter-options">
+                            <% genders.forEach(gender=> { %>
+                                <label>
+                                    <input type="checkbox" name="gender" value="<%= gender %>" <%=selectedFilters.gender
+                                        && selectedFilters.gender.includes(gender) ? 'checked' : '' %> >
+                                    <%= gender %>
+                                </label><br>
+                                <% }) %>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="filter-category" onclick="toggleFilterOptions('size')">Sizes</h3>
+                        <div id="size-options" class="filter-options">
+                            <% sizes.forEach(size=> { %>
+                                <label>
+                                    <input type="checkbox" name="size" value="<%= size %>" <%=selectedFilters.size &&
+                                        selectedFilters.size.includes(size) ? 'checked' : '' %> >
+                                    <%= size %>
+                                </label><br>
+                                <% }) %>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="filter-category" onclick="toggleFilterOptions('stock')">Stock Availability</h3>
+                        <div id="stock-options" class="filter-options">
+                            <label>
+                                <input type="checkbox" name="stock" value="1" <%=selectedFilters.stock ? 'checked' : ''
+                                    %> >
+                                In Stock
+                            </label><br>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="filter-category" onclick="toggleFilterOptions('price')">Price</h3>
+                        <div id="price-options" class="filter-options">
+                            <label>
+                                Min: <input type="number" name="minPrice" value="<%= selectedFilters.minPrice || '' %>"
+                                    step="0.01"><br>
+                                Max: <input type="number" name="maxPrice" value="<%= selectedFilters.maxPrice || '' %>"
+                                    step="0.01">
+                            </label>
+                        </div>
+                    </div>
+                </form>
             </aside>
             <main>
                 <h1>Products</h1>
+                <h4>
+                    <%= products.length %> item<%= products.length !==1 ? 's' : '' %> found
+                </h4>
                 <div class="product-grid">
                     <% products.forEach(product=> {
                         const inStock = product.productSizesStock.some(sizeStock => sizeStock.stock > 0);
