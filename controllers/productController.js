@@ -4,14 +4,51 @@ const Product = require('../models/Product');
 
 exports.getAllProducts = (req, res) => {
   if (req.session.user) {
-    Product.find().exec()
-      .then(products => {
-        res.render('products', { products });
-      })
-      .catch(error => {
-        console.error("Error fetching products:", error);
-        res.status(500).send("Error fetching products: " + error);
-      });
+    Promise.all([
+      Product.distinct('productBrand'),
+      Product.distinct('productYear'),
+      Product.distinct('productMaterials'),
+      Product.distinct('productCategories'),
+      Product.distinct('productSeasons'),
+      Product.distinct('productGenders'),
+      Product.distinct('productSizesStock.size')
+    ])
+    .then(([brands, years, materials, categories, seasons, genders, sizes]) => {
+      // Fetch products based on filters
+      let filter = {};
+      if (req.query.brand) filter.productBrand = { $in: req.query.brand };
+      if (req.query.year) filter.productYear = { $in: req.query.year };
+      if (req.query.material) filter.productMaterials = { $in: req.query.material };
+      if (req.query.category) filter.productCategories = { $in: req.query.category };
+      if (req.query.season) filter.productSeasons = { $in: req.query.season };
+      if (req.query.gender) filter.productGenders = { $in: req.query.gender };
+      if (req.query.size) filter['productSizesStock.size'] = { $in: req.query.size };
+      if (req.query.stock) filter['productSizesStock.stock'] = { $gt: 0 };
+      if (req.query.minPrice || req.query.maxPrice) {
+        filter.productPrice = {};
+        if (req.query.minPrice) filter.productPrice.$gte = parseFloat(req.query.minPrice);
+        if (req.query.maxPrice) filter.productPrice.$lte = parseFloat(req.query.maxPrice);
+      }
+
+      return Product.find(filter).exec()
+        .then(products => {
+          res.render('products', { 
+            products, 
+            brands, 
+            years, 
+            materials, 
+            categories, 
+            seasons, 
+            genders, 
+            sizes,
+            selectedFilters: req.query
+          });
+        });
+    })
+    .catch(error => {
+      console.error("Error fetching products:", error);
+      res.status(500).send("Error fetching products: " + error);
+    });
   } else {
     req.flash('failMessage', 'Only Members Allowed! Login Or Register Now.');
     res.redirect('/login');

@@ -466,3 +466,45 @@ footer {
 .create-edit-action-buttons button[type="reset"]:hover{
   background-color: #f49f01;
 }
+
+/*Product Filter*/
+.sidebar h3 {
+  font-size: medium;
+  background-color: transparent;
+}
+.sidebar form button {
+  background-color: transparent;
+  color: white;
+  border: solid 1px;
+  background-color: #252520;
+}
+.sidebar form h3 {
+  padding-top: 20px;
+}
+.sidebar form button:hover[type="submit"] {
+  background-color: #2b9a49;;
+  color: white
+}
+.sidebar form button:hover[type="button"] {
+  background-color: #EA4335;
+  color: white;
+}
+.sidebar label {
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+.sidebar input[type="checkbox"] {
+  margin-right: 10px;
+}
+.sidebar button {
+  background-color: #34A853;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.sidebar button:hover {
+  background-color: #2b9a49;
+}
