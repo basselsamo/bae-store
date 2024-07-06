@@ -306,3 +306,27 @@ As a Site Administrator, I want to be able to manage products at the BAE-Store, 
   - [x] Login functionality is implemented.
   - [x] Passwords are securely hashed using bcrypt.
   - [] Users can reset their password when they forget it via a link sent to their email address.
+
+## Sprint 09
+
+#### Ticket 1: Implement User Authentication with Passport.js
+- **Description:** Implement user authentication using Passport.js, either by means of the “local” strategy or an external authentication provider.
+- **Acceptance Criteria:**
+  - [] User authentication implemented with Passport.js.
+  - [] Users can log in using the implemented strategy.
+  - [] Integration with the chosen authentication provider is functional.
+
+### Topic of the Week: Passport.js
+- **Description:** Find a user story which relies on authenticated users and implement it with the help of the Passport library. Optionally include authentication with the help of an external authentication provider such as Google, Twitter, or Facebook.
+- **Acceptance Criteria:**
+  - [] User story relying on authenticated users is implemented with Passport.js.
+  - [] Optional: Authentication with an external provider is included and functional.
+
+## Additional Story (Sprint 09)
+
+### Ticket: Implement Product Filtering Feature
+- **Description:** Implement a feature allowing users to filter products based on criteria such as brand, year, gender, etc.
+- **Acceptance Criteria:**
+  - [x] Users can filter products using various criteria.
+  - [x] Filtered results are displayed correctly.
+  - [x] The feature is fully integrated into the product listing page.
